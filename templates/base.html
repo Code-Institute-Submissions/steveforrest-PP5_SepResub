@@ -10,15 +10,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     {% endblock %}
 
-    {% block extrameta%}
-    {% endblock %
-        }
+    {% block extra_meta %}
+    {% endblock %}
+
     {% block corecss %}
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     {% endblock %}
     
-    {% block extracss %}
+    {% block extra_css %}
     {% endblock%}
 
     {% block corejs %}
@@ -40,7 +40,7 @@
     <div class='messsage-container'></div>
     {% endif %}
 
-    {% blosk page_header %}
+    {% block page_header %}
 
     {% endblock %}
 
@@ -48,7 +48,7 @@
     {%block post_loadjs %}
     {% endblock %}
 
-    {% block cntent %}
+    {% block content %}
     {% endblock %}
 
   </body>
