@@ -60,10 +60,6 @@ body {
 
 /* Carasel */
 
-.carousel-inner {
-    max-height: 20rem;
-}
-
 .carousel-item,
 img {
     max-width: 100%;
