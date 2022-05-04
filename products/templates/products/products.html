@@ -2,21 +2,144 @@
 {% load static %}
 
 {% block page_header %}
-    <div class='container header-container'>
-        <div class='row'>
-            <div class='col'>
-            </div>
+<div class='container header-container'>
+    <div class='row'>
+        <div class='col'>
         </div>
     </div>
+</div>
 {% endblock %}
 
 {% block content %}
-    
-<div clss0='container'>
+
+<section class='container '>
     <div class='row'>
-        <div class='col'>
-            {{ products }}
-        </div>   
+        <div class='col-12 col-md-6'>
+            <div>
+                <div class="dropdown mt-3">
+                    <button class="btn btn-secondary dropdown-toggle prdt-bt" type="button" id="dropdownMenuButton"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        pizza
+                    </button>
+                    <div class="dropdown-menu drop-down-padding" aria-labelledby="dropdownMenuButton">
+                        {% for pizza in pizzas %}
+                        <a data-hx-get='{% url "product" pizza.id %}' data-hx-trigger='click'
+                            data-hx-target='#pizza-target' data-hx-swap='innerHTML' class="dropdown-item"
+                            href=" {% url 'product' pizza.id %} ">{{pizza.name}}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div id='pizza-target'>
+                </div>
+            </div>
+            <div>
+                <div class="dropdown mt-3">
+                    <button class="btn btn-secondary dropdown-toggle prdt-bt" type="button" id="dropdownMenuButton"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Burger
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                        {% for burger in burgers %}
+                        <a data-hx-get='{% url "product" burger.id %}' data-hx-trigger='click'
+                            data-hx-target='#burger-target' data-hx-swap='innerHTML' class="dropdown-item"
+                            href=" {% url 'product' burger.id %} ">{{burger.name}}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div id='burger-target'>
+                </div>
+            </div>
+            <div>
+                <div class="dropdown mt-3">
+                    <button class="btn btn-secondary dropdown-toggle prdt-bt" type="button" id="dropdownMenuButton"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Fries
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
+                        {% for frie in fries %}
+                        <a data-hx-get='{% url "product" frie.id %}' data-hx-trigger='click'
+                            data-hx-target='#fries-target' data-hx-swap='innerHTML' class="dropdown-item"
+                            href=" {% url 'product' frie.id %} ">{{frie.name}}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="col-12 col-lg-9 mt-3" id='fries-target'>
+                </div>
+            </div>
+            <div>
+                <div class="dropdown mt-3">
+                    <button class="btn btn-secondary dropdown-toggle prdt-bt" type="button" id="dropdownMenuButton"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        That bit more!!
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
+                        {% for extra in extras %}
+                        <a data-hx-get='{% url "product" extra.id %}' data-hx-trigger='click'
+                            data-hx-target='#extras-target' data-hx-swap='innerHTML' class="dropdown-item"
+                            href=" {% url 'product' extra.id %} ">{{extra.name}}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="col-12 col-lg-9 mt-3" id='extras-target'>
+                </div>
+            </div>
+            <div>
+                <div class="dropdown mt-3">
+                    <button class="btn btn-secondary dropdown-toggle prdt-bt" type="button" id="dropdownMenuButton"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Somthing to wash it down with!!
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
+                        {% for drink in drinks %}
+                        <a data-hx-get='{% url "product" drink.id %}' data-hx-trigger='click'
+                            data-hx-target='#drinks-target' data-hx-swap='innerHTML' class="dropdown-item prdt"
+                            href=" {% url 'product' drink.id %} ">{{drink.name}}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="col-12 col-lg-9 mt-3" id='drinks-target'>
+                </div>
+            </div>
+            <div>
+                <div class="dropdown mt-3">
+                    <button class="btn btn-secondary dropdown-toggle prdt-bt" type="button" id="dropdownMenuButton"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        World food!
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
+                        {% for world in worlds %}
+                        <a data-hx-get='{% url "product" world.id %}' data-hx-trigger='click'
+                            data-hx-target='#worlds-target' data-hx-swap='innerHTML' class="dropdown-item"
+                            href=" {% url 'product' world.id %} ">{{world.name}}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="col-12 col-lg-9 mt-3" id='worlds-target'>
+                </div>
+            </div>
+            <div>
+                <div class="dropdown mt-3">
+                    <button class="btn btn-secondary dropdown-toggle prdt-bt" type="button" id="dropdownMenuButton"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Something sweet!!
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
+                        {% for dessert in desserts %}
+                        <a data-hx-get='{% url "product" dessert.id %}' data-hx-trigger='click'
+                            data-hx-target='#desserts-target' data-hx-swap='innerHTML' class="dropdown-item"
+                            href=" {% url 'product' dessert.id %} ">{{dessert.name}}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="col-12 col-lg-9 mt-3" id='desserts-target'>
+                </div>
+            </div>
+        </div>
+    <div class='col-md-6'>
+        <div>
+            <img src="../media/cake1.jpg" alt="Cake" width="500" height="600">
+        </div>
     </div>
-</div>
+ </div>
+</section>
 {% endblock %}

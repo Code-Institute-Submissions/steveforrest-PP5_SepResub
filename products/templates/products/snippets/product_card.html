@@ -1,0 +1,22 @@
+<div>
+    <div class='container'>
+        <div class='row'>
+            <div class='col-12 col-md-6'>
+                <h1>
+                    {{product.name}}
+                </h1>
+                <p>
+                    £{{product.price}}
+                </p>
+            </div>
+            <div class='col-md-6'>
+                <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+            </div>
+        </div>
+        <div class='row'>
+            <div class='col-12'>
+                {{product.description}}
+            </div>
+        </div>
+    </div>
+</div>

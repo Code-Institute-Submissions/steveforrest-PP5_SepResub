@@ -5,9 +5,16 @@ html {
 body {
     /* background: url('/media/homepage_background_cropped.jpg') no-repeat center center fixed;
     background-size: cover; */
-    height: calc(100vh - 164px);
-    color: #555;
+    height: 100vh color: #555;
     font-family: 'Lato';
+}
+
+header {
+    padding: 0 0 1rem 0;
+}
+
+.header-container {
+    padding-top: 164px;
 }
 
 /* from Bulma */
@@ -26,6 +33,11 @@ body {
 
 .main-logo-link {
     width: fit-content;
+}
+
+.flex-index {
+    display: flex;
+    flex-direction: column;
 }
 
 .order-now-button {
@@ -58,15 +70,61 @@ body {
     border: 1px solid black !important;
 }
 
-/* Carasel */
+/* Carousel */
 
 .carousel-item,
 img {
     max-width: 100%;
+    z-index: -1;
 }
 
 .bg-orange {
     background: #F55D14;
+}
+
+.margin-top {
+    margin: 1rem 0 0 0;
+}
+
+.overlay {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background: white;
+    z-index: -5;
+}
+
+/* products template css */
+
+/* .products-display {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    font-size: 1.3rem;
+    padding: 2rem 0;
+    text-align: center;
+    background-color: white;
+    list-style: none;
+} */
+
+.product-image {
+    /* display: flex; */
+    flex-direction: column;
+}
+
+.flex {
+    display: flex;
+}
+
+.prdt-bt {
+    width: 100%;
+    text-align: left;
+}
+
+.drop-down-padding {
+    padding-bottom: 1rem:
 }
 
 /* -------------------------------- Media Queries */
@@ -85,10 +143,10 @@ img {
         top: 0;
         right: 0;
         left: 0;
-        z-index: 1030;
     }
 
     .header-container {
         padding-top: 164px;
+        padding-bottom: 2rem;
     }
 }
