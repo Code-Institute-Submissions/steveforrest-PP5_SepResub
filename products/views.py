@@ -1,7 +1,8 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from .models import Product, Category
 from django.db.models import Q
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
+from django.contrib import messages
 
 
 # Create your views here.
@@ -10,25 +11,48 @@ def all_products(request):
     """ A view to show all products, including sorting and search queries """
 
     products = Product.objects.all()
-    pizzas = Product.objects.filter(
+    query = None
+
+    if request.GET:
+        # if 'category' in request.GET:
+        #     categories = request.GET['category'].split(',')
+        #     products = products.filter(category__name__in=categories)
+        #     categories = Category.objects.filter(name__in=categories)
+
+        if 'q' in request.GET:
+            query = request.GET['q']
+            # if not query:
+            #     messages.error(request, "You didn't enter any search criteria!")
+            #     return HttpResponseRedirect(request.path)
+            
+            if query:
+                            
+                queries = Q(name__icontains=query) | Q(description__icontains=query)
+                products = products.filter(queries)
+
+            else:
+                messages.error(request, "You didn't enter any search criteria!")       
+            return render(request, 'products/product_search_result.html', { 'products': products })
+    
+    pizzas = products.filter(
         Q(category__name__contains='Pizza')
     )
-    burgers = Product.objects.filter(
+    burgers = products.filter(
         Q(category__name__contains='burgers')
     )
-    fries = Product.objects.filter(
+    fries = products.filter(
         Q(category__name__contains='fries')
     )
-    extras = Product.objects.filter(
+    extras = products.filter(
         Q(category__name__contains='extras')
     )
-    drinks = Product.objects.filter(
+    drinks = products.filter(
         Q(category__name__contains='drinks')
     )
-    worlds = Product.objects.filter(
+    worlds = products.filter(
         Q(category__name__contains='world_food')
     )
-    desserts = Product.objects.filter(
+    desserts = products.filter(
         Q(category__name__contains='dessert')
     )
     context = {
@@ -40,6 +64,7 @@ def all_products(request):
         'drinks': drinks,
         'worlds': worlds,
         'desserts': desserts,
+        'search_term': query,
     }
 
     return render(request, 'products/products.html', context)
@@ -57,3 +82,5 @@ def identify_product(request, pk):
     
     else:
         return HttpResponse('error')
+    
+    

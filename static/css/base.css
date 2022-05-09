@@ -26,6 +26,10 @@ header {
     width: 1.5rem;
 }
 
+.text-align-center {
+    text-align: center;
+}
+
 .logo-font {
     text-transform: uppercase;
     font-family: 'Covered By Your Grace', cursive;
@@ -127,6 +131,18 @@ img {
     padding-bottom: 1rem:
 }
 
+.message-in-header {
+    position: absolute;
+    top: 146px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: fit-content;
+    border: orange 1px solid;
+    background-color: #ffa5002b;
+    padding: 1rem;
+    border-radius: 10px;
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
@@ -146,7 +162,6 @@ img {
     }
 
     .header-container {
-        padding-top: 164px;
-        padding-bottom: 2rem;
+        padding-top: 116x;
     }
 }
