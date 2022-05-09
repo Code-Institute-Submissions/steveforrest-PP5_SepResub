@@ -66,6 +66,17 @@ header {
     color: white;
 }
 
+.nav-icon:active,
+.nav-icon:hover,
+.nav-icon:focus {
+    background: #222;
+
+}
+
+.logged-out-nav {
+    color: grey
+}
+
 .text-black {
     color: #000 !important;
 }

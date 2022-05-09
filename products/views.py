@@ -12,19 +12,18 @@ def all_products(request):
 
     products = Product.objects.all()
     query = None
+    categories = None
 
     if request.GET:
-        # if 'category' in request.GET:
-        #     categories = request.GET['category'].split(',')
-        #     products = products.filter(category__name__in=categories)
-        #     categories = Category.objects.filter(name__in=categories)
+        if 'category' in request.GET:
+            categories = request.GET['category'].split(',')
+            products = products.filter(category__name__in=categories)
+            categories = Category.objects.filter(name__in=categories)
+        return render(request, 'products/product_search_result.html', { 'products': products })
 
         if 'q' in request.GET:
             query = request.GET['q']
-            # if not query:
-            #     messages.error(request, "You didn't enter any search criteria!")
-            #     return HttpResponseRedirect(request.path)
-            
+
             if query:
                             
                 queries = Q(name__icontains=query) | Q(description__icontains=query)
@@ -65,6 +64,7 @@ def all_products(request):
         'worlds': worlds,
         'desserts': desserts,
         'search_term': query,
+        'current_categories': categories,
     }
 
     return render(request, 'products/products.html', context)

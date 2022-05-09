@@ -6,8 +6,11 @@
                 World food
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">New Cuisine</a>
-                <a class="dropdown-item" href="#">Old favourites</a>
+                <a class="dropdown-item" href=" {% url 'products' %}?category=greek ">Greek</a>
+                <a class="dropdown-item" href=" {% url 'products' %}?category=curry">Curry</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href=" {% url 'products' %}?category=curry,greek">World cuisine!</a>
+
             </div>
         </li>
         <li>
@@ -16,10 +19,12 @@
                 Usual crew
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Pizza</a>
-                <a class="dropdown-item" href="#">Burgers</a>
-                <a class="dropdown-item" href="#">Fries</a>
-                <a class="dropdown-item" href="#">Sides</a>
+                <a class="dropdown-item" href="{% url 'products' %}?category=Pizza ">Pizza</a>
+                <a class="dropdown-item" href="{% url 'products' %}?category=burgers ">Burgers</a>
+                <a class="dropdown-item" href="{% url 'products' %}?category=fries ">Fries</a>
+                <a class="dropdown-item" href="{% url 'products' %}?category=extras ">Sides</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="{% url 'products' %}?category=extras,Pizza,burgers,fries ">All the extras!</a>
             </div>
         </li>
         <li>
@@ -28,9 +33,11 @@
                 Sommit to wash it down with
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Milk shake</a>
-                <a class="dropdown-item" href="#">Fizzy</a>
-                <a class="dropdown-item" href="#">Hot!</a>
+                <a class="dropdown-item" href="{% url 'products' %}?category=shakes">Milk shake</a>
+                <a class="dropdown-item" href="{% url 'products' %}?category=pop">Fizzy</a>
+                <a class="dropdown-item" href="{% url 'products' %}?category=hot">Hot!</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="{% url 'products' %}?category=hot,pop,shakes">Sommit wet!</a>
             </div>
         </li>
         <li>
