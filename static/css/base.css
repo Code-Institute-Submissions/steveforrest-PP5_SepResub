@@ -1,11 +1,12 @@
 html {
-    height: 100%;
+    min-height: 100%;
 }
 
 body {
     /* background: url('/media/homepage_background_cropped.jpg') no-repeat center center fixed;
     background-size: cover; */
-    height: 100vh color: #555;
+    min-height: 100vh;
+    color: #555;
     font-family: 'Lato';
 }
 
@@ -101,15 +102,6 @@ img {
     margin: 1rem 0 0 0;
 }
 
-.overlay {
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    position: fixed;
-    background: white;
-    z-index: -5;
-}
 
 /* products template css */
 
@@ -152,6 +144,19 @@ img {
     background-color: #ffa5002b;
     padding: 1rem;
     border-radius: 10px;
+}
+
+/* .dropdownbox-style {
+    position: relative !important;
+    transform: translate3d(0px, 0px) !important;
+    top: 0px;
+    left: 0px;
+    margin-bottom: 0.5rem;
+} */
+
+.delivery-banner {
+    background: #F55D14;
+    color: white;
 }
 
 /* -------------------------------- Media Queries */

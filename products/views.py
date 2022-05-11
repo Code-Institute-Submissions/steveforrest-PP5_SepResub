@@ -20,15 +20,11 @@ def all_products(request):
             products = products.filter(category__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
         return render(request, 'products/product_search_result.html', { 'products': products })
-
         if 'q' in request.GET:
             query = request.GET['q']
-
             if query:
-                            
                 queries = Q(name__icontains=query) | Q(description__icontains=query)
                 products = products.filter(queries)
-
             else:
                 messages.error(request, "You didn't enter any search criteria!")       
             return render(request, 'products/product_search_result.html', { 'products': products })
@@ -46,10 +42,15 @@ def all_products(request):
         Q(category__name__contains='extras')
     )
     drinks = products.filter(
-        Q(category__name__contains='drinks')
+        Q(category__name__contains='drinks')|
+        Q(category__name__contains='hot')|
+        Q(category__name__contains='shakes')|
+        Q(category__name__contains='pop')
     )
     worlds = products.filter(
-        Q(category__name__contains='world_food')
+        Q(category__name__contains='world_food')|
+        Q(category__name__contains='greek')|
+        Q(category__name__contains='curry')
     )
     desserts = products.filter(
         Q(category__name__contains='dessert')
@@ -77,9 +78,7 @@ def identify_product(request, pk):
         context = {
             'product': product
         }
-        # return HttpResponse('products/snippets/product_card.html')
-        return render(request, 'products/snippets/product_card.html', context )
-    
+        return render(request, 'products/snippets/product_card.html', context)
     else:
         return HttpResponse('error')
     

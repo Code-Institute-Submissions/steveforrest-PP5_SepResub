@@ -25,7 +25,7 @@
                         {% for pizza in pizzas %}
                         <a data-hx-get='{% url "product" pizza.id %}' data-hx-trigger='click'
                             data-hx-target='#pizza-target' data-hx-swap='innerHTML' class="dropdown-item"
-                            href=" {% url 'product' pizza.id %} ">{{pizza.name}}</a>
+                            href="{% url 'product' pizza.id %}">{{pizza.name}}</a>
                         {% endfor %}
                     </div>
                 </div>
@@ -106,7 +106,7 @@
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         World food!
                     </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
+                    <div class="dropdown-menu dropdownbox-style" aria-labelledby="dropdownMenuButton3">
                         {% for world in worlds %}
                         <a data-hx-get='{% url "product" world.id %}' data-hx-trigger='click'
                             data-hx-target='#worlds-target' data-hx-swap='innerHTML' class="dropdown-item"

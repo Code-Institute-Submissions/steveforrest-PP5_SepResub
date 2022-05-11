@@ -40,6 +40,7 @@
     <script src="https://unpkg.com/htmx.org@1.7.0"
         integrity="sha384-EzBXYPt0/T6gxNp0nuPtLkmRpmDBbjg6WmCUZRLXBBwYYmwAUxzlSGej0ARHX0Bo" crossorigin="anonymous"
         defer></script>
+    <script src="{% static 'js/script.js' %}"></script>
     {% endblock %}
 
     {% block extra_js %}
@@ -124,10 +125,10 @@
             </nav>
         </div>
         <div class="row">
-            <div class="col-12 text-align-center">
+            <div class="col-12 text-align-center delivery-banner">
                 <h3>Free deliver on orders over £{{ FREE_DELIVERY_THRESHOLD }} </h3>
             </div>
-        </div
+        </div>
     </header>
 
     {% if messages %}

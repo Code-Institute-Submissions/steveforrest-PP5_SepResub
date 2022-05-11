@@ -7,16 +7,16 @@ def view_order(request):
     return render(request, 'order/order.html')
 
 def add_to_order(request, item_id):
-    """view for getting the quantity to add to the bag"""
+    """view for getting the quantity to add to the order"""
     
-    quantity = str(request.POST.get('quantity'))
+    quantity = int(request.POST.get('qty'))
     redirect_url = request.POST.get('redirect_url')
-    bag = request.session.get('bag', {})
+    order = request.session.get('order', {})
     
-    if item_id in list(bag.keys()):
-        bag[item_id] += quantity
+    if item_id in list(order.keys()):
+        order[item_id] += quantity
     else:
-        bag[item_id] = quantity
+        order[item_id] = quantity
         
-    request.session['bag'] = bag
+    request.session['order'] = order
     return redirect(redirect_url)
