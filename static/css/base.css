@@ -105,17 +105,6 @@ img {
 
 /* products template css */
 
-/* .products-display {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    font-size: 1.3rem;
-    padding: 2rem 0;
-    text-align: center;
-    background-color: white;
-    list-style: none;
-} */
-
 .product-image {
     /* display: flex; */
     flex-direction: column;
@@ -146,17 +135,36 @@ img {
     border-radius: 10px;
 }
 
-/* .dropdownbox-style {
+.carousel {
+    overflow: hidden;
+}
+
+.dropdownbox-style {
     position: relative !important;
-    transform: translate3d(0px, 0px) !important;
-    top: 0px;
-    left: 0px;
-    margin-bottom: 0.5rem;
-} */
+    transform: translate3d(0);
+}
 
 .delivery-banner {
     background: #F55D14;
     color: white;
+}
+
+.bag-img-height {
+    height: 5rem;
+}
+
+
+.message-container {
+    position: relative;
+    top: 200px;
+    left: 50px;
+    z-index: 10;
+    min-height: 200px;
+}
+
+.update-link,
+.remove-item {
+    cursor: pointer;
 }
 
 /* -------------------------------- Media Queries */

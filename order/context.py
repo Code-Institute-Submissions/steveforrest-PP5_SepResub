@@ -6,6 +6,7 @@ def order_contents(request):
     
     order_items = []
     total = 0
+    sub_total = 0
     product_count = 0
     order = request.session.get('order', {})
     FREE_DELIVERY_THRESHOLD = settings.FREE_DELIVERY_THRESHOLD
@@ -19,17 +20,18 @@ def order_contents(request):
                 'item_id': item_id,
                 'quantity': item_data,
                 'product': product,
+                'total':total,
             })
         else:
             product = get_object_or_404(Product, pk=item_id)
-            for size, quantity in item_data['items_by_size'].items():
+            for quantity in item_data['items_by_size'].items():
                 total += quantity * product.price
                 product_count += quantity
                 order_items.append({
                     'item_id': item_id,
-                    'quantity': item_data,
+                    'quantity': quantity,
                     'product': product,
-                    'size': size,
+                    'total':total,
                 })
     
     if total < settings.FREE_DELIVERY_THRESHOLD & product_count == 0:

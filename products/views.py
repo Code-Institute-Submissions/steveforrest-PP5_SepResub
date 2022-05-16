@@ -82,4 +82,3 @@ def identify_product(request, pk):
     else:
         return HttpResponse('error')
     
-    

@@ -11,6 +11,7 @@
 * Languages
 * Libraries and other technologies
 * Testing
+* Things not working
 
 
 ## Reasons for this project
@@ -23,6 +24,8 @@ I have chose to use Ui because
 
 ## Future builds
 
+1. Adding the ability to amend quanitity from the order page
+2. 
 
 ## Deployment
 
@@ -96,3 +99,7 @@ The program can be deployed automatically but i have chosen to keep it as a manu
 
 #### Automated have been written to check the following
 
+## Things not working
+
+* size of column in the order drop down and it pushing down whats below it
+* 

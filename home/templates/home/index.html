@@ -11,15 +11,18 @@
 {% endblock %}
 
 {% block content %}
-<div class='container h-100 flex-index'>
-  <div class='row h-100 w-100'>
-    <div class='col-7 col-md-6 my-auto'>
-      <h1 class='display-4 logo-font text-black'>
-        Great food prices you'll devour
-      </h1>
-    </div>
+<div class='row w-100 my-auto'>
+  <div class='col-12 my-auto w-100'>
+    <h1 class='display-4 logo-font w-100 text-center text-black'>
+      Great food prices you'll devour
+    </h1>
   </div>
-  <div>
+</div>
+<div class='container'>
+  <div class='row w-100 '>
+    <div class="col-0 col-lg-3"></div>
+
+    <div class="col-12 col-lg-6">
     <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
         <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
@@ -30,42 +33,36 @@
         <div class="carousel-item active">
           <img src="media/caraselBurger.jpg" class="d-block w-100 img-fluid" alt="...">
           <div class="carousel-caption d-none d-md-block">
-            <h5>First slide label</h5>
             <p>10 different burgers</p>
           </div>
         </div>
         <div class="carousel-item">
           <img src="media/caraselFries2.jpg" class="d-block w-100 img-fluid" alt="...">
           <div class="carousel-caption d-none d-md-block">
-            <h5>Second slide label</h5>
             <p>Over 5 different styles of fries!</p>
           </div>
         </div>
         <div class="carousel-item">
           <img src="media/caraselPizza1.jpg" class="d-block w-100 img-fluid" alt="...">
           <div class="carousel-caption d-none d-md-block">
-            <h5>Third slide label</h5>
             <p>Everyone has their favourite pizza choose or design yours here</p>
           </div>
         </div>
         <div class="carousel-item">
           <img src="media/caraselBurger1.jpg" class="d-block w-100 img-fluid" alt="...">
           <div class="carousel-caption d-none d-md-block">
-            <h5>Second slide label</h5>
             <p>Stomach bursting Burgers!!</p>
           </div>
         </div>
         <div class="carousel-item">
           <img src="media/caraselWorldfoodGreek2.jpg" class="d-block w-100 img-fluid" alt="...">
           <div class="carousel-caption d-none d-md-block">
-            <h5>Second slide label</h5>
             <p>Expand your tastes with something new from around the world</p>
           </div>
         </div>
         <div class="carousel-item">
           <img src="media/caraselDesert1.jpg" class="d-block w-100 img-fluid" alt="...">
           <div class="carousel-caption d-none d-md-block">
-            <h5>Second slide label</h5>
             <p>Mouth watering desserts</p>
           </div>
         </div>
@@ -79,13 +76,16 @@
         <span class="sr-only">Next</span>
       </a>
     </div>
+    <div class="col-0 col-lg-3"></div>
   </div>
-  <div class='row h-100 w-100'>
-    <div class='col-7 col-md-6 my-auto'>
-      <h4 my-5>
-        <a href='{% url "products" %}' class='order-now-button btn btn-lg rounded-0 text-uppercase my-auto py-3'>Order Now</a>
-      </h4>
-    </div>
+  </div>
+
+</div>
+<div class='row h-100 w-100'>
+  <div class='col-12 text-center'>
+    <h4 my-5>
+      <a href='{% url "products" %}' class='order-now-button btn btn-lg rounded-0 text-uppercase my-auto py-3'>Order Now</a>
+    </h4>
   </div>
 </div>
 {% endblock %}
