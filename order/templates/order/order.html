@@ -142,19 +142,17 @@
 $('.update-link').click(function(e) {
     var form = $(this).prev('.update-form');
     form.submit();
-    console.log("THIS IS WORKING");
 })
 
 // Remove item and reload on click
 $('.remove-item').click(function(e) {
     var csrfToken = "{{ csrf_token }}";
     var itemId = $(this).attr('id').split('remove_')[1];
-    var url = `/order/remove/${itemId}`;
+    var url = `/order/remove/${itemId}/`;
     var data = {'csrfmiddlewaretoken': csrfToken};
 
     $.post(url, data)
      .done(function() {
-        console.log("THIS IS WORKING");
          location.reload();
      });
 })
