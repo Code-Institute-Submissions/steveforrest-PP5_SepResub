@@ -3,16 +3,15 @@
 {% load order_tools %}
 
 {% block page_header %}
-<div class='container header-container'>
-    <div class='row'>
-        <div class='col'>
-        </div>
-    </div>
-</div>
+
 {% endblock %}
 
 {% block content %}
-
+<div class="message-container message-container-image d-flex justify-content-center message-container-order align-items-center">
+    {% if messages %}
+      {% include '/workspace/PP5/templates/includes/messages.html' with messages=messages %}
+    {% endif %}
+</div>
 <div class="overlay"></div>
 <div class="container mb-2">
     <div class="row">

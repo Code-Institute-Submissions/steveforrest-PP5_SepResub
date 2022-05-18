@@ -2,15 +2,16 @@
 {% load static %}
 
 {% block page_header %}
-<div class='container header-container'>
-  <div class='row'>
-    <div class='col'>
-    </div>
-  </div>
-</div>
+
 {% endblock %}
 
 {% block content %}
+
+<div class="message-container message-container-image d-flex justify-content-center message-container-index align-items-center">
+  {% if messages %}
+    {% include '/workspace/PP5/templates/includes/messages.html' with messages=messages %}
+  {% endif %}
+</div>
 <div class='row w-100 my-auto'>
   <div class='col-12 my-auto w-100'>
     <h1 class='display-4 logo-font w-100 text-center text-black'>

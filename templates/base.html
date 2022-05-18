@@ -129,23 +129,24 @@
         </div>
     </header>
 
-    <div class="message-container d-flex justify-content-center align-items-center">
+    <!--<div class="message-container message-container-image d-flex justify-content-center align-items-center">
     {% if messages %}
             {% for message in messages %}
-            {% with message.level as level %}
-                {% if level == 40 %}
-                    {% include 'includes/toasts/toast_error.html' %}
-                {% elif level == 30 %}
-                    {% include 'includes/toasts/toast_warning.html' %}
-                {% elif level == 25 %}
-                    {% include 'includes/toasts/toast_success.html' %}
-                {% else %}
-                    {% include 'includes/toasts/toast_info.html' %}
-                {% endif %}
-            {% endwith %}            
-        {% endfor %}
+                {% with message.level as level %}
+                    {% if level == 40 %}
+                        {% include 'includes/toasts/toast_error.html' %}
+                    {% elif level == 30 %}
+                        {% include 'includes/toasts/toast_warning.html' %}
+                    {% elif level == 25 %}
+                        {% include 'includes/toasts/toast_success.html' %}
+                    {% else %}
+                        {% include 'includes/toasts/toast_info.html' %}
+                    {% endif %}
+                {% endwith %}            
+            {% endfor %}
     {% endif %}
-    </div>
+    </div> -->
+
     {% block page_header %}
     {% endblock %}
 
@@ -157,7 +158,6 @@
         $('.toast').toast('show');
     </script>
     {% endblock %}
-
 </body>
 
 </html>

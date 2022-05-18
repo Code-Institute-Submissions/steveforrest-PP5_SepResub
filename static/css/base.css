@@ -94,6 +94,10 @@ img {
     z-index: -1;
 }
 
+.order-img {
+    width: 50%;
+}
+
 .bg-orange {
     background: #F55D14;
 }
@@ -135,8 +139,8 @@ img {
     border-radius: 10px;
 }
 
-.carousel {
-    overflow: hidden;
+.accordion>.card>.card-header {
+    background-color: darkgrey;
 }
 
 .dropdownbox-style {
@@ -155,16 +159,49 @@ img {
 
 
 .message-container {
-    position: relative;
-    top: 200px;
-    left: 50px;
-    z-index: 10;
-    min-height: 200px;
+    margin: 12rem 2rem 1rem;
+}
+
+.message-container-index {
+    min-height: 150px;
+}
+
+.message-container-order {
+    min-height: 300px;
+}
+
+.message-container-image {
+    background-image: url('/media/orderpage-banner.jpg');
+    /* The image used */
+    background-color: #3a1dde;
+    /* Used if the image is unavailable */
+    background-position: center;
+    /* Center the image */
+    background-repeat: no-repeat;
+    /* Do not repeat the image */
+    background-size: cover;
+    /* Resize the background image to cover the entire container */
+    padding: 1rem 2rem;
+}
+
+.toast {
+    padding: 0.5rem;
 }
 
 .update-link,
 .remove-item {
     cursor: pointer;
+}
+
+.background-grey {
+    background-color: grey;
+}
+
+
+.bag-notification-wrapper {
+    height: 100px;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 /* -------------------------------- Media Queries */
