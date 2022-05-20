@@ -7,12 +7,29 @@ from products.models import Product
 # Create your views here.
 
 def view_order(request):
-    """A view to return the home, index page"""
+    """
+    Function to view the order page
+
+    input parameters
+    request: object coming from the client
+
+    return parameter
+    render to the order/order.html url
+    """
     return render(request, 'order/order.html')
 
+
 def add_to_order(request, item_id):
-    """view for getting the quantity to add to the order"""
-    
+    """
+    Function to add items to order
+
+    input parameters
+    request: object coming from the client
+    item_id: id of the object to be added to the order
+
+    return parameter
+    redirection to new URL
+    """
     product = get_object_or_404(Product, pk=item_id)
     quantity = int(request.POST.get('qty'))
     redirect_url = request.POST.get('redirect_url')
@@ -30,7 +47,16 @@ def add_to_order(request, item_id):
 
 
 def adjust_order(request, item_id):
-    """view for adjusting the order"""
+    """
+    Function to adjust the items in the order
+
+    input parameters
+    request: object coming from the client
+    item_id: id of the object to be added to the order
+
+    return parameter
+    redirection revers to view_order
+    """
     
     product = get_object_or_404(Product, pk=item_id)
     quantity = int(request.POST.get('quantity'))
@@ -48,7 +74,16 @@ def adjust_order(request, item_id):
 
 
 def remove_from_order(request, item_id):
-    """view for adjusting the order"""
+    """
+    Function to remove items from the order
+
+    input parameters
+    request: object coming from the client
+    item_id: id of the object to be added to the order
+
+    return parameter
+    HttpRespone = 200
+    """
     
     try:
         product = get_object_or_404(Product, pk=item_id)

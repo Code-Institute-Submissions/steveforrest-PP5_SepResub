@@ -14,21 +14,32 @@ header {
     padding: 0 0 1rem 0;
 }
 
-.header-container {
-    padding-top: 164px;
+.message-container-image {
+    background-image: url('/media/orderpage-banner.jpg');
+    /* The image used */
+    background-color: #ccc;
+    /* Used if the image is unavailable */
+    background-position: center;
+    /* Center the image */
+    background-repeat: no-repeat;
+    /* Do not repeat the image */
+    background-size: cover;
+    /* Resize the background image to cover the entire container */
+    padding: 1rem 2rem;
 }
 
-/* from Bulma */
-.icon {
-    align-items: center;
-    display: inline-flex;
-    justify-content: center;
-    height: 1.5rem;
-    width: 1.5rem;
+.message-container-index {
+    min-height: 150px;
 }
 
-.text-align-center {
-    text-align: center;
+.flex-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.bg-orange {
+    background: #F55D14;
 }
 
 .logo-font {
@@ -40,9 +51,8 @@ header {
     width: fit-content;
 }
 
-.flex-index {
-    display: flex;
-    flex-direction: column;
+.text-align-center {
+    text-align: center;
 }
 
 .order-now-button {
@@ -86,21 +96,6 @@ header {
     border: 1px solid black !important;
 }
 
-/* Carousel */
-
-.carousel-item,
-img {
-    max-width: 100%;
-    z-index: -1;
-}
-
-.order-img {
-    width: 50%;
-}
-
-.bg-orange {
-    background: #F55D14;
-}
 
 .margin-top {
     margin: 1rem 0 0 0;
@@ -116,11 +111,6 @@ img {
 
 .flex {
     display: flex;
-}
-
-.prdt-bt {
-    width: 100%;
-    text-align: left;
 }
 
 .drop-down-padding {
@@ -139,56 +129,21 @@ img {
     border-radius: 10px;
 }
 
-.accordion>.card>.card-header {
-    background-color: darkgrey;
-}
-
 .dropdownbox-style {
     position: relative !important;
     transform: translate3d(0);
-}
-
-.delivery-banner {
-    background: #F55D14;
-    color: white;
-}
-
-.bag-img-height {
-    height: 5rem;
 }
 
 .text-center {
     text-align: center;
 }
 
-.message-container {
-    margin: 12rem 2rem 1rem;
+.width100 {
+    width: 100%;
 }
 
 .message-container-index {
     min-height: 150px;
-}
-
-.message-container-order {
-    min-height: 300px;
-}
-
-.message-container-image {
-    background-image: url('/media/orderpage-banner.jpg');
-    /* The image used */
-    background-color: #3a1dde;
-    /* Used if the image is unavailable */
-    background-position: center;
-    /* Center the image */
-    background-repeat: no-repeat;
-    /* Do not repeat the image */
-    background-size: cover;
-    /* Resize the background image to cover the entire container */
-    padding: 1rem 2rem;
-}
-
-.toast {
-    padding: 0.5rem;
 }
 
 .update-link,
@@ -200,11 +155,8 @@ img {
     background-color: grey;
 }
 
-
-.bag-notification-wrapper {
-    height: 100px;
-    overflow-x: hidden;
-    overflow-y: auto;
+.account-pg-image {
+    width: inherit;
 }
 
 /* -------------------------------- Media Queries */

@@ -46,6 +46,9 @@ INSTALLED_APPS = [
     'products',
     'order',
     'checkout',
+    
+    #
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -59,6 +62,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'big_eats.urls'
+
+CRISPY_TEMPLATE_PACK ='bootstrap4'
 
 TEMPLATES = [
     {
@@ -74,8 +79,14 @@ TEMPLATES = [
                 'django.template.context_processors.request', #required by allauth
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
                 'order.context.order_contents',
             ],
+            'builtins':
+                [
+                    'crispy_forms.templatetags.crispy_forms_tags',
+                    'crispy_forms.templatetags.crispy_forms_field',
+                ]
         },
     },
 ]
@@ -139,7 +150,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en-en'
 
 TIME_ZONE = 'UTC'
 

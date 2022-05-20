@@ -22,6 +22,26 @@
 
 I have chose to use Ui because 
 
+## User Stories
+
+* First time user
+1. As a first time user I would like to be able to register to have an account 
+2. As a first time user I would like to be able to view the menu
+3. As a first time user I would like to be able to place an order
+
+* Existing user
+1. As an Existing customer I would like to be able to log in
+2. As an Existing customer I would like to be able to log out
+3. As an Existing customer I would like to be able to view the menu
+4. As an Existing customer I would like to be able to place an order
+5. As an Existing customer I would like to be able to see prvious order placed
+
+* Site admin
+1. As a site admin I would like to be able to Add products
+2. As a site admin I would like to be able to edit products
+3. As a site admin I would like to be able to delete products
+4. As a site admin I would like to be able to view customer orders
+
 ## Future builds
 
 1. Adding the ability to amend quanitity from the order page
