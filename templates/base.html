@@ -39,6 +39,8 @@
         integrity="sha384-EzBXYPt0/T6gxNp0nuPtLkmRpmDBbjg6WmCUZRLXBBwYYmwAUxzlSGej0ARHX0Bo" crossorigin="anonymous"
         defer></script>
     <script src="{% static 'js/script.js' %}"></script>
+    <!-- Stripe JS -->
+    <script src="https://js.stripe.com/v3/"></script>
     {% endblock %}
 
     {% block extra_js %}
@@ -128,24 +130,6 @@
             </div>
         </div>
     </header>
-
-    <!--<div class="message-container message-container-image d-flex justify-content-center align-items-center">
-    {% if messages %}
-            {% for message in messages %}
-                {% with message.level as level %}
-                    {% if level == 40 %}
-                        {% include 'includes/toasts/toast_error.html' %}
-                    {% elif level == 30 %}
-                        {% include 'includes/toasts/toast_warning.html' %}
-                    {% elif level == 25 %}
-                        {% include 'includes/toasts/toast_success.html' %}
-                    {% else %}
-                        {% include 'includes/toasts/toast_info.html' %}
-                    {% endif %}
-                {% endwith %}            
-            {% endfor %}
-    {% endif %}
-    </div> -->
 
     {% block page_header %}
     {% endblock %}
