@@ -8,7 +8,9 @@ from django.contrib import messages
 # Create your views here.
 
 def all_products(request):
-    """ A view to show all products, including sorting and search queries """
+    """ 
+    A view to show all products, including sorting and search queries 
+    """
 
     products = Product.objects.all()
     query = None
@@ -72,7 +74,9 @@ def all_products(request):
 
 
 def identify_product(request, pk):
-    """a View that searches to help with generating the products in the products html"""
+    """
+    a View that searches to help with generating the products in the products html
+    """
     if request.method == 'GET':
         product = get_object_or_404(Product, id=pk)
         context = {

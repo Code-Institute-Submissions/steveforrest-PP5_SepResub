@@ -88,13 +88,9 @@ def remove_from_order(request, item_id):
     try:
         product = get_object_or_404(Product, pk=item_id)
         order = request.session.get('order', {})
-        
-        if item_id in list(order.keys()):
-            order[item_id] = 0
-            messages.info(request, f'removed {product.name} from your order!')
-        else:
-            order.pop(item_id)
-            messages.info(request, f'removed {product.name} from your order')
+
+        order.pop(item_id)
+        messages.info(request, f'removed {product.name} from your order')
             
         request.session['order'] = order
         return HttpResponse(status=200)

@@ -8,11 +8,11 @@ def update_on_save(sender, instance, created, **kwargs):
     """
     update order total onlineitem update/create
     """
-    instance.order.update_total()
+    instance.invoice.update_total()
     
 @receiver(post_delete, sender=OrderLineItem)
-def update_on_save(sender, instance, **kwargs):
+def update_on_deletse(sender, instance, **kwargs):
     """
     update order total onlineitem delete
     """
-    instance.order.update_total()
+    instance.invoice.update_total()
