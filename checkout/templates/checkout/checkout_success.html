@@ -23,11 +23,150 @@
             <hr>
             <h2 class="logo-font mb-4 text-align-center">Thank you!!</h2>
             <hr>
-            <p class="text-black">Your order information is below and an confirmation email has been sent to <strong>{{order.email}}</strong></p>
+            <p class="text-black text-align-center">Your order information is below and an confirmation email has been sent to <strong>{{order.email}}</strong></p>
         </div>
     </div>
     <div class="row">
-        <div class="col-12 col-lg-7"></div>
+        <div class="col-12 col-lg-7 mx-auto">
+            <div class="order-confirmation-wrapper p-2 border">
+                <div class="row">
+                    <div class="col">
+                        <small class="text-muted">Order Summary!:</small>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-8">
+                        <p class="mb-0 text-black font-weight-bold">Order Number:</p>
+                    </div>
+                    <div class="col-12 col-md-4 text-md-text">
+                        <p class="mb-0 text-black font-weight-bold">{{invoice.order_number}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-8">
+                        <p class="mb-0 text-black font-weight-bold">Order Date:</p>
+                    </div>
+                    <div class="col-12 col-md-4 text-md-text">
+                        <p>{{invoice.date}}</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <small class="text-muted">Order Details!:</small>
+                    </div>
+                </div>
+                {% for item in invoice.lineitems.all %}
+                <div class="row">
+                    <div class="col-12 col-md-8">
+                        <p class="small mb-0 text-black font-weight-bold">
+                            <p class="mb-0 text-black font-weight-bold">{{item.product.name}}:</p>
+                        </p>
+                    </div>
+                    <div class="col-12 col-md-4 text-md-text">
+                        <p class="small mb-0 text-black font-weight-bold"> {{ item.quantity }}  @  £{{ item.product.price }} each. </p>
+                    </div>
+                </div>
+                {% endfor %}
+
+                <div class="row">
+                    <div class="col">
+                        <small class="text-muted">Delivery Address!:</small>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-8">
+                        <p class="mb-0 text-black font-weight-bold">Full Name:</p>
+                    </div>
+                    <div class="col-12 col-md-4 text-md-text">
+                        <p> {{ invoice.full_name }} </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-8">
+                        <p class="mb-0 text-black font-weight-bold">Address Line 1:</p>
+                    </div>
+                    <div class="col-12 col-md-4 text-md-text">
+                        <p> {{ invoice.street_address1 }} </p>
+                    </div>
+                </div>
+                
+                {% if invoice.street_address2 %}
+                <div class="row">
+                    <div class="col-12 col-md-8">
+                        <p class="mb-0 text-black font-weight-bold">Address Line 2:</p>
+                    </div>
+                    <div class="col-12 col-md-4 text-md-text">
+                        <p> {{ invoice.street_address2 }} </p>
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if invoice.county %}
+                <div class="row">
+                    <div class="col-12 col-md-8">
+                        <p class="mb-0 text-black font-weight-bold">County:</p>
+                    </div>
+                    <div class="col-12 col-md-4 text-md-text">
+                        <p> {{ invoice.county }} </p>
+                </div>
+                {% endif %}
+                <div class="row">
+                    <div class="col-12 col-md-8">
+                        <p class="mb-0 text-black font-weight-bold">Town / City:</p>
+                    </div>
+                    <div class="col-12 col-md-4 text-md-text">
+                        <p> {{ invoice.town_or_city }} </p>
+                    </div>
+                </div>
+                <div class="row">                      
+                    <div class="col-12 col-md-8">
+                        <p class="mb-0 text-black font-weight-bold">Post Code:</p>
+                    </div>
+                    <div class="col-12 col-md-4 text-md-text">
+                        <p> {{ invoice.post_code }} </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-8">
+                        <p class="mb-0 text-black font-weight-bold">Phone Number:</p>
+                    </div>
+                    <div class="col-12 col-md-4 text-md-text">
+                        <p> {{ invoice.phone_number }} </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <small class="text-muted">Invoiced Details:</small>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-8">
+                    <p class="mb-0 text-black font-weight-bold">Order Total:</p>
+                </div>
+                <div class="col-12 col-md-4 text-md-text">
+                    <p> {{ invoice.order_total }} </p>                    
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-8">
+                    <p class="mb-0 text-black font-weight-bold">Delivery Charges:</p>
+                </div>
+                <div class="col-12 col-md-4 text-md-text">
+                    <p> {{ invoice.delivery_cost }} </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-8">
+                    <p class="mb-0 text-black font-weight-bold">Grand Total:</p>
+                </div>
+                <div class="col-12 col-md-4 text-md-text">
+                    <p> {{ invoice.grand_total }} </p>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="row">
         <div class="col-12 col-lg-7 text-right">
