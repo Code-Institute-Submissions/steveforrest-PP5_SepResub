@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-vjx+m!kti+*l2@dve+=mha3=z5&no1d_@3jlk1t56zjt+4o+(y
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -182,3 +182,4 @@ STRIPE_CURRENCY ='gbp'
 DELIVERY_CHARGE = 5
 STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
+STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
