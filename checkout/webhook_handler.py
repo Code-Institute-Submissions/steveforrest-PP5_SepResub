@@ -85,7 +85,7 @@ class StripeWH_Handler:
                     product = Product.objects.get(id=item_id)
                     if isinstance(item_data, int):
                         order_line_item = OrderLineItem(
-                            order=order,
+                            invoice=order,
                             product=product,
                             quantity=item_data,
                         )

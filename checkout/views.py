@@ -13,6 +13,15 @@ import json
 
 @require_POST
 def cache_checkout_data(request):
+    """
+    Function to generate data to be used in stripe
+
+    input parameters
+    request: object coming from the client
+
+    return parameter
+    HttpResponse of content=e and status=400
+    """
     try:
         pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -29,6 +38,15 @@ def cache_checkout_data(request):
 
 
 def checkout(request):
+    """
+    Function to generate data to be used in stripe
+
+    input parameters
+    request: object coming from the client
+
+    return parameter
+    render of the current template and its context
+    """
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
@@ -58,7 +76,7 @@ def checkout(request):
                     product = Product.objects.get(id=item_id)
                     if isinstance(item_data, int):
                         order_line_item = OrderLineItem(
-                            order=order,
+                            invoice=order,
                             product=product,
                             quantity=item_data,
                         )
@@ -108,8 +126,16 @@ def checkout(request):
 
 
 def checkout_success(request, order_number):
+
     """
-    Handle successful checkouts
+    Function to handle successful checkouts
+
+    input parameters
+    request: object coming from the client
+    order_number: 
+
+    return parameter
+    render of the current template and its context
     """
     save_info = request.session.get('save_info')
     order = get_object_or_404(Invoice, order_number=order_number)
