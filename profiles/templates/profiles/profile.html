@@ -12,20 +12,21 @@
 {% endblock %}
 
 {% block content %}
-<div class="message-container message-container-image d-flex justify-content-center message-container-index align-items-center">
-    {% if messages %}
-      {% include '/workspace/PP5/templates/includes/messages.html' with messages=messages %}
-    {% endif %}
-</div>
-<div class="container mb-2">
-    <div class="row">
-        <div class="col">
-            <hr>
-            <h2 class="logo-font mb-4 text-align-center">Profiles</h2>
-            <hr>
-        </div>
+    <div class="message-container message-container-image d-flex justify-content-center message-container-index align-items-center">
+        {% if messages %}
+        {% include '/workspace/PP5/templates/includes/messages.html' with messages=messages %}
+        {% endif %}
     </div>
-    <div class="row">
+    <div class="container mb-2">
+        <div class="row">
+            <div class="col">
+                <hr>
+                <h2 class="logo-font mb-4 text-align-center">Profiles</h2>
+                <hr>
+            </div>
+    </div>
+    {{ profile }}
 
-</div>
+    </div>
+
 {% endblock %}

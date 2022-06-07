@@ -5,7 +5,7 @@
 <div class="container">
   {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
-  {% block content %}
+  {% block inner_content %}
   <div class="row">
     <div class="col-12">
       <h1 class="text-center">{% trans "Sign In" %}</h1>
@@ -44,8 +44,11 @@
           {% if redirect_field_value %}
           <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
           {% endif %}
+          <p>
           <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
-          <button class="primaryAction" type="submit">{% trans "Sign In" %}</button>
+          </p>
+          <button class="signIn-button rounded-0" type="submit">{% trans "Sign In" %}</button>
+          <a class="btn home-button rounded-0" href="{% url 'home' %}">Home</a>
         </form>
       </div>
       <div class="col-6">

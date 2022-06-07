@@ -19,27 +19,21 @@ class UserProfile(models.Model):
         return self.user.username
     
     
-    @receiver(post_save,sender=User)
-    def create_or_update_user_profile(sender, instance, created, **kwargs):
-        """
-        Create or update the user profile
+@receiver(post_save,sender=User)
+def create_or_update_user_profile(sender, instance, created, **kwargs):
+    """
+    Create or update the user profile
+
+    """
+    if created:
+        UserProfile.objects.create(user=instance)
+    #Existing profiles just update
+    instance.userprofile.save()
         
-        """
-        if created:
-            UserProfile.objects.create(user=instance)
-        #Existing profiles just update
-        instance.userprofile.save()
         
-    @receiver(post_save, sender=User)
-    def update_on_save(sender, instance, created, **kwargs):
-        """
-        update order total onlineitem update/create
-        """
-        instance.invoice.update_total()
-        
-    @receiver(post_delete, sender=User)
-    def update_on_deletse(sender, instance, **kwargs):
-        """
-        update order total onlineitem delete
-        """
-        instance.invoice.update_total()
+@receiver(post_delete, sender=User)
+def update_on_deletse(sender, instance, **kwargs):
+    """
+    update order total onlineitem delete
+    """
+    instance.invoice.update_total()
