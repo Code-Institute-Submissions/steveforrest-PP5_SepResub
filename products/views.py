@@ -74,12 +74,12 @@ def all_products(request):
     return render(request, 'products/products.html', context)
 
 
-def identify_product(request, pk):
+def identify_product(request, id):
     """
     a View that searches to help with generating the products in the products html
     """
     if request.method == 'GET':
-        product = get_object_or_404(Product, id=pk)
+        product = get_object_or_404(Product, id=id)
         context = {
             'product': product
         }
@@ -108,3 +108,28 @@ def add_product(request):
     }
     
     return render(request, template, context)
+
+def edit_product(request, id):
+    """
+    Edit products to the store
+    """
+    product = get_object_or_404(Product, id=id)
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES, instance=product)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Succesfully edited product!')
+            return redirect(reverse('product', args=[product.id]))
+        else:
+            messages.error(request, 'Failed to edit product!')
+    else:
+        form = ProductForm(instance=product)
+        messages.info(request, f'You are now editing { product.name }')
+    
+    template = 'products/edit_product.html'
+    context = {
+        'form': form,
+        'product': product,
+    }
+    
+    return render(request, template, context)    
