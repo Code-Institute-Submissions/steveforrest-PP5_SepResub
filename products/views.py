@@ -3,6 +3,7 @@ from .models import Product, Category
 from django.db.models import Q
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib import messages
+from .forms import ProductForm
 
 
 # Create your views here.
@@ -86,3 +87,24 @@ def identify_product(request, pk):
     else:
         return HttpResponse('error')
     
+def add_product(request):
+    """
+    Add products to the store
+    """
+    if request.method== 'POST':
+        form = ProductForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Succesfully added new product!')
+            return redirect(reverse('add_product'))
+        else:
+            messages.error(request, 'Failed to add product. please ensure all fields are completed correctly')
+    else:
+        form = ProductForm()
+        
+    template = 'products/add_product.html'
+    context = {
+        'form' : form,
+    }
+    
+    return render(request, template, context)
