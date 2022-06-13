@@ -13,7 +13,7 @@ class InvoiceAdmin(admin.ModelAdmin):
                        'delivery_cost', 'order_total',
                        'grand_total', 'original_order', 'stripe_pid',)
     
-    fields = ('order_number', 'date',
+    fields = ('order_number', 'user_profile', 'date',
               'full_name', 'email',
               'phone_number', 'country',
               'postcode', 'town_or_city',

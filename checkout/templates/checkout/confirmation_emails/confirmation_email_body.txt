@@ -1,0 +1,15 @@
+Hello {{ order.full_name }}
+
+Your order {{ invoice.order_number }} has been placed at {{ invoice.date }} and will be with you between 30 and 50 minutes.
+
+Your order total is £{{ invoice.grand_total}} this includes £ {{ invoice.delivery_cost }}.
+Your delivery address is: {{ invoice.street_address1 }}
+                          {{ invoice.street_address2 }}
+                          {{ invoice.town_or_city }}
+                          {{ invoice.country }}
+                          {{ invoice.post_code }}
+
+Our driver will contact you on {{ invoice.phone_number }} if there are any issues on finding you.
+If you have any issues please contact the store on {{ DEFAULT_CONTACT_NUMBER }}
+
+Thank you for choosing Big Eatz

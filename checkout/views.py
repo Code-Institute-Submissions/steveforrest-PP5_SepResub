@@ -6,6 +6,8 @@ from django.conf import settings
 from .forms import OrderForm
 from .models import Invoice, OrderLineItem
 from products.models import Product
+from profiles.forms import ProfileForm
+from profiles.models import UserProfile
 from order.context import order_contents
 
 import stripe
@@ -51,7 +53,7 @@ def checkout(request):
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
     if request.method == 'POST':
-        bag = request.session.get('bag', {})
+        order = request.session.get('order', {})
 
         form_data = {
             'full_name': request.POST['full_name'],
@@ -66,17 +68,17 @@ def checkout(request):
         }
         order_form = OrderForm(form_data)
         if order_form.is_valid():
-            order = order_form.save(commit=False)
+            invoice = order_form.save(commit=False)
             pid = request.POST.get('client_secret').split('_secret')[0]
-            order.stripe_pid = pid
-            order.original_order = json.dumps(bag)
-            order.save()
-            for item_id, item_data in bag.items():
+            invoice.stripe_pid = pid
+            invoice.original_order = json.dumps(order)
+            invoice.save()
+            for item_id, item_data in order.items():
                 try:
                     product = Product.objects.get(id=item_id)
                     if isinstance(item_data, int):
                         order_line_item = OrderLineItem(
-                            invoice=order,
+                            invoice=invoice,
                             product=product,
                             quantity=item_data,
                         )
@@ -90,7 +92,7 @@ def checkout(request):
                     return redirect(reverse('view_order'))
 
             request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse('checkout_success', args=[order.order_number]))
+            return redirect(reverse('checkout_success', args=[invoice.order_number]))
         else:
             messages.error(request, 'There was an error with your form. \
                 Please double check your information.')
@@ -109,7 +111,24 @@ def checkout(request):
             currency=settings.STRIPE_CURRENCY,
         )
 
-        order_form = OrderForm()
+        if request.user.is_authenticated:
+            try:
+                profile = UserProfile.objects.get(user=request.user)
+                order_form = OrderForm(initial={
+                    'full_name': profile.user.get_full_name(),
+                    'email': profile.user.email,
+                    'phone_number': profile.default_phone_number,
+                    'country': profile.default_country,
+                    'postcode': profile.default_postcode,
+                    'town_or_city': profile.default_town_or_city,
+                    'street_address1': profile.default_street_address1,
+                    'street_address2': profile.default_street_address2,
+                    'county': profile.default_county,
+                })
+            except UserProfile.DoesNotExist:
+                order_form = OrderForm()
+        else:
+            order_form = OrderForm()
 
     if not stripe_public_key:
         messages.warning(request, 'Stripe public key is missing. \
@@ -139,6 +158,25 @@ def checkout_success(request, order_number):
     """
     save_info = request.session.get('save_info')
     order = get_object_or_404(Invoice, order_number=order_number)
+        
+    if request.user.is_authenticated:
+        profile = UserProfile.objects.get(user=request.user)
+        # Attach the user order to their profile
+        order.user_profile = profile
+        order.save()
+        if save_info:
+            profile_data = {
+                'default_phone_number': order.phone_number,
+                'default_postcode': order.postcode,
+                'default_town_or_city': order.town_or_city,
+                'default_street_address1': order.street_address1,
+                'default_street_address2': order.street_address2,
+                'default_county': order.county,
+            }
+            user_profile_form = ProfileForm(profile_data, instance=profile)
+            if user_profile_form.is_valid():
+                user_profile_form.save()
+    
     messages.success(request, f'Order successfully processed! \
         Your order number is {order_number}. A confirmation \
         email will be sent to {order.email}.')
