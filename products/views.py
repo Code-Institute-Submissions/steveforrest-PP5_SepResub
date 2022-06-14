@@ -98,7 +98,8 @@ def add_product(request):
     if not request.user.is_superuser:
         messages.error(request, 'Sorry only store admins can access this part of the site')
         return redirect(reverse('home'))
-    if request.method== 'POST':
+    
+    if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
@@ -111,7 +112,7 @@ def add_product(request):
         
     template = 'products/add_product.html'
     context = {
-        'form' : form,
+        'form': form,
     }
     
     return render(request, template, context)
