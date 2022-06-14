@@ -4,6 +4,8 @@ from django.db.models import Q
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib import messages
 from .forms import ProductForm
+from django.contrib.auth.decorators import login_required
+
 
 
 # Create your views here.
@@ -87,16 +89,21 @@ def identify_product(request, id):
     else:
         return HttpResponse('error')
     
+    
+@login_required    
 def add_product(request):
     """
     Add products to the store
     """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry only store admins can access this part of the site')
+        return redirect(reverse('home'))
     if request.method== 'POST':
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             messages.success(request, 'Succesfully added new product!')
-            return redirect(reverse('add_product'))
+            return redirect(reverse('products'))
         else:
             messages.error(request, 'Failed to add product. please ensure all fields are completed correctly')
     else:
@@ -109,10 +116,15 @@ def add_product(request):
     
     return render(request, template, context)
 
+
+@login_required
 def edit_product(request, id):
     """
     Edit products to the store
     """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry only store admins can access this part of the site')
+        return redirect(reverse('home'))
     product = get_object_or_404(Product, id=id)
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES, instance=product)
@@ -132,4 +144,16 @@ def edit_product(request, id):
         'product': product,
     }
     
-    return render(request, template, context)    
+    return render(request, template, context)
+
+
+@login_required
+def delete_product(request, id):
+    """deletes a product """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry only store admins can access this part of the site')
+        return redirect(reverse('home'))
+    product = get_object_or_404(Product, id=id)
+    product.delete()
+    messages.success(request, 'Product deleted')
+    return redirect(reverse('products'))
