@@ -16,7 +16,7 @@ if os.path.exists('env.py'):
         import env
 import dj_database_url
 
-development = os.environ.get('DEVELOPMENT')
+development = os.environ.get('DEVELOPMENT', False)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -129,7 +129,7 @@ WSGI_APPLICATION = 'big_eats.wsgi.application'
 
 # Database
 
-if "DATABASE_URL" in os.environ:
+if development:
     DATABASES = {
         "default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
