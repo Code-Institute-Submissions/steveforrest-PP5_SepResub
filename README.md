@@ -123,3 +123,6 @@ The program can be deployed automatically but i have chosen to keep it as a manu
 
 * size of column in the order drop down and it pushing down whats below it
 * 
+
+# Citations
+* Footer taken from [startbootstrap.com](https://startbootstrap.com/snippets/sticky-footer-flexbox)

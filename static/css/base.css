@@ -8,6 +8,7 @@ body {
     min-height: 100vh;
     color: #555;
     font-family: 'Lato';
+    padding-top: 155px;
 }
 
 header {
@@ -16,6 +17,20 @@ header {
 
 .header-container {
     padding-top: 164px;
+}
+
+.footer-spacer {
+    min-height: 82vh;
+}
+
+.nav-100 {
+    width: 100%;
+}
+
+.slogan-size {
+    text-transform: uppercase;
+    font-family: 'Covered By Your Grace', cursive;
+    font-size: 1rem;
 }
 
 /* from Bulma */
@@ -27,6 +42,10 @@ header {
     width: 1.5rem;
 }
 
+.nav-size {
+    font-size: 0.5rem;
+}
+
 .text-align-center {
     text-align: center;
 }
@@ -34,6 +53,11 @@ header {
 .logo-font {
     text-transform: uppercase;
     font-family: 'Covered By Your Grace', cursive;
+    font-size: 1rem;
+}
+
+.index-h1-size {
+    font-size: 1.5rem;
 }
 
 .main-logo-link {
@@ -46,8 +70,8 @@ header {
 }
 
 .order-now-button {
-    background: #F55D14;
-    color: #441813;
+    background: #1f1d1deb;
+    color: rgb(224, 107, 11);
     min-width: 260px;
     font-family: 'Covered By Your Grace', cursive;
 }
@@ -71,11 +95,14 @@ header {
 .nav-icon:hover,
 .nav-icon:focus {
     background: #222;
-
 }
 
 .logged-out-nav {
     color: grey
+}
+
+.h3-delivery-banner {
+    font-size: 0.75rem;
 }
 
 .text-black {
@@ -88,24 +115,27 @@ header {
 
 /* Carousel */
 
+.carousel-flex {
+    display: flex;
+}
+
 .carousel-item,
 img {
-    max-width: 100%;
     z-index: -1;
 }
 
-.order-img {
-    width: 50%;
-}
-
 .bg-orange {
-    background: #F55D14;
+    background: rgb(224, 107, 11);
 }
 
-.margin-top {
-    margin: 1rem 0 0 0;
+.carousel-margin {
+    margin-bottom: 1rem;
 }
 
+.carousel-container {
+    width: 100%;
+    justify-content: center;
+}
 
 /* products template css */
 
@@ -124,7 +154,7 @@ img {
 }
 
 .drop-down-padding {
-    padding-bottom: 1rem:
+    padding-bottom: 1rem;
 }
 
 .message-in-header {
@@ -133,10 +163,14 @@ img {
     left: 50%;
     transform: translateX(-50%);
     width: fit-content;
-    border: orange 1px solid;
+    border: rgb(224, 107, 11) 1px solid;
     background-color: #ffa5002b;
     padding: 1rem;
     border-radius: 10px;
+}
+
+.carousel-container {
+    width: 100%;
 }
 
 .accordion>.card>.card-header {
@@ -149,12 +183,24 @@ img {
 }
 
 .delivery-banner {
-    background: #F55D14;
-    color: white;
+    background: #1f1d1deb;
+    color: rgb(224, 107, 11);
 }
 
 .bag-img-height {
     height: 5rem;
+}
+
+.btn-link {
+    color: rgb(224, 107, 11);
+}
+
+.accordion>.card>.card-header {
+    background-color: #1f1d1deb;
+}
+
+.margin-top-accordian {
+    margin-bottom: 1rem;
 }
 
 .text-center {
@@ -162,7 +208,7 @@ img {
 }
 
 .message-container {
-    margin: 12rem 2rem 1rem;
+    margin: 6rem 0.5rem 1rem;
 }
 
 .message-container-add-product {
@@ -170,7 +216,7 @@ img {
 }
 
 .message-container-index {
-    min-height: 150px;
+    min-height: 50px;
 }
 
 .message-container-order {
@@ -180,8 +226,6 @@ img {
 .message-container-image {
     background-image: url('/media/orderpage-banner.jpg');
     /* The image used */
-    background-color: #3a1dde;
-    /* Used if the image is unavailable */
     background-position: center;
     /* Center the image */
     background-repeat: no-repeat;
@@ -195,6 +239,10 @@ img {
     padding: 0.5rem;
 }
 
+.bag-display {
+    display: block;
+}
+
 .update-link,
 .remove-item {
     cursor: pointer;
@@ -204,11 +252,19 @@ img {
     background-color: grey;
 }
 
-
 .bag-notification-wrapper {
     height: 100px;
     overflow-x: hidden;
     overflow-y: auto;
+}
+
+.justify-content-center {
+    justify-content: space-around;
+}
+
+.d-flex {
+    display: flex;
+    flex-direction: column;
 }
 
 /* product form */
@@ -228,28 +284,141 @@ img {
     cursor: pointer;
 }
 
+.account-title {
+    display: flex;
+    justify-content: center;
+    padding-top: 5rem;
+}
+
+.account-flex-logout {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    padding-top: 5rem;
+}
+
+.account-flex {
+    display: flex;
+    justify-content: center;
+}
+
 .custom-checkbox .custom-control-label::before {
     border-radius: 0;
-    border-color: #dc3545;
+    border-color: rgb(224, 107, 11);
 }
 
 .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
-    background-color: #dc3545;
-    border-color: #dc3545;
+    background-color: rgb(224, 107, 11);
+    border-color: rgb(224, 107, 11);
     border-radius: 0;
 }
 
-/* -------------------------------- Media Queries */
+.footer-bg {
+    background-color: rgb(224, 107, 11);
+}
 
-/* Slightly larger container on xl screens */
-@media (min-width: 1200px) {
+.footer-text-color {
+    color: black;
+}
+
+.footer-padding-top {
+    padding-top: 1rem
+}
+
+.bag-title {
+    font-size: 1.5rem;
+}
+
+/* Allauth css */
+
+.account-pg-image {
+    width: 100%;
+}
+
+.allauth-form-inner-content p {
+    margin-top: 1.5rem;
+    color:
+}
+
+.home-button {
+    border: 3px #F55D14 solid;
+}
+
+.home-button:hover {
+    border: 3px black solid;
+    background: #F55D14;
+    color: white;
+}
+
+.signIn-button {
+    border: 3px black solid;
+    padding: 5px;
+}
+
+.signIn-button:hover {
+    border: 3px #F55D14 solid;
+    background: white;
+    color: black;
+}
+
+/* ------------- Media Queries --------- */
+
+/* min width */
+
+/* min width 575px */
+
+@media (min-width: 575px) {
     .container {
         max-width: 80%;
     }
+
+    .nav-size {
+        font-size: 1rem;
+    }
+
+    .message-container {
+        margin: 7rem 0.5rem 1rem;
+    }
 }
 
+/* min width 768px */
+
+@media (min-width: 768px) {
+    .nav-size {
+        font-size: 1rem;
+    }
+}
+
+/* min width 992px*/
 /* fixed top navbar only on medium and up */
 @media (min-width: 992px) {
+    .fixed-top-desktop-only {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+    }
+
+    .bag-img-height {
+        height: 10rem;
+    }
+
+    .bag-container {
+        width: 50%;
+    }
+
+    .header-container {
+        padding-top: 116x;
+    }
+
+    .bag-display {
+        display: inline;
+    }
+
+    .message-container {
+        margin: 16rem 0.5rem 1rem;
+    }
+
     .fixed-top-desktop-only {
         position: fixed;
         top: 0;
@@ -260,4 +429,79 @@ img {
     .header-container {
         padding-top: 116x;
     }
+}
+
+/* min width 1200px */
+/* Slightly larger container on xl screens */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 60%;
+    }
+
+    .nav-size {
+        font-size: 2rem;
+    }
+
+    .message-container {
+        margin: 7rem 0.5rem 1rem;
+    }
+
+    .h3-delivery-banner {
+        font-size: 1.5rem;
+    }
+
+    .logo-font {
+        margin-top: 5rem;
+        font-size: 4rem;
+    }
+
+    .container {
+        max-width: 80%;
+    }
+
+    /* Allauth form formatting */
+
+    .allauth-form-inner-content p {
+        margin-top: 1.5rem;
+        /* mt-4 */
+        color: #6c757d;
+        /* text-secondary */
+    }
+
+    .allauth-form-inner-content input {
+        border-color: #000;
+        border-radius: 0;
+    }
+
+    .allauth-form-inner-content label:not([for='id_remember']) {
+        display: none;
+    }
+
+    .allauth-form-inner-content input::placeholder {
+        color: #aab7c4;
+    }
+
+    .allauth-form-inner-content button,
+    .allauth-form-inner-content input[type='submit'] {
+        /* btn */
+        display: inline-block;
+        font-weight: 400;
+        color: #fff;
+        text-align: center;
+        vertical-align: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        background-color: #000;
+        border: 1px solid #000;
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        border-radius: 0;
+
+        /* standard bootstrap btn transitions */
+        transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    }
+
 }

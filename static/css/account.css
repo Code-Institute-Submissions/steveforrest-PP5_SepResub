@@ -14,6 +14,8 @@ header {
     padding: 0 0 1rem 0;
 }
 
+
+
 .message-container-image {
     background-image: url('/media/orderpage-banner.jpg');
     /* The image used */
@@ -82,6 +84,10 @@ header {
 .nav-icon:focus {
     background: #222;
 
+}
+
+.nav-100 {
+    width: 100%;
 }
 
 .logged-out-nav {
@@ -163,7 +169,7 @@ button {
 /* Allauth css */
 
 .account-pg-image {
-    width: inherit;
+    width: 100%;
 }
 
 .allauth-form-inner-content p {
@@ -191,7 +197,27 @@ button {
     border: 3px #F55D14 solid;
     background: white;
     color: black;
+}
 
+.footer-spacer {
+    min-height: 82vh;
+}
+
+.footer-bg {
+    background-color: rgb(224, 107, 11);
+}
+
+.footer-text-color {
+    color: black;
+}
+
+.footer-padding-top {
+    padding-top: 1rem
+}
+
+.account-title {
+    display: flex;
+    justify-content: center;
 }
 
 /* -------------------------------- Media Queries */
