@@ -223,19 +223,19 @@ img {
     min-height: 300px;
 }
 
-.message-container-image {
+/* .message-container-image {
     background-image: url('/media/orderpage-banner.jpg');
     /* The image used */
-    background-position: center;
-    /* Center the image */
-    background-repeat: no-repeat;
-    /* Do not repeat the image */
-    background-size: cover;
-    /* Resize the background image to cover the entire container */
-    padding: 1rem 2rem;
+background-position: center;
+/* Center the image */
+background-repeat: no-repeat;
+/* Do not repeat the image */
+background-size: cover;
+/* Resize the background image to cover the entire container */
+padding: 1rem 2rem;
 }
 
-.toast {
+*/ .toast {
     padding: 0.5rem;
 }
 
