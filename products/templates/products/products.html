@@ -27,9 +27,10 @@
             <div id="collapsePizza" class="collapse" aria-labelledby="headingPizza" data-parent="#menuCategories">
                 <div class="card-body">
                     {% for pizza in pizzas %}
-                    <a data-hx-get='{% url "product" pizza.id %}' data-hx-trigger='click' data-hx-target='#pizza-target'
+                    {% comment %} <a data-hx-get='{% url "product" pizza.id %}' data-hx-trigger='click' data-hx-target='#pizza-target'
                         data-hx-swap='innerHTML' class="dropdown-item"
-                        href="{% url 'product' pizza.id %}">{{pizza.name}}</a>
+                        href="{% url 'product' pizza.id %}">{{pizza.name}}</a> {% endcomment %}
+                        {% include 'products/snippets/product_card.html' %}
                     {% endfor %}
                 </div>
                 <div id='pizza-target'>
