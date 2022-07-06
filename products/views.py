@@ -17,22 +17,25 @@ def all_products(request):
 
     products = Product.objects.all()
     query = None
-    categories = None
-
+    categories = []
+    for c in products:
+        categories.append(c.category)
+    categories = list(dict.fromkeys(categories))
+    
     if request.GET:
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')
             products = products.filter(category__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
-        return render(request, 'products/product_search_result.html', { 'products': products })
-        if 'q' in request.GET:
+            return render(request, 'products/product_search_result.html', { 'products': products })
+        elif 'q' in request.GET:
             query = request.GET['q']
             if query:
                 queries = Q(name__icontains=query) | Q(description__icontains=query)
                 products = products.filter(queries)
             else:
                 messages.error(request, "You didn't enter any search criteria!")       
-            return render(request, 'products/product_search_result.html', { 'products': products })
+            return render(request, 'products/product_search_result.html', { 'products': products, })
     
     pizzas = products.filter(
         Q(category__name__contains='Pizza')
@@ -70,9 +73,8 @@ def all_products(request):
         'worlds': worlds,
         'desserts': desserts,
         'search_term': query,
-        'current_categories': categories,
+        'categories': categories,
     }
-
     return render(request, 'products/products.html', context)
 
 
@@ -158,3 +160,4 @@ def delete_product(request, id):
     product.delete()
     messages.success(request, 'Product deleted')
     return redirect(reverse('products'))
+

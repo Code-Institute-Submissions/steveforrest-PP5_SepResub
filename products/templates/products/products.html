@@ -7,166 +7,28 @@
 
 {% block content %}
 
-<div class="message-container message-container-image d-flex justify-content-center message-container-order align-items-center">
+<div class="message-container-image d-flex justify-content-center message-container-order align-items-center">
     {% if messages %}
       {% include 'includes/messages.html' with messages=messages %}
     {% endif %}
 </div>
 
-<section class='container margin-top-accordian margin-bottom-accordian'>
-    <div class="accordion" id="menuCategories">
-        <div class="card">
-            <div class="card-header" id="headingPizza">
-                <h2 class="mb-0">
-                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                        data-target="#collapsePizza" aria-expanded="true" aria-controls="collapsePizza">
-                        Pizza
-                    </button>
-                </h2>
-            </div>
-            <div id="collapsePizza" class="collapse" aria-labelledby="headingPizza" data-parent="#menuCategories">
-                <div class="card-body">
-                    {% for pizza in pizzas %}
-                    {% comment %} <a data-hx-get='{% url "product" pizza.id %}' data-hx-trigger='click' data-hx-target='#pizza-target'
-                        data-hx-swap='innerHTML' class="dropdown-item"
-                        href="{% url 'product' pizza.id %}">{{pizza.name}}</a> {% endcomment %}
-                        {% include 'products/snippets/product_card.html' %}
-                    {% endfor %}
-                </div>
-                <div id='pizza-target'>
-                </div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-header" id="headingBurger">
-                <h2 class="mb-0">
-                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                        data-target="#collapseBurger" aria-expanded="true" aria-controls="collapseBurger">
-                        Burger
-                    </button>
-                </h2>
-            </div>
-            <div id="collapseBurger" class="collapse" aria-labelledby="headingBurger" data-parent="#menuCategories">
-                <div class="card-body">
-                    {% for burger in burgers %}
-                    <a data-hx-get='{% url "product" burger.id %}' data-hx-trigger='click'
-                        data-hx-target='#burger-target' data-hx-swap='innerHTML' class="dropdown-item"
-                        href=" {% url 'product' burger.id %} ">{{burger.name}}</a>
-                    {% endfor %}
-                </div>
-                <div id='burger-target'></div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-header" id="headingFries">
-                <h2 class="mb-0">
-                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                        data-target="#collapseFries" aria-expanded="true" aria-controls="collapseFries">
-                        Fries
-                    </button>
-                </h2>
-            </div>
-            <div id="collapseFries" class="collapse" aria-labelledby="headingFries" data-parent="#menuCategories">
-                <div class="card-body">
-                    {% for frie in fries %}
-                    <a data-hx-get='{% url "product" frie.id %}' data-hx-trigger='click' data-hx-target='#fries-target'
-                        data-hx-swap='innerHTML' class="dropdown-item"
-                        href=" {% url 'product' frie.id %} ">{{frie.name}}</a>
-                    {% endfor %}
-                </div>
-                <div id='fries-target'></div>
-            </div>
-        </div>
-
-
-        <div class="card">
-            <div class="card-header" id="headingMore">
-                <h2 class="mb-0">
-                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                        data-target="#collapseMore" aria-expanded="true" aria-controls="collapseMore">
-                        That bit more!!
-                    </button>
-                </h2>
-            </div>
-            <div id="collapseMore" class="collapse" aria-labelledby="headingMore" data-parent="#menuCategories">
-                <div class="card-body">
-                    {% for extra in extras %}
-                    <a data-hx-get='{% url "product" extra.id %}' data-hx-trigger='click'
-                        data-hx-target='#extras-target' data-hx-swap='innerHTML' class="dropdown-item"
-                        href=" {% url 'product' extra.id %} ">{{extra.name}}</a>
-                    {% endfor %}
-                </div>
-                <div id='extras-target'>
-                </div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-header" id="headingDrink">
-                <h2 class="mb-0">
-                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                        data-target="#collapseDrink" aria-expanded="true" aria-controls="collapseDrink">
-                        Somthing to wash it down with!!
-                    </button>
-                </h2>
-            </div>
-            <div id="collapseDrink" class="collapse" aria-labelledby="headingDrink" data-parent="#menuCategories">
-                <div class="card-body">
-                    {% for drink in drinks %}
-                    <a data-hx-get='{% url "product" drink.id %}' data-hx-trigger='click'
-                        data-hx-target='#drinks-target' data-hx-swap='innerHTML' class="dropdown-item prdt"
-                        href=" {% url 'product' drink.id %} ">{{drink.name}}</a>
-                    {% endfor %}
-                </div>
-                <div id='drinks-target'></div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-header" id="headingWorld">
-                <h2 class="mb-0">
-                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                        data-target="#collapseWorld" aria-expanded="true" aria-controls="collapseWorld">
-                        World food
-                    </button>
-                </h2>
-            </div>
-            <div id="collapseWorld" class="collapse" aria-labelledby="headingWorld" data-parent="#menuCategories">
-                <div class="card-body">
-                    {% for world in worlds %}
-                    <a data-hx-get='{% url "product" world.id %}' data-hx-trigger='click'
-                        data-hx-target='#worlds-target' data-hx-swap='innerHTML' class="dropdown-item"
-                        href=" {% url 'product' world.id %} ">{{world.name}}</a>
-                    {% endfor %}
-                </div>
-                <div id='worlds-target'></div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-header" id="headingSweet">
-                <h2 class="mb-0">
-                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                        data-target="#collapseSweet" aria-expanded="true" aria-controls="collapseSweet">
-                        Something sweet!!
-                    </button>
-                </h2>
-            </div>
-            <div id="collapseSweet" class="collapse" aria-labelledby="headingSweet" data-parent="#menuCategories">
-                <div class="card-body">
-                    {% for dessert in desserts %}
-                    <a data-hx-get='{% url "product" dessert.id %}' data-hx-trigger='click'
-                        data-hx-target='#desserts-target' data-hx-swap='innerHTML' class="dropdown-item"
-                        href=" {% url 'product' dessert.id %} ">{{dessert.name}}</a>
-                    {% endfor %}
-                </div>
-            <div id='desserts-target'></div>
+{% for cat in categories %}
+<button class="accordion collapse show" data-bs-toggle="collapse" id="{{cat}}">
+        {{ cat|capfirst }}
+    </button>
+    <div class="panel">
+        <div class="accordian-flex">
+        {% for product in products %}
+            {% if product.category == cat %}
+                {% include 'products/snippets/product_card.html' %}
+            {% endif %} 
+        {% endfor %}
         </div>
     </div>
-</section>
-
-
+{% endfor %}
 
 {% endblock %}
+
+
+
