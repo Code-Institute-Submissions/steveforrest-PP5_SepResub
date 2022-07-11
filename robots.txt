@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /profiles/
+Disallow: /accounts/
+sitemap: https://big-eatz.herokuapp.com/sitemap.xml

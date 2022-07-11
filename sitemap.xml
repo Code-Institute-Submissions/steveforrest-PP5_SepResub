@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://big-eatz.herokuapp.com/</loc>
+  <lastmod>2022-07-07T08:17:18+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://big-eatz.herokuapp.com/accountssignup/</loc>
+  <lastmod>2022-07-07T08:17:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://big-eatz.herokuapp.com/accountslogin/</loc>
+  <lastmod>2022-07-07T08:17:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://big-eatz.herokuapp.com/order/</loc>
+  <lastmod>2022-07-07T08:17:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://big-eatz.herokuapp.com/products/order/?category=greek</loc>
+  <lastmod>2022-07-07T08:17:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://big-eatz.herokuapp.com/products/order/?category=curry</loc>
+  <lastmod>2022-07-07T08:17:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://big-eatz.herokuapp.com/products/order/?category=curry,greek</loc>
+  <lastmod>2022-07-07T08:17:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://big-eatz.herokuapp.com/products/order/?category=Pizza</loc>
+  <lastmod>2022-07-07T08:17:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://big-eatz.herokuapp.com/products/order/?category=burgers</loc>
+  <lastmod>2022-07-07T08:17:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://big-eatz.herokuapp.com/products/order/?category=fries</loc>
+  <lastmod>2022-07-07T08:17:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://big-eatz.herokuapp.com/products/order/?category=extras</loc>
+  <lastmod>2022-07-07T08:17:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://big-eatz.herokuapp.com/products/order/?category=extras,Pizza,burgers,fries</loc>
+  <lastmod>2022-07-07T08:17:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://big-eatz.herokuapp.com/products/order/?category=shakes</loc>
+  <lastmod>2022-07-07T08:17:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://big-eatz.herokuapp.com/products/order/?category=pop</loc>
+  <lastmod>2022-07-07T08:17:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://big-eatz.herokuapp.com/products/order/?category=hot</loc>
+  <lastmod>2022-07-07T08:17:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://big-eatz.herokuapp.com/products/order/?category=hot,pop,shakes</loc>
+  <lastmod>2022-07-07T08:17:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://big-eatz.herokuapp.com/products/order/</loc>
+  <lastmod>2022-07-07T08:17:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://big-eatz.herokuapp.com/accountspassword/reset/</loc>
+  <lastmod>2022-07-07T08:17:18+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
+</urlset>

@@ -54,10 +54,12 @@ INSTALLED_APPS = [
     'checkout',
     'profiles',
     
-    #
     'crispy_forms',
     'storages',
+    'django.contrib.sitemaps',
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

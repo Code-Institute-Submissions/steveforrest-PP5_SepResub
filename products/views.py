@@ -31,7 +31,7 @@ def all_products(request):
         elif 'q' in request.GET:
             query = request.GET['q']
             if query:
-                queries = Q(name__icontains=query) | Q(description__icontains=query)
+                queries = Q(name__icontains=query)
                 products = products.filter(queries)
             else:
                 messages.error(request, "You didn't enter any search criteria!")       

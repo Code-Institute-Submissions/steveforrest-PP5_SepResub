@@ -8,7 +8,7 @@ body {
     min-height: 100vh;
     color: #555;
     font-family: 'Lato';
-    padding-top: 155px;
+    padding-top: 5px;
 }
 
 header {
@@ -21,6 +21,17 @@ header {
 
 .footer-spacer {
     min-height: 82vh;
+}
+
+.footer-flex {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+.footer-item-flex {
+    display: flex;
 }
 
 .nav-100 {
@@ -434,6 +445,11 @@ img {
 /* min width 768px */
 
 @media (min-width: 768px) {
+
+    body {
+        padding-top: 100px;
+    }
+
     .nav-size {
         font-size: 1rem;
     }
