@@ -19,6 +19,16 @@ body {
     max-width: 100vw;
 }
 
+.row {
+    /* remove margin right which is causing horizontal scroll */
+    margin-right: 0;
+}
+
+.container-fluid {
+    /* remove padding right which is causing header to not take up full width  */
+    padding-right: 0;
+}
+
 .body-flex {
     display: flex;
     flex-direction: column;
@@ -42,7 +52,7 @@ header {
 .slogan-size {
     text-transform: uppercase;
     font-family: 'Covered By Your Grace', cursive;
-    font-size: 1rem;
+    font-size: 2rem;
 }
 
 /* from Bulma */
@@ -79,6 +89,10 @@ header {
 .flex-index {
     display: flex;
     flex-direction: column;
+}
+
+.index-grow {
+    flex-grow: 1;
 }
 
 .order-now-button {
@@ -142,8 +156,8 @@ header {
 .carousel-item,
 img {
     z-index: -1;
-    height: 6rem;
-    width: 9rem;
+    height: auto;
+    width: 20rem;
 }
 
 .carousel-margin {
@@ -310,18 +324,6 @@ img {
     padding-top: 5rem;
 }
 
-.account-flex-logout {
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
-    padding-top: 5rem;
-}
-
-.account-flex {
-    display: flex;
-    justify-content: center;
-}
-
 .custom-checkbox .custom-control-label::before {
     border-radius: 0;
     border-color: rgb(224, 107, 11);
@@ -341,11 +343,43 @@ img {
 
 .account-pg-image {
     width: 100%;
+    height: auto;
+}
+
+.account-flex-logout {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    padding-top: 5rem;
+}
+
+.account-flex {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.account-content {
+    justify-content: center;
 }
 
 .allauth-form-inner-content p {
     margin-top: 1.5rem;
     color:
+}
+
+.acount-button {
+    background: #1f1d1deb;
+    color: rgb(224, 107, 11);
+    min-width: 260px;
+    font-family: 'Covered By Your Grace', cursive;
+}
+
+.account-button:hover {
+    border: 3px black solid;
+    background: #F55D14;
+    color: white;
 }
 
 .home-button {
@@ -356,17 +390,6 @@ img {
     border: 3px black solid;
     background: #F55D14;
     color: white;
-}
-
-.signIn-button {
-    border: 3px black solid;
-    padding: 5px;
-}
-
-.signIn-button:hover {
-    border: 3px #F55D14 solid;
-    background: white;
-    color: black;
 }
 
 .error-flex {
@@ -419,7 +442,7 @@ img {
 
 /* Footer */
 footer {
-    max-width: 100vh;
+    max-width: 100vw;
 }
 
 .footer-flex {
@@ -428,7 +451,7 @@ footer {
     align-items: stretch;
     max-width: 100vw;
     font-size: 0.5 rem;
-
+    flex-direction: column;
 }
 
 .footer-bg {
@@ -462,6 +485,10 @@ footer {
     text-align: center;
 }
 
+.mailchimp-logo {
+    width: 250px;
+}
+
 /* ------------- Media Queries --------- */
 
 /* min width */
@@ -470,7 +497,7 @@ footer {
 
 @media (min-width: 575px) {
     .container {
-        max-width: 80%;
+        max-width: 100%;
     }
 
     .nav-size {
@@ -524,6 +551,18 @@ footer {
         flex-direction: column;
     }
 
+    .footer-flex {
+        flex-direction: row;
+    }
+
+    .slogan-size {
+        font-size: 4rem;
+    }
+
+    .carousel-item,
+    img {
+        width: 40rem;
+    }
 }
 
 /* min width 1200px */
@@ -534,7 +573,7 @@ footer {
     }
 
     .nav-size {
-        font-size: 2rem;
+        font-size: 1.75rem;
     }
 
     .message-container-order {
@@ -551,7 +590,7 @@ footer {
     }
 
     .container {
-        max-width: 80%;
+        max-width: 100%;
     }
 
     /* Allauth form formatting */
