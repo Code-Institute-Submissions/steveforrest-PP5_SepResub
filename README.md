@@ -83,6 +83,8 @@ The program can be deployed automatically but i have chosen to keep it as a manu
 
 ## Wire frame
 
+![Wire Frame of site showing different pages](media/pp5wireframe.png)
+
 ## Languages
 
 * [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
@@ -121,10 +123,6 @@ The program can be deployed automatically but i have chosen to keep it as a manu
 
 ## Things not working
 
-* size of column in the order drop down and it pushing down whats below it
-* robots.txt
-* sitemap.xm
-* creation of either a real Facebook business page, or a mockup of one
 * 
 
 # Citations
