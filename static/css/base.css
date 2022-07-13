@@ -576,6 +576,9 @@ footer {
         font-size: 1rem;
     }
 
+    .footer-padding {
+        pading: 0.5rem 0;
+    }
 
     .slogan-size {
         font-size: 4rem;
