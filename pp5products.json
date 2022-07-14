@@ -1,1 +1,265 @@
-[{"model": "products.category", "pk": 3, "fields": {"name": "world_food", "friendly_name": "World food", "image_url": null, "image": "worldfoodGreek2_1dbpJoz.jpg"}}, {"model": "products.category", "pk": 4, "fields": {"name": "Pizza", "friendly_name": "Pizza", "image_url": null, "image": ""}}, {"model": "products.category", "pk": 5, "fields": {"name": "burgers", "friendly_name": "Burgers", "image_url": null, "image": "Burger1_jiOnw1o.jpg"}}, {"model": "products.category", "pk": 6, "fields": {"name": "fries", "friendly_name": "Fries", "image_url": null, "image": "fries2_EI3257r.jpg"}}, {"model": "products.category", "pk": 10, "fields": {"name": "drinks", "friendly_name": "Something to wash it down with", "image_url": null, "image": "milkshake1_OzlN621.jpg"}}, {"model": "products.category", "pk": 11, "fields": {"name": "extras", "friendly_name": "That bit more", "image_url": null, "image": ""}}, {"model": "products.category", "pk": 12, "fields": {"name": "dessert", "friendly_name": "Sommit sweet!", "image_url": null, "image": ""}}, {"model": "products.category", "pk": 13, "fields": {"name": "curry", "friendly_name": "Curry", "image_url": null, "image": "curry2_4Jkv5sV.jpg"}}, {"model": "products.category", "pk": 14, "fields": {"name": "greek", "friendly_name": "Greek", "image_url": null, "image": "worldfoodGreek2_ZBfUbu7.jpg"}}, {"model": "products.category", "pk": 15, "fields": {"name": "shakes", "friendly_name": "Milk Shakes", "image_url": null, "image": "milkshake1_l7Vzai7.jpg"}}, {"model": "products.category", "pk": 16, "fields": {"name": "hot", "friendly_name": "Hot Drinks", "image_url": null, "image": ""}}, {"model": "products.category", "pk": 17, "fields": {"name": "pop", "friendly_name": "Fizzy Drinks", "image_url": null, "image": ""}}, {"model": "products.product", "pk": 1, "fields": {"category": 4, "sku": "1", "name": "pepperoni", "description": "pepperoni meat", "price": "10.00", "image_url": null, "image": "pizza1_FLiq9mP.jpg"}}, {"model": "products.product", "pk": 2, "fields": {"category": 4, "sku": "2", "name": "margerita", "description": "cheese and tomato", "price": "8.00", "image_url": null, "image": "pizza2_P7fpiHV.jpg"}}, {"model": "products.product", "pk": 3, "fields": {"category": 5, "sku": "3", "name": "Big Burger", "description": "massive belly burster", "price": "11.00", "image_url": null, "image": "burger2_opwG6jk.jpg"}}, {"model": "products.product", "pk": 4, "fields": {"category": 6, "sku": "4", "name": "Fries", "description": "standard fries nothing special", "price": "1.00", "image_url": null, "image": "fries2_fMSp8mY.jpg"}}, {"model": "products.product", "pk": 6, "fields": {"category": 6, "sku": "6", "name": "Puffa jackets", "description": "potatoes puffed and fried to crispy deliciousness", "price": "4.00", "image_url": null, "image": "fries1_4D6plSE.jpg"}}, {"model": "products.product", "pk": 7, "fields": {"category": 11, "sku": "5", "name": "Chicken wings", "description": "Deliciously hot or bbq'd chicken wings served with a selection of dips", "price": "8.00", "image_url": null, "image": "chickenWings_HudpiNA.jpg"}}, {"model": "products.product", "pk": 8, "fields": {"category": 17, "sku": "7", "name": "Fizzy drinks", "description": "Choose between Pepsi, Tango, 7up and pepsi-max", "price": "3.00", "image_url": null, "image": "fizzy.jpg"}}, {"model": "products.product", "pk": 9, "fields": {"category": 13, "sku": "9", "name": "Balti", "description": "Tender spring lamb cooked in a red hot onion & tomato gravy, spiced with aromatic garam masala & garnished with freshly chopped coriander", "price": "11.00", "image_url": null, "image": "curry2_US6IFGH.jpg"}}, {"model": "products.product", "pk": 10, "fields": {"category": 15, "sku": "8", "name": "Milkshake", "description": "Thick and delicious choice of flavours: Chocolate, strawberry, oreo, chocolate getaway, premium dream", "price": "6.00", "image_url": null, "image": "milkshake1_yuBFH0F.jpg"}}, {"model": "products.product", "pk": 11, "fields": {"category": 12, "sku": "10", "name": "Cake", "description": "Delicious Cake", "price": "9.00", "image_url": null, "image": "desert1_1mKkG6d.jpg"}}, {"model": "products.product", "pk": 12, "fields": {"category": 14, "sku": "16", "name": "feta cheese salad", "description": "Feta cheese rocket letuce tomatos and finely chopped cucumber all drizzled with olive oil and a fine vinigerette dressing", "price": "7.00", "image_url": null, "image": "feta-salad.jpg"}}, {"model": "products.product", "pk": 13, "fields": {"category": 16, "sku": "17", "name": "Latte", "description": "Hot white frothy coffee", "price": "4.00", "image_url": null, "image": "latte.jpg"}}, {"model": "products.product", "pk": 14, "fields": {"category": 16, "sku": "18", "name": "Tea", "description": "Hot refreshing tea, in a pot with a selection of milks available for your dietary needs.", "price": "3.00", "image_url": null, "image": "tea.jpg"}}]
+[{
+    "model": "products.category",
+    "pk": 3,
+    "fields": {
+        "name": "world_food",
+        "friendly_name": "World food",
+        "image_url": null,
+        "image": "worldfoodGreek2.jpg"
+    }
+}, {
+    "model": "products.category",
+    "pk": 4,
+    "fields": {
+        "name": "Pizza",
+        "friendly_name": "Pizza",
+        "image_url": null,
+        "image": ""
+    }
+}, {
+    "model": "products.category",
+    "pk": 5,
+    "fields": {
+        "name": "burgers",
+        "friendly_name": "Burgers",
+        "image_url": null,
+        "image": "Burger1.jpg"
+    }
+}, {
+    "model": "products.category",
+    "pk": 6,
+    "fields": {
+        "name": "fries",
+        "friendly_name": "Fries",
+        "image_url": null,
+        "image": "fries2.jpg"
+    }
+}, {
+    "model": "products.category",
+    "pk": 10,
+    "fields": {
+        "name": "drinks",
+        "friendly_name": "Something to wash it down with",
+        "image_url": null,
+        "image": "milkshake1.jpg"
+    }
+}, {
+    "model": "products.category",
+    "pk": 11,
+    "fields": {
+        "name": "extras",
+        "friendly_name": "That bit more",
+        "image_url": null,
+        "image": ""
+    }
+}, {
+    "model": "products.category",
+    "pk": 12,
+    "fields": {
+        "name": "dessert",
+        "friendly_name": "Sommit sweet!",
+        "image_url": null,
+        "image": ""
+    }
+}, {
+    "model": "products.category",
+    "pk": 13,
+    "fields": {
+        "name": "curry",
+        "friendly_name": "Curry",
+        "image_url": null,
+        "image": "curry2.jpg"
+    }
+}, {
+    "model": "products.category",
+    "pk": 14,
+    "fields": {
+        "name": "greek",
+        "friendly_name": "Greek",
+        "image_url": null,
+        "image": "worldfoodGreek2.jpg"
+    }
+}, {
+    "model": "products.category",
+    "pk": 15,
+    "fields": {
+        "name": "shakes",
+        "friendly_name": "Milk Shakes",
+        "image_url": null,
+        "image": "milkshake1.jpg"
+    }
+}, {
+    "model": "products.category",
+    "pk": 16,
+    "fields": {
+        "name": "hot",
+        "friendly_name": "Hot Drinks",
+        "image_url": null,
+        "image": ""
+    }
+}, {
+    "model": "products.category",
+    "pk": 17,
+    "fields": {
+        "name": "pop",
+        "friendly_name": "Fizzy Drinks",
+        "image_url": null,
+        "image": ""
+    }
+}, {
+    "model": "products.product",
+    "pk": 1,
+    "fields": {
+        "category": 4,
+        "sku": "1",
+        "name": "pepperoni",
+        "description": "pepperoni meat",
+        "price": "10.00",
+        "image_url": null,
+        "image": "pizza1.jpg"
+    }
+}, {
+    "model": "products.product",
+    "pk": 2,
+    "fields": {
+        "category": 4,
+        "sku": "2",
+        "name": "margerita",
+        "description": "cheese and tomato",
+        "price": "8.00",
+        "image_url": null,
+        "image": "pizza2.jpg"
+    }
+}, {
+    "model": "products.product",
+    "pk": 3,
+    "fields": {
+        "category": 5,
+        "sku": "3",
+        "name": "Big Burger",
+        "description": "massive belly burster",
+        "price": "11.00",
+        "image_url": null,
+        "image": "burger2.jpg"
+    }
+}, {
+    "model": "products.product",
+    "pk": 4,
+    "fields": {
+        "category": 6,
+        "sku": "4",
+        "name": "Fries",
+        "description": "standard fries nothing special",
+        "price": "1.00",
+        "image_url": null,
+        "image": "fries2.jpg"
+    }
+}, {
+    "model": "products.product",
+    "pk": 6,
+    "fields": {
+        "category": 6,
+        "sku": "6",
+        "name": "Puffa jackets",
+        "description": "potatoes puffed and fried to crispy deliciousness",
+        "price": "4.00",
+        "image_url": null,
+        "image": "fries1.jpg"
+    }
+}, {
+    "model": "products.product",
+    "pk": 7,
+    "fields": {
+        "category": 11,
+        "sku": "5",
+        "name": "Chicken wings",
+        "description": "Deliciously hot or bbq'd chicken wings served with a selection of dips",
+        "price": "8.00",
+        "image_url": null,
+        "image": "chickenWings.jpg"
+    }
+}, {
+    "model": "products.product",
+    "pk": 8,
+    "fields": {
+        "category": 17,
+        "sku": "7",
+        "name": "Fizzy drinks",
+        "description": "Choose between Pepsi, Tango, 7up and pepsi-max",
+        "price": "3.00",
+        "image_url": null,
+        "image": "fizzy.jpg"
+    }
+}, {
+    "model": "products.product",
+    "pk": 9,
+    "fields": {
+        "category": 13,
+        "sku": "9",
+        "name": "Balti",
+        "description": "Tender spring lamb cooked in a red hot onion & tomato gravy, spiced with aromatic garam masala & garnished with freshly chopped coriander",
+        "price": "11.00",
+        "image_url": null,
+        "image": "curry2.jpg"
+    }
+}, {
+    "model": "products.product",
+    "pk": 10,
+    "fields": {
+        "category": 15,
+        "sku": "8",
+        "name": "Milkshake",
+        "description": "Thick and delicious choice of flavours: Chocolate, strawberry, oreo, chocolate getaway, premium dream",
+        "price": "6.00",
+        "image_url": null,
+        "image": "milkshake1.jpg"
+    }
+}, {
+    "model": "products.product",
+    "pk": 11,
+    "fields": {
+        "category": 12,
+        "sku": "10",
+        "name": "Cake",
+        "description": "Delicious Cake",
+        "price": "9.00",
+        "image_url": null,
+        "image": "desert1.jpg"
+    }
+}, {
+    "model": "products.product",
+    "pk": 12,
+    "fields": {
+        "category": 14,
+        "sku": "16",
+        "name": "feta cheese salad",
+        "description": "Feta cheese rocket letuce tomatos and finely chopped cucumber all drizzled with olive oil and a fine vinigerette dressing",
+        "price": "7.00",
+        "image_url": null,
+        "image": "feta-salad.jpg"
+    }
+}, {
+    "model": "products.product",
+    "pk": 13,
+    "fields": {
+        "category": 16,
+        "sku": "17",
+        "name": "Latte",
+        "description": "Hot white frothy coffee",
+        "price": "4.00",
+        "image_url": null,
+        "image": "latte.jpg"
+    }
+}, {
+    "model": "products.product",
+    "pk": 14,
+    "fields": {
+        "category": 16,
+        "sku": "18",
+        "name": "Tea",
+        "description": "Hot refreshing tea, in a pot with a selection of milks available for your dietary needs.",
+        "price": "3.00",
+        "image_url": null,
+        "image": "tea.jpg"
+    }
+}]
