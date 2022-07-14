@@ -21,32 +21,31 @@
         </h2>
       </div>
     </div>
-    <div class=' carousel-margin'>
-      <div class='carousel-flex'>
-        <div id="carouselExampleCaptions" class="carousel overflow-hidden slide" data-ride="carousel">
-          <div>
-            <div class="carousel-item active">
-              <img src="{{ MEDIA_URL }}/caraselBurger.jpg" class="d-block img-fluid" alt="Image of a burger">
-            </div>
-            <div class="carousel-item">
-              <img src="{{ MEDIA_URL }}/caraselFries2.jpg" class="d-block img-fluid" alt="Image of one of our selection of fries">
-            </div>
-            <div class="carousel-item">
-              <img src="{{ MEDIA_URL }}/caraselPizza1.jpg" class="d-block img-fluid" alt="Image of our Pepperoni extreme pizza">
-            </div>
-            <div class="carousel-item">
-              <img src="{{ MEDIA_URL }}/caraselBurger1.jpg" class="d-block img-fluid" alt="Image of our mouth watering full stack burger">
-            </div>
-            <div class="carousel-item">
-              <img src="{{ MEDIA_URL }}/caraselWorldfoodGreek2.jpg" class="d-block img-fluid" alt="Image of our Greek salad">
-            </div>
-            <div class="carousel-item">
-              <img src="{{ MEDIA_URL }}/caraselDesert1.jpg" class="d-block img-fluid" alt="Image of one of outr delicious desserts">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div?
+    
+    <!-- Slider main container -->
+  <div class="swiper">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+      <!-- Slides -->
+      <div class="swiper-slide"><img src="{{ MEDIA_URL }}/caraselBurger.jpg" class="d-block img-fluid" alt="Image of a burger"></div>
+      <div class="swiper-slide"><img src="{{ MEDIA_URL }}/caraselFries2.jpg" class="d-block img-fluid" alt="Image of one of our selection of fries"></div>
+      <div class="swiper-slide"><img src="{{ MEDIA_URL }}/caraselPizza1.jpg" class="d-block img-fluid" alt="Image of our Pepperoni extreme pizza"></div>
+      <div class="swiper-slide"><img src="{{ MEDIA_URL }}/caraselBurger1.jpg" class="d-block img-fluid" alt="Image of our mouth watering full stack burger"></div>
+      <div class="swiper-slide"><img src="{{ MEDIA_URL }}/caraselDesert1.jpg" class="d-block img-fluid" alt="Image of one of outr delicious desserts"></div>
+
+      ...
+    </div>
+    <!-- If we need pagination -->
+    <div class="swiper-pagination"></div>
+
+    <!-- If we need navigation buttons -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+
+    <!-- If we need scrollbar -->
+    <div class="swiper-scrollbar"></div>
+  </div>
+
     <div class='row h-100'>
       <div class='col-12 text-center'>
         <h4 class="my-5">
@@ -56,4 +55,28 @@
     </div>
   </div>
 </div>
+
+<script>
+  const swiper = new Swiper('.swiper', {
+    // Optional parameters
+    direction: 'horizontal',
+    loop: true,
+  
+    // If we need pagination
+    pagination: {
+      el: '.swiper-pagination',
+    },
+  
+    // Navigation arrows
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  
+    // And if we need scrollbar
+    scrollbar: {
+      el: '.swiper-scrollbar',
+    },
+  });
+</script>
 {% endblock %}

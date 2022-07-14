@@ -147,6 +147,18 @@ header {
     border: 1px solid black !important;
 }
 
+/*Swiper*/
+
+.swiper {
+    max-width: 80%;
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 /* Carousel */
 
 .carousel-flex {
@@ -154,7 +166,6 @@ header {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-
 }
 
 .carousel-item,
@@ -544,6 +555,10 @@ footer {
         flex-direction: column;
     }
 
+    .nav-item {
+        padding: 0 1.25rem;
+    }
+
     .bag-img-height {
         height: 10rem;
     }
@@ -603,7 +618,11 @@ footer {
     }
 
     .nav-size {
-        font-size: 1.75rem;
+        font-size: 1.25rem;
+    }
+
+    .nav-item {
+        padding: 0 1.5rem;
     }
 
     .message-container-order {
@@ -621,6 +640,7 @@ footer {
 
     .slogan-size {
         font-size: 5rem;
+        padding: 1.5rem;
     }
 
     .container {

@@ -27,7 +27,8 @@ def all_products(request):
             categories = request.GET['category'].split(',')
             products = products.filter(category__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
-            return render(request, 'products/product_search_result.html', { 'products': products })
+            return render(request, 'products/product_search_result.html',
+                          {'products': products})
         elif 'q' in request.GET:
             query = request.GET['q']
             if query:
@@ -35,7 +36,8 @@ def all_products(request):
                 products = products.filter(queries)
             else:
                 messages.error(request, "You didn't enter any search criteria!")       
-            return render(request, 'products/product_search_result.html', { 'products': products, })
+            return render(request, 'products/product_search_result.html',
+                          {'products': products})
     
     pizzas = products.filter(
         Q(category__name__contains='Pizza')
@@ -50,9 +52,9 @@ def all_products(request):
         Q(category__name__contains='extras')
     )
     drinks = products.filter(
-        Q(category__name__contains='drinks')|
-        Q(category__name__contains='hot')|
-        Q(category__name__contains='shakes')|
+        Q(category__name__contains='drinks') |
+        Q(category__name__contains='hot') |
+        Q(category__name__contains='shakes') |
         Q(category__name__contains='pop')
     )
     worlds = products.filter(
