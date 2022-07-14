@@ -268,7 +268,7 @@ img {
 }
 
 .message-container-image {
-    background-image: url('{% media "media/message-banner.jpg" %}');
+    background-image: url('{% static "media/message-banner.jpg" %}');
 
     /* The image used */
     background-position: center;
