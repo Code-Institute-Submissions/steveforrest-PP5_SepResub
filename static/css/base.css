@@ -74,7 +74,7 @@ header {
 .logo-font {
     text-transform: uppercase;
     font-family: 'Covered By Your Grace', cursive;
-    font-size: 1rem;
+    font-size: 2rem;
 }
 
 .index-h1-size {
@@ -442,10 +442,6 @@ img {
 .accordian-flex {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-}
-
-.product-card-flex {
     justify-content: center;
 }
 
