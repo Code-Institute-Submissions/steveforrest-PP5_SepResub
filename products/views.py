@@ -18,6 +18,7 @@ def all_products(request):
     products = Product.objects.all()
     query = None
     categories = []
+
     for c in products:
         categories.append(c.category)
     categories = list(dict.fromkeys(categories))
@@ -32,10 +33,13 @@ def all_products(request):
         elif 'q' in request.GET:
             query = request.GET['q']
             if query:
-                queries = Q(name__icontains=query)
+                queries = (
+                    Q(name__icontains=query) |
+                    Q(category__name__icontains=query))
+
                 products = products.filter(queries)
             else:
-                messages.error(request, "You didn't enter any search criteria!")       
+                messages.error(request, "You didn't enter any search criteria!")
             return render(request, 'products/product_search_result.html',
                           {'products': products})
     

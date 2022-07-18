@@ -121,9 +121,12 @@ The program can be deployed automatically but i have chosen to keep it as a manu
 
 #### Automated have been written to check the following
 
-## Things not working
+## Things not working / known bugs
 
-* 
+* When uploading images for some reason the file names are being channged in developement and therefore only work round is to reupload the images in the depoyed site
+* allowing you to put the update below 0 on qty update / delete
+* Add no image image
+* product cards need the lay out sorting i would use grid to better arange this in furture
 
 # Citations
 * Footer taken from [startbootstrap.com](https://startbootstrap.com/snippets/sticky-footer-flexbox)

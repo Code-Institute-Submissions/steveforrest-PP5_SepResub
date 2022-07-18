@@ -12,9 +12,9 @@
       {% include 'includes/messages.html' with messages=messages %}
     {% endif %}
 </div>
-
+<div class="product-card-difference">
 {% for cat in categories %}
-<button class="accordion collapse show" data-bs-toggle="collapse" id="{{cat}}">
+    <button class="accordion collapse show" data-bs-toggle="collapse" id="{{cat}}">
         {{ cat|capfirst }}
     </button>
     <div class="panel">
@@ -27,7 +27,7 @@
         </div>
     </div>
 {% endfor %}
-
+</div>
 {% endblock %}
 
 

@@ -1,70 +1,84 @@
 {% extends "base.html" %}
 
 {% block page_header %}
-<div class='container header-container'>
-    <div class='row'>
-        <div class='col'>
-        </div>
-    </div>
-</div>
+
 {% endblock %}
 
 {% block content %}
-{% for product in products %}
-<div class="container">
-    <div class="row">
-        <div class="col-12">
-            <h1 class="text-align-center"> {{product.name}} </h1>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
-            <div class="image-container my-5">
-                {% if product.image %}
-                <a href="{{ product.image.url }}" target="_blank">
-                    <img class="card-img-top img-fluid " src="{{ product.image.url }}" alt="{{ product.name }}">
-                </a>
-                {% else %}
-                <a href="">
-                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
-                </a>
+
+<div class="message-container-image d-flex justify-content-center message-container-order align-items-center">
+    {% if messages %}
+    {% include 'includes/messages.html' with messages=messages %}
+    {% endif %}
+</div>
+<div class="product-container">
+    {% for product in products %}
+        <div class="product-card-container">
+            <div class="row ">
+                <div class="col-12">
+                    <h1 class="text-align-center"> {{product.name|capfirst}} </h1>
+                </div>
+            </div>
+            <div class="row product-details">
+                <div class="col-md-6 offset-md-3">
+                    <div class="image-container text-center my-5">
+                        {% if product.image %}
+                        <a href="{{ product.image.url }}" target="_blank">
+                            <img class="card-img-top" src="{{ product.image.url }}"
+                                alt="{{ product.name }}">
+                        </a>
+                        {% else %}
+                        <a href="">
+                            <img class="card-img-top" src="{{ MEDIA_URL }}noimage.png"
+                                alt="{{ product.name }}">
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="mb-5 mt-md-5">
+                        <p class="text-center mb-0">{{ product.name|capfirst }}</p>
+                        <p class="text-center mt-3">{{ product.description|capfirst }}</p>
+                        <p class="text-center mt-3">£{{ product.price }} per portion</p>
+
+                    </div>
+                </div>
+                <form class="form" action=" {% url 'add_to_order' product.id %} " method="POST">
+                    {% csrf_token %}
+                    <div class="form-row center-qty">
+                        <p>Qty:</p>
+                        <div class="col-3">
+                            <input class="form-control" type="number" name="qty" value="1" min="1" max="20"
+                                data-item.id="{{ product.id }}" id="id_qty_{{ product.id }}">
+                        </div>
+                    </div>
+
+                    <div class="col-12 text-center">
+                        <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 mt-5">
+                            <span class="icon">
+                                <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="text-uppercase">Keep Shopping</span>
+                        </a>
+                        <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Add to Bag">
+                    </div>
+                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                </form>
+                {% if request.user.is_superuser %}
+                <small class='ml-3 text-center'>
+                    <a href="{% url 'edit_product' product.id %}"> Edit </a>
+                    <a class="text-danger" href="{% url 'delete_product' product.id %}"> Delete </a>
+                </small>
                 {% endif %}
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-4">
-            <div class="product-details-container mb-5 mt-md-5">
-                <p class="mb-0">{{ product.name }}</p>
-                <p class="mt-3">{{ product.description }}</p>
-                <p class="mt-3">£{{ product.price }} per portion</p>
 
-            </div>
-        </div>
-        <form class="form" action=" {% url 'add_to_order' product.id %} " method="POST">
-            {% csrf_token %}
-            <div class="form-row">
-                <p>Qty:</p>
-                <div class="col-12">
-                    <input class="form-control" type="number" name="qty" value="1" min="1" max="20" data-item.id="{{ product.id }}" id="id_qty_{{ product.id }}">
-                </div>
-            </div>
-            <div class="col-12">
-                <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 mt-5">
-                    <span class="icon">
-                        <i class="fas fa-chevron-left"></i>
-                    </span>
-                    <span class="text-uppercase">Keep Shopping</span>
-                </a>
-                <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Add to Bag">
-            </div>
-            <input type="hidden" name="redirect_url" value="{{ request.path }}">
-        </form>
-        {% if request.user.is_superuser %}
-        <small class='ml-3'>
-            <a href="{% url 'edit_product' product.id %}"> Edit </a>
-            <a class="text-danger" href="{% url 'delete_product' product.id %}"> Delete </a>
-        </small>
-        {% endif %}
+    {% endfor %}
+    <div class="place-holder-card">
+    </div>
+    <div class="place-holder-card">
+    </div>    
+    <div class="place-holder-card">
     </div>
 </div>
-{% endfor %}
 {% endblock %}
