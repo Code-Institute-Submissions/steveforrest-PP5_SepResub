@@ -130,3 +130,10 @@ The program can be deployed automatically but i have chosen to keep it as a manu
 
 # Citations
 * Footer taken from [startbootstrap.com](https://startbootstrap.com/snippets/sticky-footer-flexbox)
+
+# Functionality
+
+* Toasts used to do varipois things such as :-
+    + show successfully added product to bag 
+    + info to detail how many search results there are
+    + Error to let you know u have entered a quantity too high or low

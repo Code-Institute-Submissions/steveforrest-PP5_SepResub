@@ -245,6 +245,10 @@ img {
     align-items: stretch;
 }
 
+.search-count-spacing {
+    padding: 1rem;
+}
+
 .drop-down-padding {
     padding-bottom: 1rem;
 }

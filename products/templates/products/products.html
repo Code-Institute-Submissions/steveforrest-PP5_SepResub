@@ -9,26 +9,23 @@
 
 <div class="message-container-image d-flex justify-content-center message-container-order align-items-center">
     {% if messages %}
-      {% include 'includes/messages.html' with messages=messages %}
+    {% include 'includes/messages.html' with messages=messages %}
     {% endif %}
 </div>
 <div class="product-card-difference">
-{% for cat in categories %}
+    {% for cat in categories %}
     <button class="accordion collapse show" data-bs-toggle="collapse" id="{{cat}}">
         {{ cat|capfirst }}
     </button>
     <div class="panel">
         <div class="accordian-flex">
-        {% for product in products %}
+            {% for product in products %}
             {% if product.category == cat %}
-                {% include 'products/snippets/product_card.html' %}
-            {% endif %} 
-        {% endfor %}
+            {% include 'products/snippets/product_card.html' %}
+            {% endif %}
+            {% endfor %}
         </div>
     </div>
-{% endfor %}
+    {% endfor %}
 </div>
 {% endblock %}
-
-
-

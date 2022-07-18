@@ -62,13 +62,20 @@ def adjust_order(request, item_id):
     quantity = int(request.POST.get('quantity'))
     order = request.session.get('order', {})
     
-    if item_id in list(order.keys()):
-        order[item_id] = quantity
-        messages.info(request, f'adjusted {product.name} on your order to {order[item_id]} portions')
+    if quantity > 20:
+        messages.info(request, f'Quantity too high must be below 21')
+        redirect_url = request.POST.get('redirect_url')
+    elif quantity < 1:
+        messages.info(request, f'Quantity too low must be higher than 0')
+        redirect_url = request.POST.get('redirect_url')
     else:
-        order.pop(item_id)
-        messages.info(request, f'adjusted {product.name} on your order to {order[item_id]} portions')
-        
+        if item_id in list(order.keys()):
+            order[item_id] = quantity
+            messages.info(request, f'adjusted {product.name} on your order to {order[item_id]} portions')
+        else:
+            order.pop(item_id)
+            messages.info(request, f'adjusted {product.name} on your order to {order[item_id]} portions')
+    
     request.session['order'] = order
     return redirect(reverse('view_order'))
 

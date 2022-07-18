@@ -36,12 +36,14 @@ def all_products(request):
                 queries = (
                     Q(name__icontains=query) |
                     Q(category__name__icontains=query))
-
                 products = products.filter(queries)
+                searchSize = len(products)
+                messages.info(request, f"Your search returned {searchSize} results!")
             else:
-                messages.error(request, "You didn't enter any search criteria!")
+                searchSize = len(products)
+                messages.error(request, f"You didn't enter any search criteria, all {searchSize} were returned")
             return render(request, 'products/product_search_result.html',
-                          {'products': products})
+                          {'products': products, 'searchSize': searchSize})
     
     pizzas = products.filter(
         Q(category__name__contains='Pizza')
