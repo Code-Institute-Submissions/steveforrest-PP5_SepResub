@@ -1,28 +1,95 @@
-![]()
+![](media/logo.png)
 
-## Contents
+# Contents
 
 * Reasons for this project
-* UX
-* User stories
-* Future builds
-* Deployment
+* UX/UI - screen shots, existing features explain and discribe the features
+* bugs and solutions
+* [User stories](#User)
+* Future builds - - what youd like to add in the future
+* SEO - Explain keywords
+* Deployment and clone - talk about enviroment variables
+* Lighthouse - screen shot before and after and talk about how u tried to resolve the issues
 * Wire frame
 * Languages
 * Libraries and other technologies
 * Testing
 * Things not working
+* Contributions
+
+# Reasons for this project
+
+This site is designed to allow a restraunt advertise their food and allow them to place orders.
+Customers will be able to sign up log in and log out, place order and view previous orders. 
+Restraunt owners/ workers will be able to add new products and be able to look at whats sold.
+
+# UX/UI
+
+## Am I Responsive
+
+![Am i responsive image](media/am_i_responsive_pp5.png)
+
+## Existing Features
+
+### Swiper Carousel
+
+![Swiper Carousel](media/swiper_carousel.png)
+
+Initially i useed a bootstrap carousel but there were several issue where the animation wasn't very fluid. Another big addition to using this was it is very good accessibility score.
+
+### Navigational Buttons
+
+![Navigation button to order page](media/button_to_order.png)
+
+I have buttons to allow linking to different pages
+
+### Accordian closed
+
+![Accordian closed](media/accordian_closed.png)
+
+Accordian was created with HTML CSS and some bootstrap classes.
+
+### Accordian open
+
+![Accordian open](media/accordian_open.png)
+
+### Mail chimp
+
+![Subscription with mail Chimp](media/newsletter_signup.png)
+
+Third part app embedded to enable news letters being sent out.
+
+### Account and bag buttons
+
+![Bag and Account buttons](media/account_and_bag_buttons.png)
+
+Account and bags are able to be accessed 
+
+### Nav and Search bar
+
+![Nav/search](media/search_bar_filters.png)
+
+There is a nav bar and search bar in place to allow ease of navigation withn the site, products and categories can be searched.
+
+### Order Summary
+
+![Order summary page](media/orderSummary_page.png)
+
+The summary of the order can be seen in toasts after successfully adding products and in the bag prior to going to the secure checkout.
+
+### Checkout page
+
+![Checkout page](media/checkout_page.png)
 
 
-## Reasons for this project
 
+### Facebook page
 
-## UX
+![Facebook page](media/pp5_facbookpage.png)
 
+# User Stories
 
-I have chose to use Ui because 
-
-## User Stories
+![User stories](media/User_stories.png)
 
 * First time user
 1. As a first time user I would like to be able to register to have an account 
@@ -42,12 +109,12 @@ I have chose to use Ui because
 3. As a site admin I would like to be able to delete products
 4. As a site admin I would like to be able to view customer orders
 
-## Future builds
+# Future builds
 
 1. Adding the ability to amend quanitity from the order page
 2. 
 
-## Deployment
+# Deployment
 
 1. Ensure all the dependencies are included by adding them to the requirements.txt file by running the following command in the terminal: pip3 freeze > requirements.tx
 2. Ensure the project has been fully committed and pushed to git 
@@ -71,7 +138,7 @@ I have chose to use Ui because
 
 The program can be deployed automatically but i have chosen to keep it as a manual deploy so i can ensure that while i am testing and have no intention of adding more to the code currently it is better to deploy it manually meaning returning to the screen and clicking deploy branch each time you want to make any changes.
 
-### Making a clone to run locally
+## Making a clone to run locally
 
 * Log into GitHub.
 * Select the repository.
@@ -81,17 +148,17 @@ The program can be deployed automatically but i have chosen to keep it as a manu
 * Type 'git clone' and paste the copied URL.
 * Press Enter. A local clone will be created.
 
-## Wire frame
+# Wire frame
 
 ![Wire Frame of site showing different pages](media/pp5wireframe.png)
 
-## Languages
+# Languages
 
 * [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
 * [HTML5](https://en.wikipedia.org/wiki/HTML5)
 * [CSS3](https://en.wikipedia.org/wiki/CSS)
 
-## Libraries and other technologies
+# Libraries and other technologies
 
 * [Django](https://www.djangoproject.com/)
 * [Heroku](https://en.wikipedia.org/wiki/Heroku)
@@ -101,32 +168,35 @@ The program can be deployed automatically but i have chosen to keep it as a manu
 * [Summer Note](https://summernote.org/)
 * [Crispy forms](https://django-crispy-forms.readthedocs.io/en/latest/)
 * [OAuth](https://oauth.net/)
+swiper
 
-## Testing
+# Testing
 
-### Validation Testing
+## Validation Testing
 
 * [HTML testing](https://validator.w3.org/)
 
 
-### Manual Testing
+## Manual Testing
 
-#### The site has been tested by:- 
+### The site has been tested by:- 
 
 
-#### Responsiveness checked on the following devices
+### Responsiveness checked on the following devices
 * 
 
-### Automated test
+## Automated test
 
-#### Automated have been written to check the following
+### Automated have been written to check the following
 
-## Things not working / known bugs
+# Things not working / known bugs
 
 * When uploading images for some reason the file names are being channged in developement and therefore only work round is to reupload the images in the depoyed site
 * allowing you to put the update below 0 on qty update / delete
 * Add no image image
 * product cards need the lay out sorting i would use grid to better arange this in furture
+* Meta DATA ensure its in
+
 
 # Citations
 * Footer taken from [startbootstrap.com](https://startbootstrap.com/snippets/sticky-footer-flexbox)

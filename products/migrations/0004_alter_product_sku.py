@@ -13,6 +13,10 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='product',
             name='sku',
-            field=models.CharField(blank=True, max_length=254, null=True, unique=True),
+            field=models.CharField(
+                blank=True,
+                max_length=254,
+                null=True,
+                unique=True),
         ),
     ]

@@ -1,5 +1,6 @@
 from django.shortcuts import render
 
+
 def index(request):
     """
     Function to view the order page

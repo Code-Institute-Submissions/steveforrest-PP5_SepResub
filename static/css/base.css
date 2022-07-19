@@ -618,6 +618,11 @@ footer {
     .place-holder-card {
         width: 44%;
     }
+
+    .footer-margin-top {
+        margin-top: 3rem;
+    }
+
 }
 
 /* min width 992px*/
@@ -690,11 +695,15 @@ footer {
         width: 33%;
     }
 
+    .footer-margin-top {
+        margin-top: 5rem;
+    }
+
     /* min width 1200px */
     /* Slightly larger container on xl screens */
     @media (min-width: 1200px) {
         .container {
-            max-width: 60%;
+            max-width: 45%;
         }
 
         .nav-size {
@@ -723,8 +732,8 @@ footer {
             padding: 1.5rem;
         }
 
-        .container {
-            max-width: 100%;
+        .search-count-spacing {
+            font-size: 1.5rem
         }
 
         .product-card-container {

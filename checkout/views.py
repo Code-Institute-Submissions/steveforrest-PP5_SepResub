@@ -13,6 +13,7 @@ from order.context import order_contents
 import stripe
 import json
 
+
 @require_POST
 def cache_checkout_data(request):
     """
@@ -84,22 +85,25 @@ def checkout(request):
                         )
                         order_line_item.save()
                 except Product.DoesNotExist:
-                    messages.error(request, (
-                        "One of the products in your order wasn't found in our database. "
-                        "Please call us for assistance!")
-                    )
+                    messages.error(
+                        request, ("One of the products in your order wasn't found in our database. "
+                                  "Please call us for assistance!"))
                     order.delete()
                     return redirect(reverse('view_order'))
 
             request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse('checkout_success', args=[invoice.order_number]))
+            return redirect(
+                reverse(
+                    'checkout_success', args=[
+                        invoice.order_number]))
         else:
             messages.error(request, 'There was an error with your form. \
                 Please double check your information.')
     else:
         order = request.session.get('order', {})
         if not order:
-            messages.error(request, "There's nothing in your order at the moment")
+            messages.error(
+                request, "There's nothing in your order at the moment")
             return redirect(reverse('products'))
 
         current_order = order_contents(request)
@@ -145,20 +149,19 @@ def checkout(request):
 
 
 def checkout_success(request, order_number):
-
     """
     Function to handle successful checkouts
 
     input parameters
     request: object coming from the client
-    order_number: 
+    order_number:
 
     return parameter
     render of the current template and its context
     """
     save_info = request.session.get('save_info')
     order = get_object_or_404(Invoice, order_number=order_number)
-        
+
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)
         # Attach the user order to their profile
@@ -176,7 +179,7 @@ def checkout_success(request, order_number):
             user_profile_form = ProfileForm(profile_data, instance=profile)
             if user_profile_form.is_valid():
                 user_profile_form.save()
-    
+
     messages.success(request, f'Order successfully processed! \
         Your order number is {order_number}. A confirmation \
         email will be sent to {order.email}.')

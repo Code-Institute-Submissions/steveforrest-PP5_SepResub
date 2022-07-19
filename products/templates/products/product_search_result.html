@@ -12,6 +12,9 @@
     {% endif %}
 </div>
 <div class="product-container">
+    <hr>
+    <p class="col-12 search-count-spacing"> Your search returned {{searchSize}} results</p>
+    <hr>
     {% for product in products %}
         <div class="product-card-container">
             <div class="row ">

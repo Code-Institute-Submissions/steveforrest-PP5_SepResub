@@ -10,6 +10,7 @@ from profiles.models import UserProfile
 import json
 import time
 
+
 class StripeWH_Handler:
     """Handle Stripe webhooks"""
 
@@ -34,12 +35,12 @@ class StripeWH_Handler:
             {'invoice': invoice})
         body = render_to_string(
             'checkout/confirmation_emails/confirmation_email_body.txt',
-            {'invoice': invoice, 'contact_number': settings.DEFAULT_CONTACT_NUMBER,})
+            {'invoice': invoice, 'contact_number': settings.DEFAULT_CONTACT_NUMBER, })
         send_mail(
             subject,
             body,
             settings.DEFAULT_CONTACT_NUMBER,
-            [ cust_email ],
+            [cust_email],
         )
 
     def handle_payment_intent_succeeded(self, event):
@@ -75,7 +76,7 @@ class StripeWH_Handler:
                 profile.default_street_address2 = shipping_details.address.line2
                 profile.default_county = shipping_details.address.state
                 profile.save()
-    
+
         invoice_exists = False
         attempt = 1
         while attempt <= 5:

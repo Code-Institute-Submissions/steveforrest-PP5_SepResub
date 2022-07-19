@@ -1,6 +1,7 @@
 from django import forms
 from .models import Invoice
 
+
 class OrderForm(forms.ModelForm):
     class Meta:
         model = Invoice
