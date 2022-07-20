@@ -121,10 +121,40 @@ header {
     color: white;
 }
 
+/* review button*/
+
+.review-now-button {
+    background: rgb(224, 107, 11);
+    color: white;
+    border: 3px solid #1f1d1deb;
+    border-radius: 5px;
+    min-width: 130px;
+    font-family: 'Covered By Your Grace', cursive;
+    padding: 0.5rem;
+    font-size: small;
+}
+
+.review-now-button:hover,
+.review-now-button:active,
+.review-now-button:focus,
+.btn-black:hover,
+.btn-black:active,
+.btn-black:focus {
+    background: #222;
+    color: white;
+}
+
 .nav-icon:active,
 .nav-icon:hover,
 .nav-icon:focus {
     background: #222;
+}
+
+/* review page */
+
+.review-padge-flex {
+    display: flex;
+    flex-direction: column;
 }
 
 .logged-out-nav {
@@ -145,6 +175,12 @@ header {
 
 .border-black {
     border: 1px solid black !important;
+}
+
+.review-container {
+    border: 3px solid rgb(224, 107, 11);
+    margin: 1rem 2rem;
+    padding: 0.5rem;
 }
 
 /*Swiper*/
@@ -338,6 +374,7 @@ img {
     padding: 0.5rem;
     font-size: 16px;
     position: absolute;
+    z-index: 1;
 }
 
 .toast-title {
@@ -475,7 +512,7 @@ img {
 
 .accordion {
     background-color: #1f1d1deb;
-    color: rgb(224, 107, 11);
+    color: white;
     cursor: pointer;
     padding: 18px;
     width: 100%;
@@ -514,6 +551,12 @@ img {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+.spacer {
+    max-height: 1rem;
+    width: 1px;
+    padding: 6rem;
 }
 
 /* Footer */
@@ -699,98 +742,107 @@ footer {
         margin-top: 5rem;
     }
 
-    /* min width 1200px */
-    /* Slightly larger container on xl screens */
-    @media (min-width: 1200px) {
-        .container {
-            max-width: 45%;
-        }
-
-        .nav-size {
-            font-size: 1.25rem;
-        }
-
-        .nav-item {
-            padding: 0 1.5rem;
-        }
-
-        .message-container-order {
-            margin: 0rem 0.5rem 1rem;
-        }
-
-        .h3-delivery-banner {
-            font-size: 1.5rem;
-        }
-
-        .logo-font {
-            margin-top: 5rem;
-            font-size: 4rem;
-        }
-
-        .slogan-size {
-            font-size: 5rem;
-            padding: 1.5rem;
-        }
-
-        .search-count-spacing {
-            font-size: 1.5rem
-        }
-
-        .product-card-container {
-            width: 24%;
-        }
-
-        .product-card-difference>..container {
-            width: 45%;
-        }
-
-        .place-holder-card {
-            width: 24%;
-        }
-
-        /* Allauth form formatting */
-
-        .allauth-form-inner-content p {
-            margin-top: 1.5rem;
-            /* mt-4 */
-            color: #6c757d;
-            /* text-secondary */
-        }
-
-        .allauth-form-inner-content input {
-            border-color: #000;
-            border-radius: 0;
-        }
-
-        .allauth-form-inner-content label:not([for='id_remember']) {
-            display: none;
-        }
-
-        .allauth-form-inner-content input::placeholder {
-            color: #aab7c4;
-        }
-
-        .allauth-form-inner-content button,
-        .allauth-form-inner-content input[type='submit'] {
-            /* btn */
-            display: inline-block;
-            font-weight: 400;
-            color: #fff;
-            text-align: center;
-            vertical-align: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-            background-color: #000;
-            border: 1px solid #000;
-            padding: .375rem .75rem;
-            font-size: 1rem;
-            line-height: 1.5;
-            border-radius: 0;
-
-            /* standard bootstrap btn transitions */
-            transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-        }
-
+    .review-now-button {
+        font-size: medium;
     }
+}
+
+/* min width 1200px */
+/* Slightly larger container on xl screens */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 45%;
+    }
+
+    .nav-size {
+        font-size: 1.25rem;
+    }
+
+    .nav-item {
+        padding: 0 1.5rem;
+    }
+
+    .message-container-order {
+        margin: 0rem 0.5rem 1rem;
+    }
+
+    .h3-delivery-banner {
+        font-size: 1.5rem;
+    }
+
+    .logo-font {
+        margin-top: 5rem;
+        font-size: 4rem;
+    }
+
+    .slogan-size {
+        font-size: 5rem;
+        padding: 1.5rem;
+    }
+
+    .search-count-spacing {
+        font-size: 1.5rem
+    }
+
+    .product-card-container {
+        width: 24%;
+    }
+
+    .product-card-difference>..container {
+        width: 45%;
+    }
+
+    .place-holder-card {
+        width: 24%;
+    }
+
+    .review-now-button {
+        font-size: large;
+    }
+
+    /* Allauth form formatting */
+
+    .allauth-form-inner-content p {
+        margin-top: 1.5rem;
+        /* mt-4 */
+        color: #6c757d;
+        /* text-secondary */
+    }
+
+    .allauth-form-inner-content input {
+        border-color: #000;
+        border-radius: 0;
+    }
+
+    .allauth-form-inner-content label:not([for='id_remember']) {
+        display: none;
+    }
+
+    .allauth-form-inner-content input::placeholder {
+        color: #aab7c4;
+    }
+
+    .allauth-form-inner-content button,
+    .allauth-form-inner-content input[type='submit'] {
+        /* btn */
+        display: inline-block;
+        font-weight: 400;
+        color: #fff;
+        text-align: center;
+        vertical-align: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        background-color: #000;
+        border: 1px solid #000;
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        border-radius: 0;
+
+        /* standard bootstrap btn transitions */
+        transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    }
+
+}

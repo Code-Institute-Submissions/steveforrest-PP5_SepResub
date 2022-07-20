@@ -2,20 +2,19 @@
 
 # Contents
 
-* Reasons for this project
-* UX/UI - screen shots, existing features explain and discribe the features
-* bugs and solutions
-* [User stories](#User)
-* Future builds - - what youd like to add in the future
-* SEO - Explain keywords
-* Deployment and clone - talk about enviroment variables
-* Lighthouse - screen shot before and after and talk about how u tried to resolve the issues
-* Wire frame
-* Languages
-* Libraries and other technologies
-* Testing
-* Things not working
-* Contributions
+* [Reasons for this project](#reasons-for-this-project)
+* [UX/UI](#ux-ui) - screen shots, existing features explain and discribe the features
+* [Bugs and solutions](#bugs-and-solutions)
+* [User Stories](#user-stories)
+* [Future builds](#future-builds) - - what youd like to add in the future
+* [SEO](#seo) - Explain keywords
+* [Deployment and clone](#deployment) - talk about enviroment variables
+* [Lighthouse](#lighthouse) - screen shot before and after and talk about how u tried to resolve the issues
+* [Wire frame](#wire-frame)
+* [Languages](#languages)
+* [Libraries and other technologies](#libraries-and-other-technologies)
+* [Testing](#testing)
+* [Citations](#citations)
 
 # Reasons for this project
 
@@ -23,7 +22,7 @@ This site is designed to allow a restraunt advertise their food and allow them t
 Customers will be able to sign up log in and log out, place order and view previous orders. 
 Restraunt owners/ workers will be able to add new products and be able to look at whats sold.
 
-# UX/UI
+# UX UI
 
 ## Am I Responsive
 
@@ -81,11 +80,19 @@ The summary of the order can be seen in toasts after successfully adding product
 
 ![Checkout page](media/checkout_page.png)
 
-
-
 ### Facebook page
 
 ![Facebook page](media/pp5_facbookpage.png)
+
+# Bugs and solutions
+
+* The reviews page was implemented last it has validation in the view to prevent lower than 0 and greater than 10.0 but this can be broken on the frnt end.
+* The product card UI i would use grid in th e future to allow a consistant layout.
+* When uploading images for some reason the file names are being channged in developement and therefore only work round is to reupload the images in the depoyed site
+* allowing you to put the update below 0 on qty update / delete
+* Add no image image
+* product cards need the lay out sorting i would use grid to better arange this in furture
+* Meta DATA ensure its in
 
 # User Stories
 
@@ -111,8 +118,11 @@ The summary of the order can be seen in toasts after successfully adding product
 
 # Future builds
 
-1. Adding the ability to amend quanitity from the order page
-2. 
+1. The ability to add a rewards scheme so one the user has spent over a certain amount they will get a discount
+2. I would add a many to many field to my products model and enable sub categories being utiulied for example being able to search for just pop or just milk shakes and get different types of milkshake.
+
+
+# SEO
 
 # Deployment
 
@@ -148,6 +158,10 @@ The program can be deployed automatically but i have chosen to keep it as a manu
 * Type 'git clone' and paste the copied URL.
 * Press Enter. A local clone will be created.
 
+# Lighthouse
+
+
+
 # Wire frame
 
 ![Wire Frame of site showing different pages](media/pp5wireframe.png)
@@ -181,22 +195,25 @@ swiper
 
 ### The site has been tested by:- 
 
+1. Basic testing
++ Users were able to register, log in and log out
++ Users were able to navigate the site in order to view different menu items, either through the order now buttons and the accordian or the serch functions.
++ Users were able to add menu items to the order and then place the order
++ Users were able to recieve a confirmation email for their order
++ User are able to go in and create a review of products - initially a float input field was going to be used but as i was getting a page error and i did not have the time to fully investigate this. I chose to use a drop down menu instead and this is working perfectly 
++ Admin users were able to add new products.
++ Admin users were able to edit and delete products.
+
+
 
 ### Responsiveness checked on the following devices
 * 
 
 ## Automated test
 
+Automated test have not been created due to time constraints. Light house has been used to 
+
 ### Automated have been written to check the following
-
-# Things not working / known bugs
-
-* When uploading images for some reason the file names are being channged in developement and therefore only work round is to reupload the images in the depoyed site
-* allowing you to put the update below 0 on qty update / delete
-* Add no image image
-* product cards need the lay out sorting i would use grid to better arange this in furture
-* Meta DATA ensure its in
-
 
 # Citations
 * Footer taken from [startbootstrap.com](https://startbootstrap.com/snippets/sticky-footer-flexbox)

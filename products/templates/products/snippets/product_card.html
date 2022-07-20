@@ -5,7 +5,7 @@
                 {{product.name|capfirst}}
             </h1>
             <p>
-                £{{product.price}}
+                Price: £{{product.price}}
             </p>
         </div>
     </div>
@@ -40,6 +40,13 @@
             <a href="{% url 'edit_product' product.id %}"> Edit </a>
             <a class="text-danger" href="{% url 'delete_product' product.id %}"> Delete </a>
         </small>
+        <div class='row h-100'>
+            <div class='col-12 text-center'>
+              <h4 class="my-5">
+                <a href='{% url 'detail_product' product.id %}' class='review-now-button btn btn-lg text-uppercase my-auto py-3'>Product reviews</a>
+              </h4>
+            </div>
+        </div>
         {% endif %}
     </div>
 </div>

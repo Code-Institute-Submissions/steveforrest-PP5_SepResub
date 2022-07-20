@@ -12,9 +12,12 @@
     {% endif %}
 </div>
 <div class="product-container">
+    {% if searchSize %}
     <hr>
     <p class="col-12 search-count-spacing"> Your search returned {{searchSize}} results</p>
     <hr>
+    {% endif %}
+
     {% for product in products %}
         <div class="product-card-container">
             <div class="row ">
@@ -72,6 +75,11 @@
                     <a href="{% url 'edit_product' product.id %}"> Edit </a>
                     <a class="text-danger" href="{% url 'delete_product' product.id %}"> Delete </a>
                 </small>
+                <div class='col-12 text-center'>
+                    <h4 class="my-5">
+                      <a href='{% url 'detail_product' product.id %}' class='review-now-button text-uppercase'>Product reviews</a>
+                    </h4>
+                  </div>
                 {% endif %}
             </div>
         </div>

@@ -25,7 +25,7 @@ def all_products(request):
 
     for c in products:
         categories.append(c.category)
-    categories = list(dict.fromkeys(categories))
+        categories = list(dict.fromkeys(categories))
 
     if request.GET:
         if 'category' in request.GET:
@@ -50,41 +50,13 @@ def all_products(request):
             return render(request, 'products/product_search_result.html',
                           {'products': products, 'searchSize': searchSize})
 
-    pizzas = products.filter(
-        Q(category__name__contains='Pizza')
-    )
-    burgers = products.filter(
-        Q(category__name__contains='burgers')
-    )
-    fries = products.filter(
-        Q(category__name__contains='fries')
-    )
-    extras = products.filter(
-        Q(category__name__contains='extras')
-    )
-    drinks = products.filter(
-        Q(category__name__contains='drinks') |
-        Q(category__name__contains='hot') |
-        Q(category__name__contains='shakes') |
-        Q(category__name__contains='pop')
-    )
-    worlds = products.filter(
-        Q(category__name__contains='world_food') |
-        Q(category__name__contains='greek') |
-        Q(category__name__contains='curry')
-    )
-    desserts = products.filter(
-        Q(category__name__contains='dessert')
+    
+    product = products.filter(
+        Q(category__name__contains='query')
     )
     context = {
         'products': products,
-        'pizzas': pizzas,
-        'burgers': burgers,
-        'fries': fries,
-        'extras': extras,
-        'drinks': drinks,
-        'worlds': worlds,
-        'desserts': desserts,
+        'product':product,
         'search_term': query,
         'categories': categories,
     }
@@ -188,94 +160,32 @@ class CreateReview(LoginRequiredMixin, CreateView):
     A view to create a Review
     """
     form_class = ReviewForm
-    template_name = 'products/templates/products/review_form.html'
+    template_name = 'products/product_review.html'
     model = Review
 
     def form_valid(self, form):
-        form.instance.user = self.request.user
+        """
+        Posts a form underneath the reviews so new reviews can be posted
+        """
+        product = get_object_or_404(Product, id=self.kwargs['id'])
+        form.instance.review = product
+        form.instance.reviewer = self.request.user
         messages.success(self.request, 'Succesfully reviewed the product')
+        # This is used as the success url rather than the absolute url
+        self.success_url = f'/products/detail/{product.id}/'
         return super(CreateView, self).form_valid(form)
 
 
-# class ViewReviews(ListView):
-#     """ A view to return a list of reviews """
-#     def get(self, request):
-#         # <view logic>
-        
-#         return render(request, 'detail_product', context)
     
-def productDetail(request):
-    """
+def product_detail(request, id):
+    """ A view to show individual product details """
 
-    """
-    return render(request, 'products/templates/products/product_review.html')
-
-
-
-@csrf_protect
-@login_required
-def post_roster(request):
-
-    """
-    View to allow user to post a new review
-
-    """
-
-    # create an empty form  to post into the table
-    form = ReviewForm()
-
-    if request.method == 'POST':
-        # handle the post and save the form data
-        form = ReviewForm(request.POST)
-        # if the form is valid
-        if form.is_valid():
-
-            new_form = form.save(commit=False)
-            # check if user is authenticated if so use their
-            # username if not use guest as created_by
-            if request.user.is_authenticated:
-                new_form.created_by = request.user
-            else:
-                return redirect(reverse('detail_product'))
-
-            new_form.status = 1
-            new_form.save()
-
-        return redirect(reverse('detail_product'))
-
-    else:
-        form = RosterForm()
-
-    return render(request, 'review_product.html', {
-        'roster_form': form, 'comment_form': CommentForm()
-        })
-    
-    
-@method_decorator(login_required)
-def post(self, request, id, *args, **kwargs):
-    """
-    function to allow view to post to db
-    """
-    post = Review.objects.get(pk=id)
-    user = User.objects.get(username=request.user.username)
-    # handle the post and save the form data
-    form = CommentForm(request.POST)
-    if form.is_valid():
-        new_form = form.save(commit=False)
-        new_form.post = post
-        new_form.commenter = user
-        new_form.save()
-        # add the user to the Comments field of the Review
-        post.list_comments.add(user)
-        # save the RosterList
-        post.save()
+    product = get_object_or_404(Product, id=id)
+    reviews = Review.objects.filter(review=id)
     context = {
-        'comments': comments,
+        'product': product,
+        'reviews': reviews,
+        'form': ReviewForm(),
     }
-    # use the post variable which gets the object needed to
-    # be acounted by it's id and create a variable set it to
-    # count and call the method created to count the likes in the model
 
-    context['review_form'] = ReviewForm()
-
-    return HttpResponseRedirect(reverse('roster-detail', args=[id]))
+    return render(request, 'products/product_review.html', context)
