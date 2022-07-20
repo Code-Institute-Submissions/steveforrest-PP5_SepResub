@@ -204,8 +204,6 @@ swiper
 + Admin users were able to add new products.
 + Admin users were able to edit and delete products.
 
-
-
 ### Responsiveness checked on the following devices
 * 
 
