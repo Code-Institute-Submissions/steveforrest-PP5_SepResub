@@ -92,7 +92,8 @@ The summary of the order can be seen in toasts after successfully adding product
 * allowing you to put the update below 0 on qty update / delete
 * Add no image image
 * product cards need the lay out sorting i would use grid to better arange this in furture
-* Meta DATA ensure its in
+* 404 page is not working
+* user sign out button is unresponsive when clicked
 
 # User Stories
 
@@ -160,6 +161,16 @@ The program can be deployed automatically but i have chosen to keep it as a manu
 
 # Lighthouse
 
+![lighthouse](media/OrderPageLighthouse.png)
+
+My initial testing has been very promising, there have been various issues including some in accessibilty although i believe these are mitigated during to the following reasons
+![Buttons accessible name](media/accesibiltyButtons.png)
+These buttons have an icon within them an up chevron and a down chevron
+
+![Buttons accessible labels](media/accessibleButtonLabels.png)
+![Buttons images](media/accesibiltyButtons_images.png)
+
+
 
 
 # Wire frame
@@ -196,7 +207,7 @@ swiper
 ### The site has been tested by:- 
 
 1. Basic testing
-+ Users were able to register, log in and log out
++ Users were able to register, log in and log out (bugged logging out)
 + Users were able to navigate the site in order to view different menu items, either through the order now buttons and the accordian or the serch functions.
 + Users were able to add menu items to the order and then place the order
 + Users were able to recieve a confirmation email for their order

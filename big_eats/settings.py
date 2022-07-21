@@ -138,6 +138,8 @@ WSGI_APPLICATION = 'big_eats.wsgi.application'
 
 # Database
 
+DEBUG = False
+
 if development:
     DATABASES = {
         "default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
