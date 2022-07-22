@@ -208,8 +208,10 @@ I am concious about my performance score only as this is the lowest one but i fe
 
 ## Validation Testing
 
-* [HTML testing](https://validator.w3.org/)
-
+### [HTML testing](https://validator.w3.org/)
+HTML vallidating was conducted using the above  site.
+The HTML encountered several issue but these were down to django code being used, No HTML related error were encountered
+[validation folder](readmeDocs/validationFiles)
 
 ## Manual Testing
 
