@@ -35,7 +35,7 @@
                     </div>
                 </div>
                 <div class="col-12 product-card-padding text-center">
-                    <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 mt-5">
+                    <a aria-label="link to take you back to the home page" rel="tag" href="{% url 'products' %}" class="btn btn-outline-black rounded-0 mt-5">
                         <span class="icon">
                             <i class="fas fa-chevron-left"></i>
                         </span>
@@ -47,8 +47,8 @@
             </form>
             {% if request.user.is_superuser %}
             <small class='ml-3 col-12  product-card-padding'>
-                <a href="{% url 'edit_product' product.id %}"> Edit </a>
-                <a class="text-danger" href="{% url 'delete_product' product.id %}"> Delete </a>
+                <a aria-label="link to allow super user to make amendments to the product" rel="tag" href="{% url 'edit_product' product.id %}"> Edit </a>
+                <a aria-label="link to allow super users to delete a product" rel="tag" class="text-danger" href="{% url 'delete_product' product.id %}"> Delete </a>
             </small>    
             {% endif %}
         </div>

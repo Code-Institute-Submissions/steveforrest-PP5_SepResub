@@ -63,7 +63,7 @@
         <header class="container-fluid flex-top">
             <div id="topnav" class="row bg-orange pt-lg-2 d-none d-lg-flex">
                 <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
-                    <a href="{% url 'home' %}" class="nav-link main-logo-link">
+                    <a aria-label="link to return to the landing page" rel="tag" href="{% url 'home' %}" class="nav-link main-logo-link">
                         <h1 class='logo-font text-black my-0'><strong>Big</strong> Eatz! </h2>
                     </a>
                 </div>
@@ -85,7 +85,7 @@
                 <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
                     <ul class="list-inline list-unstyled text-center text-lg-right my-0">
                         <li class="list-inline-item dropdown">
-                            <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown"
+                            <a aria-label="link for a drop down to reveal further options on the account" rel="tag" class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
                                 <div class="text-center">
                                     <div><i class="fas fa-user fa-lg nav-icon"></i></div>
@@ -95,18 +95,18 @@
                             <div class="dropdown-menu border-0" aria-labelledby="user-options">
                                 {% if request.user.is_authenticated %}
                                 {% if request.user.is_superuser %}
-                                <a href=" {%url 'add_product' %} " class="dropdown-item">Product Management</a>
+                                <a aria-label="link for a super user to be able to add a new product" rel="tag" href=" {%url 'add_product' %} " class="dropdown-item">Product Management</a>
                                 {% endif %}
-                                <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
-                                <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                                <a aria-label="link to go to your profile" rel="tag" href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
+                                <a aria-label="link to go to the logout page if logged in" rel="tag" href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
                                 {% else %}
-                                <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-                                <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                                <a aria-label="if logged out link to go to the log in page" rel="tag" href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                                <a aria-label="if logged out link to go to the register page" rel="tag" href="{% url 'account_login' %}" class="dropdown-item">Login</a>
                                 {% endif %}
                             </div>
                         </li>
                         <li class="list-inline-item">
-                            <a class="{% if grand_total %}text-black font-weight-bold{% else %}text-black{% endif %} nav-link"
+                            <a aria-label="link to allow you to be able to view your order so far and go to the order page" rel="tag" class="{% if grand_total %}text-black font-weight-bold{% else %}text-black{% endif %} nav-link"
                                 href=" {% url 'view_order' %} ">
                                 <div class="text-center">
                                     <div><i class="fas fa-shopping-bag fa-lg "></i></div>
@@ -162,14 +162,14 @@
                         <small>Copyright: Big Eatz</small>
                     </div>
                     <div class="text-center">
-                        <a href="https://www.facebook.com/Big-Eatz-107506145353056" rel="noopener" target="_blank"
+                        <a aria-label="Link to our face book page " rel="external" href="https://www.facebook.com/Big-Eatz-107506145353056" rel="noopener" target="_blank"
                             aria-label="Visit our Facebook page (opens in new tab)" class="footer-text-color">
                             Find us on Facebook to see more, click here:
                             <i class="fa-brands fa-facebook"></i>
                         </a>
                     </div>
                     <div class="footer-flex text-center">
-                        <a href="https://www.privacypolicygenerator.info/live.php?token=AjG4SErO2poOGewFmC0iBTtZBWBxIKCL"
+                        <a aria-label="link to our privacy policy" rel="external" href="https://www.privacypolicygenerator.info/live.php?token=AjG4SErO2poOGewFmC0iBTtZBWBxIKCL"
                             class="footer-text-color">View our privacy policy here</a>
                     </div>
                 </div>

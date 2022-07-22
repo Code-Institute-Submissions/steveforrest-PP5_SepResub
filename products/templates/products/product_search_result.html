@@ -29,14 +29,14 @@
                 <div class="col-md-6 offset-md-3">
                     <div class="image-container text-center my-5">
                         {% if product.image %}
-                        <a href="{{ product.image.url }}" target="_blank">
+                        <a aria-label="Image of the {{product.name}}" rel="tag" href="{{ product.image.url }}" target="_blank">
                             <img class="card-img-top" src="{{ product.image.url }}"
                                 alt="{{ product.name }}">
                         </a>
                         {% else %}
-                        <a href="">
+                        <a aria-label="" rel="tag" href="media/noimage.png">
                             <img class="card-img-top" src="{{ MEDIA_URL }}noimage.png"
-                                alt="{{ product.name }}">
+                                alt="Image shown when product has no image">
                         </a>
                         {% endif %}
                     </div>
@@ -60,7 +60,7 @@
                     </div>
 
                     <div class="col-12 text-center">
-                        <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 mt-5">
+                        <a aria-label="link to take you to the product page when you click the keep shopping button" rel="tag" href="{% url 'products' %}" class="btn btn-outline-black rounded-0 mt-5">
                             <span class="icon">
                                 <i class="fas fa-chevron-left"></i>
                             </span>
@@ -72,12 +72,12 @@
                 </form>
                 {% if request.user.is_superuser %}
                 <small class='ml-3 text-center'>
-                    <a href="{% url 'edit_product' product.id %}"> Edit </a>
-                    <a class="text-danger" href="{% url 'delete_product' product.id %}"> Delete </a>
+                    <a aria-label="link for a super user to be able to amend the product" rel="tag" href="{% url 'edit_product' product.id %}"> Edit </a>
+                    <a aria-label="link for a super user to be able to delete a product " rel="tag" class="text-danger" href="{% url 'delete_product' product.id %}"> Delete </a>
                 </small>
                 <div class='col-12 text-center'>
                     <h4 class="my-5">
-                      <a href='{% url 'detail_product' product.id %}' class='review-now-button text-uppercase'>Product reviews</a>
+                      <a aria-label="Link to take you to the product detail page so that you can read or add a review of the product" rel="tag" href='{% url 'detail_product' product.id %}' class='review-now-button text-uppercase'>Product reviews</a>
                     </h4>
                   </div>
                 {% endif %}

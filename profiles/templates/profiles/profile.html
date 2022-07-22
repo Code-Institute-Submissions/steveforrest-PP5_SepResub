@@ -50,7 +50,8 @@
                             {% for order in orders %}
                             <tr>
                                 <td>
-                                    <a href=" {% url 'order_history' order.order_number %}" title="{{ order.order_number}}">
+                                    <!-- link that will allow the user to click into previous orders from the my profile page -->
+                                    <a aria-label="link that will allow the user to click into previous orders from the my profile page" rel="tag" href=" {% url 'order_history' order.order_number %}" title="{{ order.order_number}}">
                                         {{ order.order_number|truncatechars:6 }}
                                     </a>
                                 </td>

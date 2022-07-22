@@ -25,7 +25,7 @@
   </div>
   <div class="account-flex">
     <p>{% trans 'Are you sure you want to sign out?' %}</p>
-    <button class="acount-button" type="submit">{% trans 'Sign Out' %}</button>
+    <a aria-label="link to logout of the account" rel="tag" class="acount-button" href="{% url 'account_logout' %}">{% trans 'Sign Out' %}</a>
   </div>
 </div>
 

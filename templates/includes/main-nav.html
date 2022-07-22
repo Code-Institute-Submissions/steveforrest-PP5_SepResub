@@ -1,48 +1,65 @@
 <div class='collapse nav-100 navbar-collapse' id='main-nav'>
     <ul class="navbar-nav w-auto mx-auto">
         <li class="nav-item d-block">
-            <a class="nav-link" href="{% url 'home' %}" id="home-link">Home</a>
+            <a aria-label="link to return to the home page" class="nav-link" href="{% url 'home' %}"
+                id="home-link">Home</a>
         </li>
         <li>
             <div class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                World food
+                <a aria-label="link to activate drop down to reveal options for world food" rel="tag"
+                    class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    World food
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href=" {% url 'products' %}?category=greek ">Greek</a>
-                <a class="dropdown-item" href=" {% url 'products' %}?category=curry">Curry</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href=" {% url 'products' %}?category=curry,greek">World cuisine!</a>
-
-            </div>
+                    <a aria-label="link search and to display products of greek origin" rel="tag" class="dropdown-item"
+                        href=" {% url 'products' %}?category=greek ">Greek</a>
+                    <a aria-label="link to search and display curry products" rel="tag" class="dropdown-item"
+                        href=" {% url 'products' %}?category=curry">Curry</a>
+                    <div class="dropdown-divider"></div>
+                    <a aria-label="link to search and display all world food" rel="tag" class="dropdown-item"
+                        href=" {% url 'products' %}?category=curry,greek">World cuisine!</a>
+                </div>
         </li>
         <li>
             <div class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Food you know and love!
+                <a aria-label="link to activate drop down to reveal options food that is know by everyone" rel="tag"
+                    class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Food you know and love!
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="{% url 'products' %}?category=Pizza ">Pizza</a>
-                <a class="dropdown-item" href="{% url 'products' %}?category=burgers ">Burgers</a>
-                <a class="dropdown-item" href="{% url 'products' %}?category=fries ">Fries</a>
-                <a class="dropdown-item" href="{% url 'products' %}?category=extras ">Sides</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="{% url 'products' %}?category=extras,Pizza,burgers,fries ">All the extras!</a>
-            </div>
+                    <a aria-label="link search and to display pizza products" rel="tag" class="dropdown-item"
+                        href="{% url 'products' %}?category=Pizza ">Pizza</a>
+                    <a aria-label="link search and to display burger products" rel="tag" class="dropdown-item"
+                        href="{% url 'products' %}?category=burgers ">Burgers</a>
+                    <a aria-label="link search and to display fries and potato products" rel="tag" class="dropdown-item"
+                        href="{% url 'products' %}?category=fries ">Fries</a>
+                    <a aria-label="link search and to display any products considered sides" rel="tag"
+                        class="dropdown-item" href="{% url 'products' %}?category=extras ">Sides</a>
+                    <div class="dropdown-divider"></div>
+                    <a aria-label="link search and to display all products of common fast food items " rel="tag"
+                        class="dropdown-item" href="{% url 'products' %}?category=extras,Pizza,burgers,fries ">All the
+                        extras!</a>
+                </div>
         </li>
         <li>
             <div class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Sommit to wash it down with
+                <a aria-label="link to activate drop down to reveal options" rel="tag" class="nav-link dropdown-toggle"
+                    href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    Sommit to wash it down with
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="{% url 'products' %}?category=drinks">Drinks</a>
-            </div>
+                    <a aria-label="link search and to display drink products" rel="tag" class="dropdown-item"
+                        href="{% url 'products' %}?category=drinks">Drinks</a>
+                </div>
         </li>
         <li>
             <div class="nav-item ">
-                <a class="nav-link" href="{% url 'products' %} " role="button" aria-haspopup="true" aria-expanded="false">
-                Order Now!
+                <a aria-label="link to take you to the products page" rel="tag" class="nav-link"
+                    href="{% url 'products' %} " role="button" aria-haspopup="true" aria-expanded="false">
+                    Order Now!
                 </a>
             </div>
         </li>

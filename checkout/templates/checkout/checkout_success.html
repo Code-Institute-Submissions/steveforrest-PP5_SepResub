@@ -171,18 +171,18 @@
     <div class="row">
         <div class="col-12 col-lg-7 text-right">
             {% if from_profile %}
-                <a href="{% url 'profile' %}" class="btn btn-black rounded-0 my-2">
+                <a rel="tag" aria-labelledby="back2Profile" href="{% url 'profile' %}" class="btn btn-black rounded-0 my-2">
                     <span class="icon mr-2">
                         <i class="fas fa-angle-left"></i>
                     </span>
-                    <span class="text-uppercase">Back to your profile</span>
+                    <span id="#back2Profile" class="text-uppercase">Back to your profile</span>
                 </a>
            {% else %}
-                <a href="{% url 'products' %}" class="btn btn-black rounded-0 my-2">
+                <a rel="tag" aria-labelledby="newOrder" href="{% url 'products' %}" class="btn btn-black rounded-0 my-2">
                     <span class="icon mr-2">
                         <i class="fas fa-gifts"></i>
                     </span>
-                    <span class="text-uppercase">New Order!</span>
+                    <span id="#newOrder" class="text-uppercase">New Order!</span>
                 </a>
             {% endif %}
         </div>

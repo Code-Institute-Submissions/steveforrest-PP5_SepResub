@@ -92,8 +92,12 @@ The summary of the order can be seen in toasts after successfully adding product
 * allowing you to put the update below 0 on qty update / delete
 * Add no image image
 * product cards need the lay out sorting i would use grid to better arange this in furture
-* 404 page is not working
-* user sign out button is unresponsive when clicked
+* 404 page is not working 
+    * RESOLVED: DEBUG was not set to False
+* User sign out button is unresponsive when clicked 
+    + The button html was set outside of the form
+
+
 
 # User Stories
 
@@ -121,9 +125,6 @@ The summary of the order can be seen in toasts after successfully adding product
 
 1. The ability to add a rewards scheme so one the user has spent over a certain amount they will get a discount
 2. I would add a many to many field to my products model and enable sub categories being utiulied for example being able to search for just pop or just milk shakes and get different types of milkshake.
-
-
-# SEO
 
 # Deployment
 
@@ -170,8 +171,11 @@ These buttons have an icon within them an up chevron and a down chevron
 ![Buttons accessible labels](media/accessibleButtonLabels.png)
 ![Buttons images](media/accesibiltyButtons_images.png)
 
+These buttons do not have any text as they have font awesome icons and this seems to be confusing light house.
 
+![Lists from light house](media/lighthouseLists.png)
 
+I am concious about my performance score only as this is the lowest one but i feel this is caused by the images i have i have tried to keep their sizes down using TinyPng but some times the images were unable to be reduced as much as id have liked.
 
 # Wire frame
 
@@ -182,6 +186,9 @@ These buttons have an icon within them an up chevron and a down chevron
 * [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
 * [HTML5](https://en.wikipedia.org/wiki/HTML5)
 * [CSS3](https://en.wikipedia.org/wiki/CSS)
+* [JS]()
+* [JQuery]()
+* [Django](https://www.djangoproject.com/)
 
 # Libraries and other technologies
 
@@ -189,11 +196,13 @@ These buttons have an icon within them an up chevron and a down chevron
 * [Heroku](https://en.wikipedia.org/wiki/Heroku)
 * [Font Awesome](https://fontawesome.com/)
 * [GitHub](https://github.com/)
-* [Cloudinary](https://cloudinary.com/)
 * [Summer Note](https://summernote.org/)
 * [Crispy forms](https://django-crispy-forms.readthedocs.io/en/latest/)
 * [OAuth](https://oauth.net/)
-swiper
+* [Swiper](https://swiperjs.com/)
+* [Balsamiq](https://balsamiq.com/tutorials/articles/firstwireframe/)
+* [Postgres](https://www.postgresql.org/)
+* [AWS](https://aws.amazon.com/)
 
 # Testing
 
@@ -233,3 +242,16 @@ Automated test have not been created due to time constraints. Light house has be
     + show successfully added product to bag 
     + info to detail how many search results there are
     + Error to let you know u have entered a quantity too high or low
+* Review used to allow customer to leave feed back and a rating on products
+* 
+
+
+
+
+
+THINGS STILL TO DO 
+
+* Validations
+* Citations
+* Testing - checked on different devices and browsers, finish off manual testing
+* deployment - document AWS deployment
