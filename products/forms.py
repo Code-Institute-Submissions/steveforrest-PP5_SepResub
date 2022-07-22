@@ -1,9 +1,9 @@
+from django.core.exceptions import ValidationError
+from django.utils.translation import gettext_lazy as _
 from django import forms
 from .widgets import CustomClearableFileInput
 from djrichtextfield.widgets import RichTextWidget
 from.models import Product, Category, Review
-from django.core.exceptions import ValidationError
-from django.utils.translation import gettext_lazy as _
 
 
 class ProductForm(forms.ModelForm):
@@ -34,10 +34,9 @@ class ReviewForm(forms.ModelForm):
         fields = '__all__'
 
         fields = ['comment', 'rating']
-    
+
         labels = {
             'comment': 'comment',
             'rating': 'rating',
         }
-    
         comment = forms.CharField()

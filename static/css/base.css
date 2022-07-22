@@ -307,7 +307,6 @@ img {
 
 .dropdownbox-style {
     position: relative !important;
-    transform: translate3d(0);
 }
 
 .delivery-banner {
@@ -478,7 +477,6 @@ img {
 
 .allauth-form-inner-content p {
     margin-top: 1.5rem;
-    color:
 }
 
 .acount-button {
@@ -569,7 +567,6 @@ footer {
     justify-content: space-evenly;
     align-items: stretch;
     max-width: 100vw;
-    font-size: 0.5 rem;
     flex-direction: column;
 }
 
@@ -592,7 +589,6 @@ footer {
 .footer-item-flex {
     display: flex;
     flex-direction: column;
-    font-size: 0.5rem;
     justify-content: space-evenly;
 }
 
@@ -688,10 +684,6 @@ footer {
         width: 50%;
     }
 
-    .header-container {
-        padding-top: 116x;
-    }
-
     .bag-display {
         display: inline;
     }
@@ -710,11 +702,11 @@ footer {
     }
 
     .footer-item-flex {
-        font-size: 1rem;
+        font-size: 1.5rem;
     }
 
     .footer-padding {
-        pading: 0.5rem 0;
+        padding: 0.5rem 0;
     }
 
     .slogan-size {
@@ -788,7 +780,7 @@ footer {
         width: 24%;
     }
 
-    .product-card-difference>..container {
+    .product-card-difference>.container {
         width: 45%;
     }
 

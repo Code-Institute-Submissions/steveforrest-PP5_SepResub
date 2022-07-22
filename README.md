@@ -160,22 +160,52 @@ The program can be deployed automatically but i have chosen to keep it as a manu
 * Type 'git clone' and paste the copied URL.
 * Press Enter. A local clone will be created.
 
-# Lighthouse
+## Deploying to AWS 
 
-![lighthouse](media/OrderPageLighthouse.png)
+### Bucket
+* Go to [AWS](https://aws.amazon.com/) and create an AWS account
+* sign in as an "iam user"
+* Ensure payment details are entered
+* in the search bar find S3
+* create an S3 bucket
+    * type in a memorable name for your bucket (suggestion: matche your project name)
+    * set region to be yopur local region
+    * ![bucket config top](readmeDocs/validationFiles/aws/createbucket1.png)
+    * ![bucket config bottom](readmeDocs/validationFiles/aws/createbucket2.png) 
+* click into your bucket via its name 
+* click the properties tab, at the bottom of this page click edit for Static website hosting click enablke and index.html for index and error for error.html
+* On permission page:-
+    * ![Cors](readmeDocs/validationFiles/aws/cors.png)
+    * ![Access control](readmeDocs/validationFiles/aws/access_control.png)
+### IAM
+* In the search bar search for IAM, click on the main title
+* in the side menu click Users
+* click create group
+* name the group a rememberable and discriptive name
+* click policies in the side menu - create policy, click import managed policy, search for AmazonS3FullAccess Copy ARN again and paste into "Resource" add list containint two elements "[ "arn::..", ""arn::../*]" First element is for bucket itself, second element is for all files and foldrs in the bucket
+* Click bottom right Add Tags, than Click bottom right Next: Review Add name of the policy and add the description
+* click create policy
+* attach policy to the group 
+    * go to user groups
+    * select your group from the list
+    * go to permissions tab and add the relevant permissions drop down and choose attach policies
+* Create User to go in the group
+    * User in the side menu and click add user
+User name: your-app-staticfiles-user Check option: Access key - Programmatic access Click button at the bottom right for Next
+    * Add user group and add user to the group you created earlier Click Next Tags and Next: review and Create user
+    * Download .csv file
+* Connect django to AWS S3 bucket
+    * install the following - install boto3, install django-storages
+    * update requirements.txt by freeze to requirements.txt
+    * add storages to installed apps in settings.py
+    * add heroku config vars
+    ![AWS setting.py](readmeDocs/validationFiles/aws/aws_setting.png)
+    *add customstorages.py file to the root directory
+    ![customstorages.py](custom_storages.py)
+### upload the media to AWS
+* go to the bucket, create a folder named media
+* click upload select images to upload
 
-My initial testing has been very promising, there have been various issues including some in accessibilty although i believe these are mitigated during to the following reasons
-![Buttons accessible name](media/accesibiltyButtons.png)
-These buttons have an icon within them an up chevron and a down chevron
-
-![Buttons accessible labels](media/accessibleButtonLabels.png)
-![Buttons images](media/accesibiltyButtons_images.png)
-
-These buttons do not have any text as they have font awesome icons and this seems to be confusing light house.
-
-![Lists from light house](media/lighthouseLists.png)
-
-I am concious about my performance score only as this is the lowest one but i feel this is caused by the images i have i have tried to keep their sizes down using TinyPng but some times the images were unable to be reduced as much as id have liked.
 
 # Wire frame
 
@@ -186,8 +216,8 @@ I am concious about my performance score only as this is the lowest one but i fe
 * [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
 * [HTML5](https://en.wikipedia.org/wiki/HTML5)
 * [CSS3](https://en.wikipedia.org/wiki/CSS)
-* [JS]()
-* [JQuery]()
+* [JS](https://en.wikipedia.org/wiki/JavaScript)
+* [JQuery](https://en.wikipedia.org/wiki/JQuery)
 * [Django](https://www.djangoproject.com/)
 
 # Libraries and other technologies
@@ -208,16 +238,43 @@ I am concious about my performance score only as this is the lowest one but i fe
 
 ## Validation Testing
 
-### [HTML testing](https://validator.w3.org/)
+### [HTML Validation](https://validator.w3.org/)
 HTML vallidating was conducted using the above  site.
 The HTML encountered several issue but these were down to django code being used, No HTML related error were encountered
-[validation folder](readmeDocs/validationFiles)
+* [Checkout app HTML validation folder](readmeDocs/validationFiles/HTML/checkout)
+* [Home app HTML validation folder](readmeDocs/validationFiles/HTML/home)
+* [Root folder HTML validation folder](readmeDocs/validationFiles/HTML/misc)
+* [Order app HTML validation folder](readmeDocs/validationFiles/HTML/order)
+* [Product app HTML validation folder](readmeDocs/validationFiles/HTML/product)
+* [Profile app HTML validation folder](readmeDocs/validationFiles/HTML/profile)
+
+### [CSS Validation](https://jigsaw.w3.org/css-validator/)
+
+All validation passed.
+[HTML validation folder](readmeDocs/validationFiles/CSS)
+
+### [JS Validation](https://www.jslint.com/)
+* Js Code in-
+    * Checkout.html - Third party js from stripe
+    * index.html - Third party js taken from Swiper
+    * order.html - Jquery used to update and remove items from order keep it validated in the front end
+    * profile.html - third party js used when choosing location country
+    * static/js - Image can be seen in the below folder
+    [View all JS validation](readmeDocs/validationFiles/JS)
+
+### [Python validator](http://pep8online.com/) used is  pep8online.com
+* [Checkout app python validation folder](readmeDocs/validationFiles/HTML/checkout)
+* [Home app python validation folder](readmeDocs/validationFiles/HTML/home)
+* [Root folder python validation folder](readmeDocs/validationFiles/HTML/misc)
+* [Order app python validation folder](readmeDocs/validationFiles/HTML/order)
+* [Product app python validation folder](readmeDocs/validationFiles/HTML/product)
+* [Profile app python validation folder](readmeDocs/validationFiles/HTML/profile)
 
 ## Manual Testing
 
 ### The site has been tested by:- 
 
-1. Basic testing
+1. Manual testing
 + Users were able to register, log in and log out (bugged logging out)
 + Users were able to navigate the site in order to view different menu items, either through the order now buttons and the accordian or the serch functions.
 + Users were able to add menu items to the order and then place the order
@@ -225,15 +282,33 @@ The HTML encountered several issue but these were down to django code being used
 + User are able to go in and create a review of products - initially a float input field was going to be used but as i was getting a page error and i did not have the time to fully investigate this. I chose to use a drop down menu instead and this is working perfectly 
 + Admin users were able to add new products.
 + Admin users were able to edit and delete products.
++ as a user I was able to log in place items in the order from any page, leave a review, goto the basket amend qty update or remove and go to secure payment, i was able to have the payment go through and recieve the confirmation email aswell as the toast saying it was succcesfully processed
 
 ### Responsiveness checked on the following devices
-* 
+* responsicveness was tested on 
+    * windows desktop - 
+        1. 
 
 ## Automated test
 
 Automated test have not been created due to time constraints. Light house has been used to 
 
-### Automated have been written to check the following
+# Lighthouse
+
+![lighthouse](media/OrderPageLighthouse.png)
+
+My initial testing has been very promising, there have been various issues including some in accessibilty although i believe these are mitigated during to the following reasons
+![Buttons accessible name](media/accesibiltyButtons.png)
+These buttons have an icon within them an up chevron and a down chevron
+
+![Buttons accessible labels](media/accessibleButtonLabels.png)
+![Buttons images](media/accesibiltyButtons_images.png)
+
+These buttons do not have any text as they have font awesome icons and this seems to be confusing light house.
+
+![Lists from light house](media/lighthouseLists.png)
+
+I am concious about my performance score only as this is the lowest one but i feel this is caused by the images i have i have tried to keep their sizes down using TinyPng but some times the images were unable to be reduced as much as id have liked.
 
 # Citations
 * Footer taken from [startbootstrap.com](https://startbootstrap.com/snippets/sticky-footer-flexbox)
@@ -253,7 +328,5 @@ Automated test have not been created due to time constraints. Light house has be
 
 THINGS STILL TO DO 
 
-* Validations
 * Citations
 * Testing - checked on different devices and browsers, finish off manual testing
-* deployment - document AWS deployment

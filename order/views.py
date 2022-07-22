@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect, reverse, HttpResponse, get_object_or_404
+from django.shortcuts import render, redirect,\
+    reverse, HttpResponse, get_object_or_404
 from django.contrib import messages
 from products.models import Product
 
@@ -74,12 +75,14 @@ def adjust_order(request, item_id):
             order[item_id] = quantity
             messages.info(
                 request,
-                f'adjusted {product.name} on your order to {order[item_id]} portions')
+                f'adjusted {product.name} on your'
+                ' order to {order[item_id]} portions')
         else:
             order.pop(item_id)
             messages.info(
                 request,
-                f'adjusted {product.name} on your order to {order[item_id]} portions')
+                f'adjusted {product.name} on your'
+                ' order to {order[item_id]} portions')
 
     request.session['order'] = order
     return redirect(reverse('view_order'))

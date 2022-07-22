@@ -11,9 +11,6 @@ from django.views.decorators.csrf import csrf_protect
 from django.utils.decorators import method_decorator
 
 
-
-# Create your views here.
-
 def all_products(request):
     """
     A view to show all products, including sorting and search queries
@@ -46,17 +43,16 @@ def all_products(request):
                 searchSize = len(products)
                 messages.error(
                     request,
-                    f"You didn't enter any search criteria, all {searchSize} were returned")
+                    f"You didn't enter any search criteria,"
+                    " all {searchSize} were returned")
             return render(request, 'products/product_search_result.html',
                           {'products': products, 'searchSize': searchSize})
-
-    
     product = products.filter(
         Q(category__name__contains='query')
     )
     context = {
         'products': products,
-        'product':product,
+        'product': product,
         'search_term': query,
         'categories': categories,
     }
@@ -65,7 +61,8 @@ def all_products(request):
 
 def identify_product(request, id):
     """
-    a View that searches to help with generating the products in the products html
+    a View that searches to help with generating
+    the products in the products html
     """
     if request.method == 'GET':
         product = get_object_or_404(Product, id=id)
@@ -97,7 +94,8 @@ def add_product(request):
         else:
             messages.error(
                 request,
-                'Failed to add product. please ensure all fields are completed correctly')
+                'Failed to add product. please ensure all'
+                ' fields are completed correctly')
     else:
         form = ProductForm()
 
@@ -176,7 +174,6 @@ class CreateReview(LoginRequiredMixin, CreateView):
         return super(CreateView, self).form_valid(form)
 
 
-    
 def product_detail(request, id):
     """ A view to show individual product details """
 
