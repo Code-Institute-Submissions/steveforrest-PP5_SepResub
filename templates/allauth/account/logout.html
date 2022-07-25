@@ -17,9 +17,6 @@
         {% if redirect_field_value %}
         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
         {% endif %}
-        <p>{% trans 'Are you sure you want to sign out?' %}</p>
-        <a aria-label="link to logout of the account" rel="tag" class="acount-button" href="{% url 'account_logout' %}">{% trans 'Sign Out' %}</a>
-      </div>
       </form>
     </div>
     <div class="col-6">
@@ -27,6 +24,9 @@
     </div>
   </div>
   <div class="account-flex">
+    <p>{% trans 'Are you sure you want to sign out?' %}</p>
+    <a aria-label="link to logout of the account" rel="tag" class="acount-button" href="{% url 'account_logout' %}">{% trans 'Sign Out' %}</a>
+  </div>
 </div>
 
 {% endblock %}
