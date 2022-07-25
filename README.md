@@ -1,15 +1,14 @@
-![](media/logo.png)
+![Site logo](media/logo.png)
 
 # Contents
 
 * [Reasons for this project](#reasons-for-this-project)
-* [UX/UI](#ux-ui) - screen shots, existing features explain and discribe the features
+* [UX/UI](#ux-ui)
 * [Bugs and solutions](#bugs-and-solutions)
 * [User Stories](#user-stories)
-* [Future builds](#future-builds) - - what youd like to add in the future
-* [SEO](#seo) - Explain keywords
-* [Deployment and clone](#deployment) - talk about enviroment variables
-* [Lighthouse](#lighthouse) - screen shot before and after and talk about how u tried to resolve the issues
+* [Future builds](#future-builds)
+* [Deployment and clone](#deployment)
+* [Lighthouse](#lighthouse)
 * [Wire frame](#wire-frame)
 * [Languages](#languages)
 * [Libraries and other technologies](#libraries-and-other-technologies)
@@ -29,6 +28,18 @@ Restraunt owners/ workers will be able to add new products and be able to look a
 ![Am i responsive image](media/am_i_responsive_pp5.png)
 
 ## Existing Features
+
+### Functionality
+
+* Toasts used to do varipois things such as :-
+    + show successfully added product to bag 
+    + info to detail how many search results there are
+    + Error to let you know u have entered a quantity too high or low
+* Review used to allow customer to leave feed back and a rating on products
+* Swiper carousel
+* Accordian to allow users to better browse the menu
+
+All features are shown below
 
 ### Swiper Carousel
 
@@ -87,10 +98,9 @@ The summary of the order can be seen in toasts after successfully adding product
 # Bugs and solutions
 
 * The reviews page was implemented last it has validation in the view to prevent lower than 0 and greater than 10.0 but this can be broken on the frnt end.
+    * this was fixed using a work round using a dropdown menu instead of a text input.
 * The product card UI i would use grid in th e future to allow a consistant layout.
-* When uploading images for some reason the file names are being channged in developement and therefore only work round is to reupload the images in the depoyed site
-* allowing you to put the update below 0 on qty update / delete
-* Add no image image
+* When uploading images for some reason the file names are being channged in developement and therefore only work round is to reupload the images in the depoyed site. This issue will happen as yet there is no known reason for this it maybe related to pushes but not confirmed as sometimes it works others it doesnt, it may also be an issue with the Postgres data base maybe there are multiple instances of the image in the db which is causing this. But the images may show fine byut for an unknown reason may not.
 * product cards need the lay out sorting i would use grid to better arange this in furture
 * 404 page is not working 
     * RESOLVED: DEBUG was not set to False
@@ -312,21 +322,8 @@ I am concious about my performance score only as this is the lowest one but i fe
 
 # Citations
 * Footer taken from [startbootstrap.com](https://startbootstrap.com/snippets/sticky-footer-flexbox)
-
-# Functionality
-
-* Toasts used to do varipois things such as :-
-    + show successfully added product to bag 
-    + info to detail how many search results there are
-    + Error to let you know u have entered a quantity too high or low
-* Review used to allow customer to leave feed back and a rating on products
-* 
+* CI tutor support - special thanks to Ed, Alan and Osin
+* Slack community - special shout out to Daisy mcg, Matt Bodden, Shane Muir, Anthony Obrien and Bim
 
 
 
-
-
-THINGS STILL TO DO 
-
-* Citations
-* Testing - checked on different devices and browsers, finish off manual testing
