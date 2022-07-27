@@ -71,16 +71,18 @@
                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
                 </form>
                 {% if request.user.is_superuser %}
-                <small class='ml-3 text-center'>
-                    <a aria-label="link for a super user to be able to amend the product" rel="tag" href="{% url 'edit_product' product.id %}"> Edit </a>
-                    <a aria-label="link for a super user to be able to delete a product " rel="tag" class="text-danger" href="{% url 'delete_product' product.id %}"> Delete </a>
+                <small class='ml-3 col-12  product-card-padding'>
+                    <a aria-label="link to allow super users to be able to edit a product" rel="tag" href="{% url 'edit_product' product.id %}"> Edit </a>
+                    <a aria-label="link to enable a super user to be able to delete a product" rel="tag" class="text-danger" href="{% url 'delete_product' product.id %}"> Delete </a>
                 </small>
-                <div class='col-12 text-center'>
-                    <h4 class="my-5">
-                      <a aria-label="Link to take you to the product detail page so that you can read or add a review of the product" rel="tag" href='{% url 'detail_product' product.id %}' class='review-now-button text-uppercase'>Product reviews</a>
-                    </h4>
-                  </div>
                 {% endif %}
+                <div class='row h-100'>
+                    <div class='col-12 text-center'>
+                      <h4 class="my-5">
+                        <a aria-label="link to product detail page so the user can read or leave a review of a product" rel="tag" href='{% url 'detail_product' product.id %}' class='review-now-button btn btn-lg text-uppercase my-auto py-3'>Product reviews</a>
+                      </h4>
+                    </div>
+                </div>
             </div>
         </div>
 
