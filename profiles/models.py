@@ -36,13 +36,3 @@ def create_or_update_user_profile(sender, instance, created, **kwargs):
         UserProfile.objects.create(user=instance)
     # Existing profiles just update
     instance.userprofile.save()
-
-
-# @receiver(post_delete, sender=User)
-# def update_on_delete(sender, instance, **kwargs):
-#     """
-#     update order total onlineitem delete
-#     """
-    
-#     instance.invoice.update_total()
-    
