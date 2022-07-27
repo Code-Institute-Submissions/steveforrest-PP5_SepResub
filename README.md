@@ -107,6 +107,8 @@ The summary of the order can be seen in toasts after successfully adding product
     * RESOLVED: DEBUG was not set to False
 * User sign out button is unresponsive when clicked 
     + The button html was set outside of the form
+* Web hooks were not working 
+    * [RESOLVED] there were several config vars missing and STRIPE_WH_SECRET was misnamed as STRIPE_WH_KEY
 
 
 
@@ -294,11 +296,13 @@ All validation passed.
 + Admin users were able to add new products.
 + Admin users were able to edit and delete products.
 + as a user I was able to log in place items in the order from any page, leave a review, goto the basket amend qty update or remove and go to secure payment, i was able to have the payment go through and recieve the confirmation email aswell as the toast saying it was succcesfully processed
++ several orders were processe to check the site generates the correct amounts toasts and that te Web Hooks generate the confirmation email and pass the information correctly.
 
 ### Responsiveness checked on the following devices
-* responsicveness was tested on 
-    * windows desktop - 
-        1. 
+* PC various screen sizes resized manually with dev tools
+* Iphone 11
+* IPad air
+* Samsung galaxy A51
 
 ## Automated test
 
