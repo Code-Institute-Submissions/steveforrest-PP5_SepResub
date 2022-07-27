@@ -43,4 +43,6 @@ def update_on_deletse(sender, instance, **kwargs):
     """
     update order total onlineitem delete
     """
-    instance.invoice.update_total()
+    if user.invoice:
+        instance.invoice.update_total()
+    
