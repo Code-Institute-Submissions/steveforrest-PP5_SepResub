@@ -101,7 +101,7 @@ The summary of the order can be seen in toasts after successfully adding product
     * this was fixed using a work round using a dropdown menu instead of a text input.
 * The product card UI i would use grid in th e future to allow a consistant layout.
 * When uploading images for some reason the file names are being channged in developement and therefore only work round is to reupload the images in the depoyed site. This issue will happen as yet there is no known reason for this it maybe related to pushes but not confirmed as sometimes it works others it doesnt, it may also be an issue with the Postgres data base maybe there are multiple instances of the image in the db which is causing this. But the images may show fine byut for an unknown reason may not.
-    * [RESOLVED] 
+    * [RESOLVED] This was caused by an incorrect setting in my settings.py not checking if the database is the same as whats in os.environ, onece this was remedied all images pulled through correctly.
 * product cards need the lay out sorting i would use grid to better arange this in furture
 * 404 page is not working 
     * RESOLVED: DEBUG was not set to False
