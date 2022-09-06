@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+{{test}}
+<div>
+    <p> Please let us know how you feel we could have done better.</p>
+</div>
+<form action="/your-name/" method="post">
+    {% csrf_token %}
+    <div>
+        <div>
+            {% if user_is_authenticated %}
+            {{ feedback_form.user | as_crispy_field }}
+            {% else %}
+            {{ feedback_form.guest | as_crispy_field }}
+            {% endif %}
+        </div>
+        <div>
+            {{ feedback_form.email | as_crispy_field }}
+        </div>
+        <div>
+            {{ feedback_form.phone_number | as_crispy_field }}
+        </div>
+        <div>
+            {{ feedback_form.issue | as_crispy_field }}
+        </div>
+        <div>
+            {{ feedback_form.comment | as_crispy_field }}
+        </div>
+        <input type="submit" value="Submit">
+    </div>
+</form>
+{% endblock %}

@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'order',
     'checkout',
     'profiles',
+    'feedback',
     'djrichtextfield',
     'crispy_forms',
     'storages',
