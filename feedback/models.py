@@ -13,6 +13,9 @@ ISSUE = (
 )
 
 class Response(models.Model):
+        """
+        Modal for the feedback form
+        """
         user = models.ForeignKey(UserProfile, null=True, blank=True, on_delete=models.SET_NULL)
         guest = models.CharField(max_length=50, null=False, blank=False)
         email = models.EmailField(max_length=254, null=False, blank=False)
