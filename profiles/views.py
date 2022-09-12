@@ -37,7 +37,7 @@ def profile(request):
             form = ProfileForm()
 
     # profile_form = ProfileForm
-    orders = profile.orders.all()
+    orders = profile.invoice.all()
 
     template = 'profiles/profile.html'
     context = {

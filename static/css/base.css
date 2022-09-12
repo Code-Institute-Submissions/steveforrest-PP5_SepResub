@@ -506,6 +506,12 @@ img {
     display: flex;
 }
 
+/* Feedback form */
+
+.width80 {
+    width: 80%;
+}
+
 /* Accordian */
 
 .accordion {

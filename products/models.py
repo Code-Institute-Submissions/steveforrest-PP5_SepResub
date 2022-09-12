@@ -78,3 +78,22 @@ class Review(models.Model):
 
     class Meta:
         ordering = ['-created_on']
+
+ALLERGEN = (
+    (1, 'Gluten'),
+    (2, 'Lactose'),
+    (3, "Eggs"),
+    (4, "Peanuts"),
+    (5, "Fish"),
+    (6, "Shellfish"),
+    (7, "Kosha"),
+    (8, "Halal"),
+)
+
+
+class DietRequirements(models.Model)
+    """
+    
+    """
+    allergen = 
+    
