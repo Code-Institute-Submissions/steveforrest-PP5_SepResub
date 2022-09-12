@@ -91,9 +91,9 @@ ALLERGEN = (
 )
 
 
-class DietRequirements(models.Model)
+class DietRequirements(models.Model):
     """
-    
+    Model for adding allegens to the products
     """
-    allergen = 
+    # allergen =
     
