@@ -19,7 +19,6 @@ def all_products(request):
     products = Product.objects.all()
     query = None
     categories = []
-    allergen = DietRequirements.objects.all()
 
     for c in products:
         categories.append(c.category)
@@ -57,7 +56,6 @@ def all_products(request):
         'product': product,
         'search_term': query,
         'categories': categories,
-        'allergen': allergen,
     }
     return render(request, 'products/products.html', context)
 
@@ -69,7 +67,6 @@ def identify_product(request, id):
     """
     if request.method == 'GET':
         product = get_object_or_404(Product, id=id)
-        print('allergen', allergen)
         context = {
             'product': product,
         }

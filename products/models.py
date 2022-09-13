@@ -4,6 +4,18 @@ from djrichtextfield.models import RichTextField
 from django.core.validators import MaxValueValidator, MinValueValidator
 
 
+ALLERGEN = (
+    (1, 'Gluten'),
+    (2, 'Lactose'),
+    (3, "Eggs"),
+    (4, "Peanuts"),
+    (5, "Fish"),
+    (6, "Shellfish"),
+    (7, "Kosha"),
+    (8, "Halal"),
+)
+
+
 class Category(models.Model):
 
     class Meta:
@@ -37,7 +49,15 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
-
+    
+    @property
+    def food_hazard(self):
+        """
+        @property allows you to use . function name in the template (product.food_hazard) to call it
+        acts as a property of the product class 
+        """
+        return DietRequirements.objects.filter(assignedProduct=self.id)
+    
 
 RATING = (
     (0, '0'),
@@ -81,23 +101,14 @@ class Review(models.Model):
         ordering = ['-created_on']
 
 
-ALLERGEN = (
-    (1, 'Gluten'),
-    (2, 'Lactose'),
-    (3, "Eggs"),
-    (4, "Peanuts"),
-    (5, "Fish"),
-    (6, "Shellfish"),
-    (7, "Kosha"),
-    (8, "Halal"),
-)
 
 
 class DietRequirements(models.Model):
     """
     Model for adding allegens to the products
+    
+    Foreigh key: with numbered choices
     """
     assignedProduct = models.ForeignKey(Product, on_delete=models.CASCADE,
                                         null=True, blank=True, related_name='requirements')
     allergens = models.IntegerField(choices=ALLERGEN)
-    

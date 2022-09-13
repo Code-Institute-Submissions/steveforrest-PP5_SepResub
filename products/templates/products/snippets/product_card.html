@@ -4,18 +4,6 @@
             <h1>
                 {{product.name|capfirst}}
             </h1>
-            <div> 
-
-            {% comment %} {{a.assignedProduct}} {% endcomment %}
-
-                {% if a.assignedProduct == product.name %}
-                    {% for a in assignedProduct %}
-                        {{a.allergens}}<p>allergen =  </p>
-                    {% endfor %}
-                {% endif %}
-
-            </div>
-
             <p>
                 Price: £{{product.price}}
             </p>
@@ -53,6 +41,17 @@
             <a aria-label="link to enable a super user to be able to delete a product" rel="tag" class="text-danger" href="{% url 'delete_product' product.id %}"> Delete </a>
         </small>
         {% endif %}
+
+        <div> 
+            <p>this is where the div is </p>
+            {% for hazard in product.food_hazard %}
+                <div class="btn-black">
+                    {{hazard.get_allergens_display}}
+                    {% comment %}get_allergens_display allows in this case the allergens string to be displayed rather than the int from the choices option in the relevant model {% endcomment %}
+                </div>
+            {% endfor %}
+        </div>
+
         <div class='row h-100'>
             <div class='col-12 text-center'>
               <h4 class="my-5">

@@ -19,73 +19,7 @@
     {% endif %}
 
     {% for product in products %}
-        <div class="product-card-container">
-            <div class="row ">
-                <div class="col-12">
-                    <h1 class="text-align-center"> {{product.name|capfirst}} </h1>
-                </div>
-            </div>
-            <div class="row product-details">
-                <div class="col-md-6 offset-md-3">
-                    <div class="image-container text-center my-5">
-                        {% if product.image %}
-                        <a aria-label="Image of the {{product.name}}" rel="tag" href="{{ product.image.url }}" target="_blank">
-                            <img class="card-img-top" src="{{ product.image.url }}"
-                                alt="{{ product.name }}">
-                        </a>
-                        {% else %}
-                        <a aria-label="" rel="tag" href="media/noimage.png">
-                            <img class="card-img-top" src="{{ MEDIA_URL }}noimage.png"
-                                alt="Image shown when product has no image">
-                        </a>
-                        {% endif %}
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="mb-5 mt-md-5">
-                        <p class="text-center mb-0">{{ product.name|capfirst }}</p>
-                        <p class="text-center mt-3">{{ product.description|capfirst }}</p>
-                        <p class="text-center mt-3">£{{ product.price }} per portion</p>
-
-                    </div>
-                </div>
-                <form class="form" action=" {% url 'add_to_order' product.id %} " method="POST">
-                    {% csrf_token %}
-                    <div class="form-row center-qty">
-                        <p>Qty:</p>
-                        <div class="col-3">
-                            <input class="form-control" type="number" name="qty" value="1" min="1" max="20"
-                                data-item.id="{{ product.id }}" id="id_qty_{{ product.id }}">
-                        </div>
-                    </div>
-
-                    <div class="col-12 text-center">
-                        <a aria-label="link to take you to the product page when you click the keep shopping button" rel="tag" href="{% url 'products' %}" class="btn btn-outline-black rounded-0 mt-5">
-                            <span class="icon">
-                                <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="text-uppercase">Keep Shopping</span>
-                        </a>
-                        <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Add to Bag">
-                    </div>
-                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                </form>
-                {% if request.user.is_superuser %}
-                <small class='ml-3 col-12  product-card-padding'>
-                    <a aria-label="link to allow super users to be able to edit a product" rel="tag" href="{% url 'edit_product' product.id %}"> Edit </a>
-                    <a aria-label="link to enable a super user to be able to delete a product" rel="tag" class="text-danger" href="{% url 'delete_product' product.id %}"> Delete </a>
-                </small>
-                {% endif %}
-                <div class='row h-100'>
-                    <div class='col-12 text-center'>
-                      <h4 class="my-5">
-                        <a aria-label="link to product detail page so the user can read or leave a review of a product" rel="tag" href='{% url 'detail_product' product.id %}' class='review-now-button btn btn-lg text-uppercase my-auto py-3'>Product reviews</a>
-                      </h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+        {% include 'products/snippets/product_card.html' %}
     {% endfor %}
     <div class="place-holder-card">
     </div>
