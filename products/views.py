@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
-from .models import Product, Category, Review
+from .models import Product, Category, Review, DietRequirements
 from django.db.models import Q
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib import messages
@@ -19,6 +19,7 @@ def all_products(request):
     products = Product.objects.all()
     query = None
     categories = []
+    allergen = DietRequirements.objects.all()
 
     for c in products:
         categories.append(c.category)
@@ -30,7 +31,8 @@ def all_products(request):
             products = products.filter(category__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
             return render(request, 'products/product_search_result.html',
-                          {'products': products})
+                            {'products': products,
+                            })
         elif 'q' in request.GET:
             query = request.GET['q']
             if query:
@@ -55,6 +57,7 @@ def all_products(request):
         'product': product,
         'search_term': query,
         'categories': categories,
+        'allergen': allergen,
     }
     return render(request, 'products/products.html', context)
 
@@ -66,8 +69,9 @@ def identify_product(request, id):
     """
     if request.method == 'GET':
         product = get_object_or_404(Product, id=id)
+        print('allergen', allergen)
         context = {
-            'product': product
+            'product': product,
         }
         return render(request, 'products/snippets/product_card.html', context)
     else:

@@ -38,6 +38,7 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
+
 RATING = (
     (0, '0'),
     (0.5, '0.5'),
@@ -79,6 +80,7 @@ class Review(models.Model):
     class Meta:
         ordering = ['-created_on']
 
+
 ALLERGEN = (
     (1, 'Gluten'),
     (2, 'Lactose'),
@@ -95,5 +97,7 @@ class DietRequirements(models.Model):
     """
     Model for adding allegens to the products
     """
-    # allergen =
+    assignedProduct = models.ForeignKey(Product, on_delete=models.CASCADE,
+                                        null=True, blank=True, related_name='requirements')
+    allergens = models.IntegerField(choices=ALLERGEN)
     
