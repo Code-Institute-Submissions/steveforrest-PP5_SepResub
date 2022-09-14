@@ -264,6 +264,7 @@ The HTML encountered several issue but these were down to django code being used
 * [Order app HTML validation folder](readmeDocs/validationFiles/HTML/order)
 * [Product app HTML validation folder](readmeDocs/validationFiles/HTML/product)
 * [Profile app HTML validation folder](readmeDocs/validationFiles/HTML/profile)
+* [Feedback app HTML validation folder](readmeDocs/validationFiles/HTML/feedback)
 
 ### [CSS Validation](https://jigsaw.w3.org/css-validator/)
 

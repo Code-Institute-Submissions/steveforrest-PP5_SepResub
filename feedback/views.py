@@ -16,7 +16,7 @@ def feedback(request):
         feedback_form = FeedBackForm()
         return render(request, 'feedback/feedback.html',
                       {"feedback_form": feedback_form})
-    # # sets up the initial sate of the form taken if the user has already
+    # sets up the initial sate of the form taken if the user has already
     # registered
     if request.method == 'POST':
         feedback_form = FeedBackForm(request.POST)
