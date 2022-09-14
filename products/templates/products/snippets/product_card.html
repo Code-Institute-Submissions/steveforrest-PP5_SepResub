@@ -42,14 +42,16 @@
         </small>
         {% endif %}
 
-        <div> 
-            <p>this is where the div is </p>
-            {% for hazard in product.food_hazard %}
-                <div class="btn-black">
-                    {{hazard.get_allergens_display}}
-                    {% comment %}get_allergens_display allows in this case the allergens string to be displayed rather than the int from the choices option in the relevant model {% endcomment %}
-                </div>
-            {% endfor %}
+        <div class="div-width-100 allergen-flex"> 
+            <h5 class="diet-requiremnet-title">Please see below for a list of things Dietry considerations this product contains </h5>
+            <div class="label-flex">
+                {% for hazard in product.food_hazard %}
+                    <div class="allergen-label">
+                        {{hazard.get_allergens_display}}
+                        {% comment %}get_allergens_display allows in this case the allergens string to be displayed rather than the int from the choices option in the relevant model {% endcomment %}
+                    </div>
+                {% endfor %}
+            </div>
         </div>
 
         <div class='row h-100'>

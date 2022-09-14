@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+
+{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<div class="review-container">
+    <form method="POST" action="{% url 'edit_review' review.id %}" class="form mb-2" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form|crispy}}
+        <div class="text-right">
+            <button class="btn btn-black rounded-0" type="submit">edit Review</button>
+        </div>
+    </form>
+
+</div>
+{% endif %}
+
+{% endblock %}

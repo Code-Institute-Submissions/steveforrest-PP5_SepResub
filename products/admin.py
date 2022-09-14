@@ -27,7 +27,7 @@ class ReviewAdmin(admin.ModelAdmin):
         'rating',
     )
 
-    
+
 class DietRequirementsAdmin(admin.ModelAdmin):
     """
     adds ability to access model in admin page
@@ -43,4 +43,3 @@ admin.site.register(Product, ProductAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Review, ReviewAdmin)
 admin.site.register(DietRequirements, DietRequirementsAdmin)
-

@@ -8,14 +8,14 @@ from django.views.decorators.csrf import csrf_protect
 from django.urls import reverse
 
 
-
 def feedback(request):
     """
     Display feedback template
     """
     if request.method == "GET":
-        feedback_form = FeedBackForm() 
-        return render(request, 'feedback/feedback.html', {"feedback_form":feedback_form})
+        feedback_form = FeedBackForm()
+        return render(request, 'feedback/feedback.html',
+                      {"feedback_form": feedback_form})
     # # sets up the initial sate of the form taken if the user has already
     # registered
     if request.method == 'POST':
@@ -27,6 +27,7 @@ def feedback(request):
         else:
             messages.error(
                 request, 'feedback not updated please check your form')
-            return render(request, 'feedback/feedback.html', {"feedback_form": feedback_form})
+            return render(request, 'feedback/feedback.html',
+                          {"feedback_form": feedback_form})
     template = 'feedback/feedback.html'
     return render(request, template)

@@ -17,12 +17,38 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Response',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('email', models.EmailField(max_length=254)),
-                ('phone_number', models.CharField(max_length=20)),
-                ('issue', models.IntegerField(choices=[(1, 'Delivery time'), (2, 'Customer service'), (3, 'Food quality'), (4, 'Something else')])),
-                ('comment', djrichtextfield.models.RichTextField(max_length=10000)),
-                ('user', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='profiles.userprofile')),
+                ('id',
+                 models.BigAutoField(
+                     auto_created=True,
+                     primary_key=True,
+                     serialize=False,
+                     verbose_name='ID')),
+                ('email',
+                 models.EmailField(
+                     max_length=254)),
+                ('phone_number',
+                 models.CharField(
+                     max_length=20)),
+                ('issue',
+                 models.IntegerField(
+                     choices=[
+                         (1,
+                          'Delivery time'),
+                         (2,
+                          'Customer service'),
+                         (3,
+                          'Food quality'),
+                         (4,
+                          'Something else')])),
+                ('comment',
+                 djrichtextfield.models.RichTextField(
+                     max_length=10000)),
+                ('user',
+                 models.ForeignKey(
+                     blank=True,
+                     null=True,
+                     on_delete=django.db.models.deletion.SET_NULL,
+                     to='profiles.userprofile')),
             ],
         ),
     ]

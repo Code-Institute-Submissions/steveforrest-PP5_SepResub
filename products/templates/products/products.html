@@ -20,9 +20,9 @@
     <div class="panel">
         <div class="accordian-flex">
             {% for product in products %}
-            {% if product.category == cat %}
-            {% include 'products/snippets/product_card.html' %}
-            {% endif %}
+                {% if product.category == cat %}
+                    {% include 'products/snippets/product_card.html' %}
+                {% endif %}
             {% endfor %}
         </div>
     </div>

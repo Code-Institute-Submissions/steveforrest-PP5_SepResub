@@ -30,8 +30,8 @@ def all_products(request):
             products = products.filter(category__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
             return render(request, 'products/product_search_result.html',
-                            {'products': products,
-                            })
+                          {'products': products,
+                           })
         elif 'q' in request.GET:
             query = request.GET['q']
             if query:
@@ -175,9 +175,54 @@ class CreateReview(LoginRequiredMixin, CreateView):
         return super(CreateView, self).form_valid(form)
 
 
+@login_required
+def edit_review(request, id, *args, **kwargs):
+    """
+    Edit products to the store
+    """
+
+    review = get_object_or_404(Review, id=id)
+    product = Product.objects.get(name=review.review)
+    if request.method == 'POST':
+        form = ReviewForm(request.POST, request.FILES, instance=review)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Succesfully edited product!')
+            context = {
+                'product': product,
+                'reviews': Review.objects.filter(review=product.id),
+                'form': ReviewForm(),
+            }
+            return render(request, 'products/product_review.html', context)
+        else:
+            messages.error(request, 'Failed to edit review!')
+    else:
+        form = ReviewForm(instance=review)
+        messages.info(
+            request,
+            f'You are now editing a review for { product.name }')
+
+    template = 'products/edit_review.html'
+    context = {
+        'form': form,
+        'review': review,
+        'product': product,
+    }
+
+    return render(request, template, context)
+
+
+@login_required
+def delete_review(request, id, *args, **kwargs):
+    """deletes a product """
+    review = get_object_or_404(Review, id=id)
+    review.delete()
+    messages.success(request, 'Review deleted')
+    return redirect(reverse('products'))
+
+
 def product_detail(request, id):
     """ A view to show individual product details """
-
     product = get_object_or_404(Product, id=id)
     reviews = Review.objects.filter(review=id)
     context = {

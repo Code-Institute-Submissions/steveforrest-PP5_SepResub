@@ -14,9 +14,38 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='DietRequirements',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('allergens', models.IntegerField(choices=[(1, 'Gluten'), (2, 'Lactose'), (3, 'Eggs'), (4, 'Peanuts'), (5, 'Fish'), (6, 'Shellfish'), (7, 'Kosha'), (8, 'Halal')])),
-                ('dietRequirement', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='requirements', to='products.product')),
+                ('id',
+                 models.BigAutoField(
+                     auto_created=True,
+                     primary_key=True,
+                     serialize=False,
+                     verbose_name='ID')),
+                ('allergens',
+                 models.IntegerField(
+                     choices=[
+                         (1,
+                          'Gluten'),
+                         (2,
+                          'Lactose'),
+                         (3,
+                          'Eggs'),
+                         (4,
+                          'Peanuts'),
+                         (5,
+                          'Fish'),
+                         (6,
+                          'Shellfish'),
+                         (7,
+                          'Kosha'),
+                         (8,
+                          'Halal')])),
+                ('dietRequirement',
+                 models.ForeignKey(
+                     blank=True,
+                     null=True,
+                     on_delete=django.db.models.deletion.CASCADE,
+                     related_name='requirements',
+                     to='products.product')),
             ],
         ),
     ]

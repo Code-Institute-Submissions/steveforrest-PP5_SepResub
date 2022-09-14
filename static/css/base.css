@@ -121,6 +121,37 @@ header {
     color: white;
 }
 
+/* Allergen label styling */
+
+.div-width-100 {
+    width: 100%;
+}
+
+.label-flex {
+    display: flex;
+    flex-direction: row;
+}
+
+.allergen-label {
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 5px;
+}
+
+.allergen-flex {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.diet-requiremnet-title {
+    font-weight: 1000;
+}
+
 /* review button*/
 
 .review-now-button {

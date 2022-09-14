@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 from djrichtextfield.models import RichTextField
-from django.core.validators import MaxValueValidator, MinValueValidator
 
 
 ALLERGEN = (
@@ -49,15 +48,15 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
-    
+
     @property
     def food_hazard(self):
         """
         @property allows you to use . function name in the template (product.food_hazard) to call it
-        acts as a property of the product class 
+        acts as a property of the product class
         """
         return DietRequirements.objects.filter(assignedProduct=self.id)
-    
+
 
 RATING = (
     (0, '0'),
@@ -81,7 +80,7 @@ RATING = (
     (9, '9'),
     (9.5, '9.5'),
     (10, '10'),
-    )
+)
 
 
 class Review(models.Model):
@@ -101,14 +100,16 @@ class Review(models.Model):
         ordering = ['-created_on']
 
 
-
-
 class DietRequirements(models.Model):
     """
     Model for adding allegens to the products
-    
+
     Foreigh key: with numbered choices
     """
-    assignedProduct = models.ForeignKey(Product, on_delete=models.CASCADE,
-                                        null=True, blank=True, related_name='requirements')
+    assignedProduct = models.ForeignKey(
+        Product,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        related_name='requirements')
     allergens = models.IntegerField(choices=ALLERGEN)

@@ -6,6 +6,7 @@ class FeedBackForm(forms.ModelForm):
     class Meta:
         model = Response
         fields = '__all__'
+
     def __init__(self, *args, **kwargs):
         """
         Add placeholders and classes, remove auto-generated

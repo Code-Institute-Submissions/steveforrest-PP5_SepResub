@@ -93,7 +93,11 @@ The summary of the order can be seen in toasts after successfully adding product
 
 ### Facebook page
 
-![Facebook page](media/pp5_facbookpage.png)
+![Facebook page](media/pp5_facbookpage.png)media/allegens.png
+
+### Allergen information 
+
+![Allergen labels](media/allegens.png)
 
 # Bugs and solutions
 
