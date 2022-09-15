@@ -62,9 +62,8 @@
                 <p>They left a rating of {{rev.rating}} out of 10.0</p>
             </div>
         </div>
-        {{ user  }}
-        {{ review.reviewer}}
-        {% if user == review.reviewer %}
+        {{ rev.reviewer}}
+        {% if request.user == rev.raviewer %}
             <small class='ml-3 col-12  product-card-padding'>
                 <a aria-label="link to allow super users to be able to edit a review" rel="tag" href="{% url 'edit_review' rev.id %}"> Edit </a>
                 <a aria-label="link to enable a super user to be able to delete a review" rel="tag" class="text-danger" href="{% url 'delete_review' rev.id %}"> Delete </a>

@@ -168,11 +168,11 @@ class CreateReview(LoginRequiredMixin, CreateView):
         """
         product = get_object_or_404(Product, id=self.kwargs['id'])
         form.instance.review = product
-        form.instance.reviewer = self.request.user
+        form.instance.raviewer = self.request.user
         messages.success(self.request, 'Succesfully reviewed the product')
         # This is used as the success url rather than the absolute url
         self.success_url = f'/products/detail/{product.id}/'
-        return super(CreateView, self).form_valid(form)
+        return super(CreateReview, self).form_valid(form)
 
 
 @login_required
@@ -180,7 +180,6 @@ def edit_review(request, id, *args, **kwargs):
     """
     Edit products to the store
     """
-
     review = get_object_or_404(Review, id=id)
     product = Product.objects.get(name=review.review)
     if request.method == 'POST':

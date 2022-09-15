@@ -99,6 +99,8 @@ The summary of the order can be seen in toasts after successfully adding product
 
 ![Allergen labels](media/allegens.png)
 
+All the Allergen Crud except read is through the admin panel which is Seen on the product card.
+
 # Bugs and solutions
 
 * The reviews page was implemented last it has validation in the view to prevent lower than 0 and greater than 10.0 but this can be broken on the frnt end.
@@ -264,12 +266,12 @@ The HTML encountered several issue but these were down to django code being used
 * [Order app HTML validation folder](readmeDocs/validationFiles/HTML/order)
 * [Product app HTML validation folder](readmeDocs/validationFiles/HTML/product)
 * [Profile app HTML validation folder](readmeDocs/validationFiles/HTML/profile)
-* [Feedback app HTML validation folder](readmeDocs/validationFiles/HTML/feedback)
+* [Feedback app HTML validation folder](readmeDocs/validationFiles/HTML/Feedback)
 
 ### [CSS Validation](https://jigsaw.w3.org/css-validator/)
 
 All validation passed.
-[HTML validation folder](readmeDocs/validationFiles/CSS)
+[CSS validation folder](readmeDocs/validationFiles/CSS)
 
 ### [JS Validation](https://www.jslint.com/)
 * Js Code in-
@@ -287,6 +289,7 @@ All validation passed.
 * [Order app python validation folder](readmeDocs/validationFiles/HTML/order)
 * [Product app python validation folder](readmeDocs/validationFiles/HTML/product)
 * [Profile app python validation folder](readmeDocs/validationFiles/HTML/profile)
+* [Feedback app Python validation folder](readmeDocs/validationFiles/python/Feedback)
 
 ## Manual Testing
 
